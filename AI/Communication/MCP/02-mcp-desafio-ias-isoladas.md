@@ -54,4 +54,4 @@ Para as organizações, isso significava projetos de IA caros, lentos e difícei
 
 ---
 
-[Anterior: Introdução ao MCP](01-mcp-introducao.md) | [Próximo: O MCP Como Solução Universal](02-mcp-solucao-universal.md) 
+[Anterior: Introdução ao MCP](01-mcp-introducao.md) | [Próximo: O MCP Como Solução Universal](03-mcp-solucao-universal.md) 

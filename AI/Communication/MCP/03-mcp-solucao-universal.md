@@ -56,4 +56,4 @@ Esta padronização é o que realmente permite que a IA se torne uma tecnologia 
 
 ---
 
-[Anterior: O Desafio das IAs Isoladas](02-mcp-desafio-ias-isoladas.md) | [Próximo: Arquitetura MCP](03-mcp-arquitetura-mcp.md) 
+[Anterior: O Desafio das IAs Isoladas](02-mcp-desafio-ias-isoladas.md) | [Próximo: Arquitetura MCP](04-mcp-arquitetura-mcp.md) 
