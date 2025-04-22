@@ -1,4 +1,6 @@
-# Recursos para Aprofundamento
+[[07-evolucao-ias-mcp]]
+
+[[08-mcp-em-acao]]# Recursos para Aprofundamento
 
 Para aqueles que desejam explorar mais profundamente o Model Context Protocol, reunimos uma seleção de recursos que abrangem desde documentação técnica até exemplos práticos e comunidades ativas.
 

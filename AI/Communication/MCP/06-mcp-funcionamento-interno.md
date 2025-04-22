@@ -1,4 +1,3 @@
-# 06-mcp-funcionamento-interno
 # Funcionamento Interno Do MCP
 
   
