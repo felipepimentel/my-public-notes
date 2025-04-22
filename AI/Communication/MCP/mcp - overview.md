@@ -61,7 +61,25 @@ Sem MCP, cada IA precisa criar integrações individuais, resultando em:
 - 🔓 **Riscos de segurança**
     
 
-O resultado é uma verdadeira "Torre de Babel Digital" que limita a eficácia da IA corporativa.
+```mermaid
+graph LR
+    IA1[IA Atendimento] --> D1(Sistema Clientes)
+    IA1 --> T1(Ferramenta CRM)
+    IA2[IA Análise] --> D1
+    IA2 --> D2(Histórico Operacional)
+    IA2 --> T2(Métricas)
+    IA3[IA Compliance] --> D2
+    IA3 --> T1
+    IA3 --> T3(Normas)
+
+    classDef ia fill:#f9d5e5,stroke:#333;
+    classDef dados fill:#b5e8f7,stroke:#333;
+    classDef ferramenta fill:#d3f0c2,stroke:#333;
+
+    class IA1,IA2,IA3 ia;
+    class D1,D2 dados;
+    class T1,T2,T3 ferramenta;
+```
 
 ---
 
@@ -82,108 +100,108 @@ O MCP é como um tradutor universal, simplificando a comunicação entre modelos
 - 📚 **Documentação Automática**
     
 
+```mermaid
+graph LR
+    IA1[IA Atendimento] --> MCP
+    IA2[IA Análise] --> MCP
+    IA3[IA Compliance] --> MCP
+    MCP --> S1[Servidor Clientes]
+    MCP --> S2[Servidor Operações]
+    MCP --> S3[Servidor CRM]
+    MCP --> S4[Servidor Métricas]
+    MCP --> S5[Servidor Normas]
+
+    classDef ia fill:#f9d5e5,stroke:#333;
+    classDef mcp fill:#fffacd,stroke:#333;
+    classDef servidor fill:#9ff,stroke:#333;
+
+    class IA1,IA2,IA3 ia;
+    class MCP mcp;
+    class S1,S2,S3,S4,S5 servidor;
+```
+
 ---
 
 ## 🛠️ Arquitetura MCP
 
-### Componentes Principais
+```mermaid
+sequenceDiagram
+    participant Usuário
+    participant Cliente MCP
+    participant Servidor MCP
+    participant Dados
 
-- **Clientes MCP**: Aplicações que consomem dados e ferramentas
-    
-- **Servidores MCP**: Conectam IAs a sistemas específicos
-    
-- **Protocolo MCP**: Padroniza a comunicação e segurança
-    
-
-### Funcionamento Prático
-
-Um fluxo típico do MCP:
-
-1. Usuário solicita uma informação
-    
-2. Cliente MCP conecta ao servidor específico
-    
-3. Servidor acessa sistemas e retorna dados
-    
-4. Cliente MCP entrega resposta ao usuário
-    
+    Usuário->>Cliente MCP: Solicita informação
+    Cliente MCP->>Servidor MCP: Estabelece conexão
+    Servidor MCP->>Dados: Acessa dados
+    Dados-->>Servidor MCP: Retorna resultado
+    Servidor MCP-->>Cliente MCP: Envia resposta formatada
+    Cliente MCP->>Usuário: Apresenta resultado
+```
 
 ---
 
 ## 📌 Conceitos Fundamentais
 
-### 🌱 Roots
-
-- Zonas delimitadas de acesso (ex.: clientes, operações, documentos)
+- 🌱 **Roots**: Zonas de acesso (segurança)
     
-- Segurança e controle de permissões
+- 📖 **Resources**: Fontes de conhecimento (dados, documentos)
     
-
-### 📖 Resources
-
-- Fontes de conhecimento disponíveis para IA (documentos, dados, FAQs)
+- 📜 **Prompts**: Templates para consistência
     
-
-### 📜 Prompts
-
-- Templates para garantir padronização nas interações
+- 🔨 **Tools**: Funções de interação com sistemas externos
     
-
-### 🔨 Tools
-
-- Funções que permitem ações reais nos sistemas externos
-    
-
-### 🧞‍♂️ Sampling
-
-- Solicitações de geração criativa de conteúdo pelos servidores MCP aos LLMs
+- 🧞‍♂️ **Sampling**: Uso criativo do LLM pelo servidor MCP
     
 
 ---
 
 ## ⚙️ Funcionamento Interno Do MCP
 
-### Estrutura Técnica
+```mermaid
+graph TB
+    MCP --> Protocolo
+    MCP --> Transporte
 
-- Baseado em JSON-RPC 2.0
-    
-- Comunicação local (STDIO) e rede (HTTP/SSE, WebSockets)
-    
-
-### Mensagens E Ciclo De Vida
-
-- Requests, Results, Notifications
-    
-- Inicialização → Operação → Encerramento
-    
+    Protocolo --> Mensagens
+    Transporte --> STDIO
+    Transporte --> HTTP_SSE
+    Transporte --> WebSockets
+```
 
 ---
 
-## 💼 Aplicações Do MCP Em Diversos Setores
+## 💼 Aplicações Do MCP
 
-- **Financeiro**: Análise de crédito rápida e precisa
+- **Financeiro**: Análise de crédito automatizada
     
-- **Saúde**: Assistentes médicos com acesso a histórico completo e literatura atualizada
+- **Saúde**: Diagnóstico médico assistido
     
-- **Varejo**: Atendimento ao cliente com respostas contextuais em tempo real
+- **Varejo**: Atendimento ao cliente integrado
     
-- **Indústria**: Manutenção preditiva baseada em dados IoT
+- **Indústria**: Manutenção preditiva
     
-- **Software**: Copilotos que aceleram desenvolvimento e garantem segurança
+- **Software**: Copiloto de código seguro
     
 
 ---
 
 ## 🚀 Futuro Do MCP
 
-### Próximos Passos
+- **Federação e Descoberta**: Registro dinâmico de servidores
+    
+- **Inteligência Distribuída**: Especialização de modelos
+    
+- **Segurança Avançada**: Controles rigorosos
+    
 
-- **Federação de Servidores MCP**: Descoberta dinâmica de servidores e serviços
-    
-- **Inteligência Distribuída**: Especialização de modelos por domínios específicos
-    
-- **Segurança Avançada**: Autenticação, criptografia, auditoria e controle granular
-    
+```mermaid
+graph LR
+    Cliente --> RegistroCentral
+    RegistroCentral --> ServidorA
+    RegistroCentral --> ServidorB
+    RegistroCentral --> ServidorPúblico
+```
 
 ---
 
@@ -191,29 +209,19 @@ Um fluxo típico do MCP:
 
 - [Documentação Oficial](https://modelcontextprotocol.io/)
     
-- [Repositório GitHub](https://github.com/modelcontextprotocol)
-    
-- [Anúncio Anthropic](https://www.anthropic.com/news/model-context-protocol)
+- [GitHub](https://github.com/modelcontextprotocol)
     
 - [Especificação Técnica](https://spec.modelcontextprotocol.io/)
     
-
-### SDKs Disponíveis
-
-- Java, TypeScript, Python, C#
-    
-
-### Comunidade
-
-- [Fórum de Desenvolvedores](https://forum.modelcontextprotocol.io/)
+- [Fórum Desenvolvedores](https://forum.modelcontextprotocol.io/)
     
 - [Discord](https://discord.gg/mcp)
     
-- [Exemplos no GitHub](https://github.com/modelcontextprotocol/examples)
+- [Exemplos GitHub](https://github.com/modelcontextprotocol/examples)
     
 
 ---
 
-💡 **Material didático preparado para promover a compreensão do MCP**
+💡 **Material didático para Obsidian**
 
-_Versão 1.1 - Abril 2025_
+_Versão 1.2 - Abril 2025_
