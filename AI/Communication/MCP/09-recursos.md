@@ -68,4 +68,4 @@ Recursos educacionais estruturados para aprender sobre o MCP:
 
 ---
 
-[Anterior: O Futuro do MCP e Próximos Passos](08-futuro-mcp.md) | [Voltar ao Início](00-introducao.md) 
+[Anterior: O Futuro do MCP e Próximos Passos](08-futuro-mcp.md) | [Voltar ao Início](00-mcp-introducao.md) 
