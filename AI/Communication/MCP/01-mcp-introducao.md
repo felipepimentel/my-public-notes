@@ -10,8 +10,8 @@
 
 ## Sumário
 
-1. [O Desafio das IAs Isoladas](01-mcp-desafio-ias-isoladas.md)
-2. [O Problema da Fragmentação](01-mcp-desafio-ias-isoladas.md#o-problema-da-fragmentação)
+1. [O Desafio das IAs Isoladas](02-mcp-desafio-ias-isoladas.md)
+2. [O Problema da Fragmentação](02-mcp-desafio-ias-isoladas.md#o-problema-da-fragmentação)
 3. [O MCP Como Solução Universal](02-mcp-solucao-universal.md)
 4. [Arquitetura MCP: Como Tudo se Conecta](03-mcp-arquitetura-mcp.md)
 5. [Conceitos Fundamentais](04-mcp-conceitos-fundamentais.md)
