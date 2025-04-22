@@ -32,7 +32,6 @@
 ---
 
 
-
 ## O Desafio Das IAs Isoladas
 
 
