@@ -24,7 +24,7 @@
 
   
 
-![](https://placehold.co/800x400/e9ecef/495057?text=IA+Isolada)
+![[dfc4d78ccebce4d2e55b466ce593327b_MD5.svg]]
 
   
 
@@ -118,7 +118,7 @@ C1 --> S3[Servidor MCP CRM]
 
   
 
-![](https://placehold.co/800x400/e9ecef/495057?text=USB+Universal)
+![[049a0657dcbea6a79a13632afe5dbd18_MD5.svg]]
 
   
 
