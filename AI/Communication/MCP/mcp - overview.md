@@ -1,6 +1,6 @@
 # 🌐 MCP - Model Context Protocol
 
-## 🚀 Transformando a Integração De IAs Com O Mundo Real
+## 🚀 Transformando a Integração De IAs com o Mundo Real
 
 O **Model Context Protocol (MCP)** é o adaptador universal para inteligências artificiais. Permite conectar facilmente modelos de linguagem (LLMs) com dados e ferramentas externas, transformando IAs isoladas em assistentes contextuais e eficientes.
 
@@ -29,7 +29,7 @@ O **Model Context Protocol (MCP)** é o adaptador universal para inteligências 
 
 ---
 
-## 🔒 O Desafio Das IAs Isoladas
+## 🔒 O Desafio das IAs Isoladas
 
 Imagine um consultor brilhante trancado em uma sala isolada, sem acesso aos sistemas da empresa. Por mais inteligente que seja, suas recomendações são limitadas. Assim são os LLMs isolados, incapazes de acessar dados corporativos essenciais.
 
@@ -46,7 +46,7 @@ O MCP resolve justamente esses problemas, conectando inteligências artificiais 
 
 ---
 
-## 🔗 Problema Da Fragmentação
+## 🔗 Problema da Fragmentação
 
 Sem MCP, cada IA precisa criar integrações individuais, resultando em:
 
@@ -65,7 +65,7 @@ O resultado é uma verdadeira "Torre de Babel Digital" que limita a eficácia da
 
 ---
 
-## 🌟 MCP Como Solução Universal
+## 🌟 MCP como Solução Universal
 
 O MCP é como um tradutor universal, simplificando a comunicação entre modelos de IA e sistemas externos:
 
@@ -141,7 +141,7 @@ Um fluxo típico do MCP:
 
 ---
 
-## ⚙️ Funcionamento Interno Do MCP
+## ⚙️ Funcionamento Interno do MCP
 
 ### Estrutura Técnica
 
@@ -150,7 +150,7 @@ Um fluxo típico do MCP:
 - Comunicação local (STDIO) e rede (HTTP/SSE, WebSockets)
     
 
-### Mensagens E Ciclo De Vida
+### Mensagens e Ciclo de Vida
 
 - Requests, Results, Notifications
     
@@ -159,7 +159,7 @@ Um fluxo típico do MCP:
 
 ---
 
-## 💼 Aplicações Do MCP Em Diversos Setores
+## 💼 Aplicações do MCP em Diversos Setores
 
 - **Financeiro**: Análise de crédito rápida e precisa
     
