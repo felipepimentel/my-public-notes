@@ -20,11 +20,11 @@
    - [Prompts: As Receitas Prontas](05-mcp-conceitos-fundamentais.md#prompts-as-receitas-prontas)
    - [Tools: A Caixa de Ferramentas](05-mcp-conceitos-fundamentais.md#tools-a-caixa-de-ferramentas)
    - [Sampling: Consultando o Oráculo](05-mcp-conceitos-fundamentais.md#sampling-consultando-o-oráculo)
-6. [Como o MCP Funciona Por Baixo dos Panos](05-mcp-funcionamento-interno.md)
+6. [Como o MCP Funciona Por Baixo dos Panos](06-mcp-funcionamento-interno.md)
 7. [A Evolução das IAs com MCP](06-evolucao-ias.md)
 8. [MCP em Ação: Aplicações em Diversos Setores](07-aplicacoes-praticas.md)
-9. [O Futuro do MCP](08-mcp-futuro-mcp.md)
-10. [Recursos para Aprofundamento](09-mcp-recursos.md)
+9. [O Futuro do MCP](09-mcp-futuro-mcp.md)
+10. [Recursos para Aprofundamento](10-mcp-recursos.md)
 
 ---
 

@@ -101,4 +101,4 @@ Juntos, podemos construir um futuro onde a inteligência artificial realmente am
 
 ---
 
-[Anterior: MCP em Ação nos Diversos Setores](07-aplicacoes-praticas.md) | [Próximo: Recursos para Aprofundamento](09-mcp-recursos.md) 
+[Anterior: MCP em Ação nos Diversos Setores](07-aplicacoes-praticas.md) | [Próximo: Recursos para Aprofundamento](10-mcp-recursos.md) 
