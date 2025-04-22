@@ -4,9 +4,7 @@
 
 ---
 
-![[7b79b38d0a51a977b7b3f693778a2b8b_MD5.png]]
-
-> 💡 **Resumo Executivo:** O Model Context Protocol (MCP) é o "adaptador universal" do mundo da IA. Ele permite que modelos de linguagem se conectem facilmente com dados e ferramentas externas, transformando IAs isoladas em assistentes verdadeiramente contextuais e capazes.
+> 💡 O **Model Context Protocol (MCP)** é o "adaptador universal" do mundo da IA. Ele permite que modelos de linguagem se conectem facilmente com dados e ferramentas externas, transformando IAs isoladas em assistentes verdadeiramente contextuais e capazes.
 
 ---
 
