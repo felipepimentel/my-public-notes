@@ -496,23 +496,6 @@ graph LR
 - Integração com sistemas empresariais
 - Automação de tarefas simples e repetitivas
 
-### Fase 3: Agentes Colaborativos (A2A)
-
-**Características:**
-
-- Múltiplos agentes especializados trabalhando juntos
-- Comunicação Agent-to-Agent (A2A) via MCP
-- Divisão de tarefas complexas entre especialistas
-- Resoluções colaborativas de problemas
-
-**O Futuro:**
-
-- Times virtuais de IAs especializadas
-- Orquestração inteligente de tarefas
-- Emergência de comportamentos complexos
-- Automação end-to-end de processos empresariais
-
-Esta evolução representa uma mudança fundamental: de IAs como ferramentas para IAs como parceiros de trabalho autônomos, capazes de colaborar tanto com humanos quanto com outras IAs.
 
 ## MCP Em Ação: Aplicações Em Diversos Setores
 
