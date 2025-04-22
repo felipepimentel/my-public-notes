@@ -186,7 +186,7 @@ graph TB
 
 ---
 
-## 🚀 Futuro Do MCP
+## 🚀 Futuro do MCP
 
 - **Federação e Descoberta**: Registro dinâmico de servidores
     
@@ -205,7 +205,7 @@ graph LR
 
 ---
 
-## 📚 Recursos Para Aprofundamento
+## 📚 Recursos para Aprofundamento
 
 - [Documentação Oficial](https://modelcontextprotocol.io/)
     
