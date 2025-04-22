@@ -166,4 +166,4 @@ Um exemplo seria um servidor MCP de gestão de documentos que solicita ao LLM pa
 
 ---
 
-[Anterior: Arquitetura MCP](03-mcp-arquitetura-mcp.md) | [Próximo: Como o MCP Funciona Por Baixo dos Panos](05-funcionamento-interno.md) 
+[Anterior: Arquitetura MCP](03-mcp-arquitetura-mcp.md) | [Próximo: Como o MCP Funciona Por Baixo dos Panos](05-mcp-funcionamento-interno.md) 

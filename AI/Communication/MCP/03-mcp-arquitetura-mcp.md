@@ -88,4 +88,4 @@ Este design permite que organizações implementem o MCP de forma incremental, c
 
 ---
 
-[Anterior: O MCP Como Solução Universal](02-mcp-solucao-universal.md) | [Próximo: Conceitos Fundamentais](04-conceitos-fundamentais.md) 
+[Anterior: O MCP Como Solução Universal](02-mcp-solucao-universal.md) | [Próximo: Conceitos Fundamentais](04-mcp-conceitos-fundamentais.md) 
