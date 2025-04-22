@@ -10,10 +10,10 @@
 
 ## Sumário
 
-1. [O Desafio das IAs Isoladas](01-desafio-ias-isoladas.md)
-2. [O Problema da Fragmentação](01-desafio-ias-isoladas.md#o-problema-da-fragmentação)
+1. [O Desafio das IAs Isoladas](01-mcp-desafio-ias-isoladas.md)
+2. [O Problema da Fragmentação](01-mcp-desafio-ias-isoladas.md#o-problema-da-fragmentação)
 3. [O MCP Como Solução Universal](02-mcp-solucao-universal.md)
-4. [Arquitetura MCP: Como Tudo se Conecta](03-arquitetura-mcp.md)
+4. [Arquitetura MCP: Como Tudo se Conecta](03-mcp-arquitetura-mcp.md)
 5. [Conceitos Fundamentais](04-conceitos-fundamentais.md)
    - [Roots: Territórios de Acesso](04-conceitos-fundamentais.md#roots-territórios-de-acesso)
    - [Resources: A Biblioteca de Conhecimento](04-conceitos-fundamentais.md#resources-a-biblioteca-de-conhecimento)
