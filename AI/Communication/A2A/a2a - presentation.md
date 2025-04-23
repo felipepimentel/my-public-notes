@@ -112,8 +112,8 @@ graph TD
 stateDiagram-v2
     [*] --> submitted
     submitted --> working
-    working --> input-required
-    input-required --> working
+    working --> input_required
+    input_required --> working
     working --> completed
     working --> failed
     working --> canceled
