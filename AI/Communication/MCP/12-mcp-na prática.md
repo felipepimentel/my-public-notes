@@ -1,4 +1,4 @@
-# Estudo de Casos
+# MCP Na Prática
 
 ## Sumário
 
@@ -9,7 +9,7 @@
 5. [Fluxograma Completo do Ecossistema MCP](https://claude.ai/chat/ef1663ef-2ef6-48d7-b980-2beb952f3d47#fluxograma-completo-do-ecossistema-mcp)
 6. [Implementação com Exemplos de Código](https://claude.ai/chat/ef1663ef-2ef6-48d7-b980-2beb952f3d47#implementa%C3%A7%C3%A3o-com-exemplos-de-c%C3%B3digo)
 
-## Componentes em Cenários Reais
+## Componentes Em Cenários Reais
 
 Para entender o MCP na prática, é essencial identificar seus componentes em cenários reais:
 
@@ -73,11 +73,11 @@ flowchart TD
     Server3 --- Docs[Documentos na Nuvem]
 ```
 
-## Fluxos de Orquestração
+## Fluxos De Orquestração
 
 Um aspecto crucial do MCP é como decidir quais servidores chamar e quando. Existem diferentes abordagens para esta orquestração:
 
-### 1. Orquestração Dirigida pelo Modelo
+### 1. Orquestração Dirigida Pelo Modelo
 
 Neste fluxo, o LLM analisa a consulta e decide quais ferramentas chamar:
 
@@ -102,7 +102,7 @@ sequenceDiagram
     Host->>User: "Hoje em São Paulo está 23°C com céu parcialmente nublado."
 ```
 
-### 2. Orquestração Dirigida pelo Host
+### 2. Orquestração Dirigida Pelo Host
 
 A aplicação host usa heurísticas para determinar quando usar servidores:
 
@@ -133,7 +133,7 @@ Exemplos de regras usadas pelo host:
 - Menção a "código" ou "repositório" → servidor Git
 - Menção a "agenda" ou "evento" → servidor de calendário
 
-### 3. Orquestração Dirigida pelo Usuário
+### 3. Orquestração Dirigida Pelo Usuário
 
 Interfaces permitem que usuários escolham explicitamente quais servidores acessar:
 
@@ -159,9 +159,9 @@ sequenceDiagram
     Host->>User: "Analisei os arquivos que você selecionou e encontrei..."
 ```
 
-## Cenários Práticos de Uso
+## Cenários Práticos De Uso
 
-### Cenário 1: Desenvolvimento de Software
+### Cenário 1: Desenvolvimento De Software
 
 **Componentes:**
 
@@ -192,7 +192,7 @@ sequenceDiagram
     IDE->>Dev: Mostra: explicação + sugestões contextualizadas
 ```
 
-### Cenário 2: Análise de Documentos Corporativos
+### Cenário 2: Análise De Documentos Corporativos
 
 **Componentes:**
 
@@ -256,7 +256,7 @@ sequenceDiagram
     Claude->>User: Mostra: resumo + pontos importantes
 ```
 
-## LLM como Orquestradora
+## LLM Como Orquestradora
 
 Uma abordagem inovadora quando a LLM principal não pode chamar servidores MCP diretamente é usar uma LLM como camada de decisão intermediária:
 
@@ -276,7 +276,7 @@ flowchart TD
     LLM -->|"Resposta final"| User
 ```
 
-### Exemplo de Prompt para a LLM Orquestradora
+### Exemplo De Prompt Para a LLM Orquestradora
 
 ```
 Você é um orquestrador de servidores MCP. Analise a consulta do usuário e determine 
@@ -303,7 +303,7 @@ Responda APENAS com um objeto JSON no seguinte formato:
 }
 ```
 
-### Exemplo de Resposta
+### Exemplo De Resposta
 
 ```json
 {
@@ -323,7 +323,7 @@ Responda APENAS com um objeto JSON no seguinte formato:
 }
 ```
 
-### Implementação em Código
+### Implementação Em Código
 
 ```python
 def process_user_query(user_query):
@@ -356,7 +356,7 @@ def process_user_query(user_query):
     return final_response
 ```
 
-### Vantagens desta Abordagem
+### Vantagens Desta Abordagem
 
 1. **Flexibilidade**: Adicione novos servidores MCP sem alterar a lógica central
 2. **Manutenção simplificada**: Sem proliferação de condicionais (ifs/elses)
@@ -372,7 +372,7 @@ def process_user_query(user_query):
 4. **Parsear resposta**: Precisa garantir que a LLM responda no formato esperado
 5. **Tratamento de erros**: Precisa lidar com casos onde a decisão da LLM não é clara
 
-## Fluxograma Completo do Ecossistema MCP
+## Fluxograma Completo Do Ecossistema MCP
 
 ```mermaid
 flowchart TD
@@ -529,9 +529,9 @@ flowchart TD
     class ErrorHandler,Fallback,Logging fallback
 ```
 
-## Implementação com Exemplos de Código
+## Implementação Com Exemplos De Código
 
-### Configuração de Servidor no Claude Desktop
+### Configuração De Servidor no Claude Desktop
 
 Para adicionar seu próprio servidor MCP ao Claude Desktop, configure o arquivo `claude_desktop_config.json`:
 
@@ -561,7 +561,7 @@ Este arquivo geralmente está localizado em:
 - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
 - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 
-### Implementação de Servidor de Clima em Python
+### Implementação De Servidor De Clima Em Python
 
 ```python
 from mcp.server.fastmcp import FastMCP
@@ -635,7 +635,7 @@ if __name__ == "__main__":
     mcp.run(transport='stdio')
 ```
 
-### Implementação de Cliente MCP com LLM Orquestradora
+### Implementação De Cliente MCP Com LLM Orquestradora
 
 ```python
 import asyncio
