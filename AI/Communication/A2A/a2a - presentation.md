@@ -18,8 +18,10 @@
 ```mermaid
 graph TD
     A[História da IA] --> B[Monolitos]
-    A --> C[Agentes + Ferramentas<br>(MCP)]
-    A --> D[Ecossistemas de Agentes<br>(A2A)]
+    A --> C["Agentes + Ferramentas
+(MCP)"]
+    A --> D["Ecossistemas de Agentes
+(A2A)"]
     style A fill:#e8e8e8,stroke:#333,stroke-width:2px
 ```
 
