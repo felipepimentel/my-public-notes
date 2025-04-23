@@ -1,5 +1,7 @@
 # MCP Na Prática
 
+# Guia Prático do Model Context Protocol (MCP): Componentes e Fluxos
+
 ## Sumário
 
 1. [Componentes em Cenários Reais](https://claude.ai/chat/ef1663ef-2ef6-48d7-b980-2beb952f3d47#componentes-em-cen%C3%A1rios-reais)
@@ -7,11 +9,10 @@
 3. [Cenários Práticos de Uso](https://claude.ai/chat/ef1663ef-2ef6-48d7-b980-2beb952f3d47#cen%C3%A1rios-pr%C3%A1ticos-de-uso)
 4. [LLM como Orquestradora](https://claude.ai/chat/ef1663ef-2ef6-48d7-b980-2beb952f3d47#llm-como-orquestradora)
 5. [Fluxograma Completo do Ecossistema MCP](https://claude.ai/chat/ef1663ef-2ef6-48d7-b980-2beb952f3d47#fluxograma-completo-do-ecossistema-mcp)
-6. [Implementação com Exemplos de Código](https://claude.ai/chat/ef1663ef-2ef6-48d7-b980-2beb952f3d47#implementa%C3%A7%C3%A3o-com-exemplos-de-c%C3%B3digo)
 
-## Componentes Em Cenários Reais
+## Componentes em Cenários Reais
 
-Para entender o MCP na prática, é essencial identificar seus componentes em cenários reais:
+Para entender o MCP na prática, é fundamental identificar claramente seus componentes em cenários reais:
 
 ### Host
 
@@ -73,11 +74,11 @@ flowchart TD
     Server3 --- Docs[Documentos na Nuvem]
 ```
 
-## Fluxos De Orquestração
+## Fluxos de Orquestração
 
 Um aspecto crucial do MCP é como decidir quais servidores chamar e quando. Existem diferentes abordagens para esta orquestração:
 
-### 1. Orquestração Dirigida Pelo Modelo
+### 1. Orquestração Dirigida pelo Modelo
 
 Neste fluxo, o LLM analisa a consulta e decide quais ferramentas chamar:
 
@@ -102,7 +103,7 @@ sequenceDiagram
     Host->>User: "Hoje em São Paulo está 23°C com céu parcialmente nublado."
 ```
 
-### 2. Orquestração Dirigida Pelo Host
+### 2. Orquestração Dirigida pelo Host
 
 A aplicação host usa heurísticas para determinar quando usar servidores:
 
@@ -133,7 +134,7 @@ Exemplos de regras usadas pelo host:
 - Menção a "código" ou "repositório" → servidor Git
 - Menção a "agenda" ou "evento" → servidor de calendário
 
-### 3. Orquestração Dirigida Pelo Usuário
+### 3. Orquestração Dirigida pelo Usuário
 
 Interfaces permitem que usuários escolham explicitamente quais servidores acessar:
 
@@ -159,9 +160,9 @@ sequenceDiagram
     Host->>User: "Analisei os arquivos que você selecionou e encontrei..."
 ```
 
-## Cenários Práticos De Uso
+## Cenários Práticos de Uso
 
-### Cenário 1: Desenvolvimento De Software
+### Cenário 1: Desenvolvimento de Software
 
 **Componentes:**
 
@@ -192,7 +193,7 @@ sequenceDiagram
     IDE->>Dev: Mostra: explicação + sugestões contextualizadas
 ```
 
-### Cenário 2: Análise De Documentos Corporativos
+### Cenário 2: Análise de Documentos Corporativos
 
 **Componentes:**
 
@@ -256,7 +257,7 @@ sequenceDiagram
     Claude->>User: Mostra: resumo + pontos importantes
 ```
 
-## LLM Como Orquestradora
+## LLM como Orquestradora
 
 Uma abordagem inovadora quando a LLM principal não pode chamar servidores MCP diretamente é usar uma LLM como camada de decisão intermediária:
 
@@ -276,7 +277,15 @@ flowchart TD
     LLM -->|"Resposta final"| User
 ```
 
-### Exemplo De Prompt Para a LLM Orquestradora
+### Exemplo de Prompt para a LLM Orquestradora
+
+Quando usamos uma LLM como orquestradora, enviamos a ela um prompt especial que inclui:
+
+1. A consulta original do usuário
+2. Lista de servidores MCP disponíveis e suas capacidades
+3. Instruções para responder em um formato específico (JSON)
+
+**Exemplo de prompt**:
 
 ```
 Você é um orquestrador de servidores MCP. Analise a consulta do usuário e determine 
@@ -303,7 +312,7 @@ Responda APENAS com um objeto JSON no seguinte formato:
 }
 ```
 
-### Exemplo De Resposta
+**Exemplo de resposta**:
 
 ```json
 {
@@ -323,40 +332,7 @@ Responda APENAS com um objeto JSON no seguinte formato:
 }
 ```
 
-### Implementação Em Código
-
-```python
-def process_user_query(user_query):
-    # 1. Construir o prompt para a LLM orquestradora
-    orchestrator_prompt = build_orchestrator_prompt(user_query, available_servers)
-    
-    # 2. Obter decisão da LLM
-    llm_decision = call_llm_api(orchestrator_prompt)
-    
-    # 3. Parsear a resposta da LLM
-    decision_json = parse_llm_response(llm_decision)
-    
-    # 4. Executar chamadas aos servidores MCP
-    server_results = []
-    for server_request in decision_json["servers"]:
-        server_id = server_request["server_id"]
-        action = server_request["action"]
-        parameters = server_request["parameters"]
-        
-        # Chamar o servidor MCP apropriado
-        result = call_mcp_server(server_id, action, parameters)
-        server_results.append(result)
-    
-    # 5. Construir prompt final para resposta
-    response_prompt = build_response_prompt(user_query, server_results)
-    
-    # 6. Obter resposta final da LLM
-    final_response = call_llm_api(response_prompt)
-    
-    return final_response
-```
-
-### Vantagens Desta Abordagem
+### Vantagens desta Abordagem
 
 1. **Flexibilidade**: Adicione novos servidores MCP sem alterar a lógica central
 2. **Manutenção simplificada**: Sem proliferação de condicionais (ifs/elses)
@@ -372,7 +348,7 @@ def process_user_query(user_query):
 4. **Parsear resposta**: Precisa garantir que a LLM responda no formato esperado
 5. **Tratamento de erros**: Precisa lidar com casos onde a decisão da LLM não é clara
 
-## Fluxograma Completo Do Ecossistema MCP
+## Fluxograma Completo do Ecossistema MCP
 
 ```mermaid
 flowchart TD
@@ -529,156 +505,64 @@ flowchart TD
     class ErrorHandler,Fallback,Logging fallback
 ```
 
-## Implementação Com Exemplos De Código
+## Primitivos MCP Resumo Prático
 
-### Configuração De Servidor no Claude Desktop
+### 1. Resources (Recursos)
 
-Para adicionar seu próprio servidor MCP ao Claude Desktop, configure o arquivo `claude_desktop_config.json`:
+Os Resources são a forma de MCP fornecer dados e contexto para LLMs:
 
-```json
-{
-  "mcpServers": {
-    "weather": {
-      "command": "python",
-      "args": [
-        "/caminho/absoluto/para/weather_server.py"
-      ]
-    },
-    "filesystem": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-filesystem",
-        "/caminho/absoluto/para/diretório/permitido"
-      ]
-    }
-  }
-}
+**Controle**: Controlados pela aplicação (Claude Desktop, VS Code, etc.) **Utilização**: Fornecer arquivos, dados, documentos para análise **Exemplos reais**:
+
+- Conteúdo de arquivos de código para análise
+- Documentos de especificação para referência
+- Dados estruturados de banco de dados
+
+### 2. Tools (Ferramentas)
+
+As Tools permitem que os LLMs executem ações no mundo real:
+
+**Controle**: Controlados pelo modelo, com aprovação do usuário **Utilização**: Permitir ações como busca, consultas, criação **Exemplos reais**:
+
+- Buscar na web informações atualizadas
+- Criar um novo arquivo ou documento
+- Executar uma consulta SQL para análise de dados
+- Enviar uma mensagem ou agendar uma reunião
+
+### 3. Prompts (Modelos de Prompts)
+
+Os Prompts são templates predefinidos que guiam interações específicas:
+
+**Controle**: Controlados pelo usuário (ex: slash commands) **Utilização**: Iniciar fluxos de trabalho padronizados **Exemplos reais**:
+
+- Template para revisão de código
+- Formulário para planejamento de sprint
+- Estrutura para análise de relatórios financeiros
+
+```mermaid
+graph TD
+    subgraph "Primitivos MCP por Controle"
+        subgraph "Controle do Usuário"
+            Prompts[Prompts<br>Templates de diálogo]
+        end
+        
+        subgraph "Controle da Aplicação"
+            Resources[Resources<br>Dados e contexto]
+        end
+        
+        subgraph "Controle do Modelo"
+            Tools[Tools<br>Ações executáveis]
+        end
+    end
 ```
 
-Este arquivo geralmente está localizado em:
+## Tabela Comparativa: Casos de Uso por Setor
 
-- macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- Windows: `%APPDATA%\Claude\claude_desktop_config.json`
-
-### Implementação De Servidor De Clima Em Python
-
-```python
-from mcp.server.fastmcp import FastMCP
-import requests
-
-# Inicializa o servidor MCP
-mcp = FastMCP("weather-server")
-
-# API key fictícia (substitua pela sua chave real)
-API_KEY = "sua_api_key_aqui"
-
-@mcp.tool()
-async def get_weather(city: str, country: str = "BR") -> str:
-    """Obter informações climáticas para uma cidade.
-    
-    Args:
-        city: O nome da cidade
-        country: O código do país (default: BR)
-    """
-    # Implementação real chamaria uma API de clima
-    try:
-        response = requests.get(
-            f"https://api.weatherapi.com/v1/current.json?key={API_KEY}&q={city},{country}"
-        )
-        data = response.json()
-        
-        # Extrair dados relevantes
-        temp_c = data["current"]["temp_c"]
-        condition = data["current"]["condition"]["text"]
-        humidity = data["current"]["humidity"]
-        
-        return f"Clima em {city}, {country}:\nTemperatura: {temp_c}°C\nCondição: {condition}\nUmidade: {humidity}%"
-    except Exception as e:
-        return f"Erro ao obter dados do clima: {str(e)}"
-
-@mcp.tool()
-async def get_forecast(city: str, days: int = 3, country: str = "BR") -> str:
-    """Obter previsão do tempo para os próximos dias.
-    
-    Args:
-        city: O nome da cidade
-        days: Número de dias para previsão (1-7)
-        country: O código do país (default: BR)
-    """
-    try:
-        response = requests.get(
-            f"https://api.weatherapi.com/v1/forecast.json?key={API_KEY}&q={city},{country}&days={days}"
-        )
-        data = response.json()
-        
-        # Formatar previsão para os próximos dias
-        forecast_days = data["forecast"]["forecastday"]
-        result = f"Previsão para {city}, {country}:\n\n"
-        
-        for day in forecast_days:
-            date = day["date"]
-            max_temp = day["day"]["maxtemp_c"]
-            min_temp = day["day"]["mintemp_c"]
-            condition = day["day"]["condition"]["text"]
-            
-            result += f"Data: {date}\n"
-            result += f"Temperatura: {min_temp}°C a {max_temp}°C\n"
-            result += f"Condição: {condition}\n\n"
-            
-        return result
-    except Exception as e:
-        return f"Erro ao obter previsão do tempo: {str(e)}"
-
-# Executa o servidor
-if __name__ == "__main__":
-    mcp.run(transport='stdio')
-```
-
-### Implementação De Cliente MCP Com LLM Orquestradora
-
-```python
-import asyncio
-import json
-from typing import Dict, List, Any
-import anthropic  # Claude SDK
-from mcp.client import ClientSession
-from mcp.client.stdio import stdio_client, StdioServerParameters
-
-# Cliente do Anthropic Claude
-claude_client = anthropic.Anthropic(api_key="SUA_API_KEY_AQUI")
-
-# Configurações dos servidores MCP disponíveis
-MCP_SERVERS = {
-    "weather_server": {
-        "command": "python",
-        "args": ["weather_server.py"]
-    },
-    "filesystem_server": {
-        "command": "npx",
-        "args": ["-y", "@modelcontextprotocol/server-filesystem", "/diretório/permitido"]
-    },
-    "calendar_server": {
-        "command": "python",
-        "args": ["calendar_server.py"]
-    }
-}
-
-# Função para gerar prompt para a LLM orquestradora
-def build_orchestrator_prompt(query: str, servers: Dict[str, Dict]) -> str:
-    server_descriptions = []
-    for server_id, config in servers.items():
-        # Aqui você descreveria as capacidades de cada servidor
-        if server_id == "weather_server":
-            desc = "Fornece dados meteorológicos atuais e previsões. Capacidades: clima atual, previsão para dias futuros."
-        elif server_id == "filesystem_server":
-            desc = "Acessa arquivos no sistema. Capacidades: listar arquivos, ler conteúdo, buscar por padrões."
-        elif server_id == "calendar_server":
-            desc = "Acessa o Google Calendar. Capacidades: listar eventos, criar eventos, verificar disponibilidade."
-        else:
-            desc = "Servidor com capacidades desconhecidas."
-        
-        server_descriptions.append(f"{server_id}: {desc}")
-    
-    return f"""Você é um orquest
-```
+| Setor                           | Caso de Uso             | Host                   | Servidores MCP                         | Benefício Principal                           |
+| ------------------------------- | ----------------------- | ---------------------- | -------------------------------------- | --------------------------------------------- |
+| **Desenvolvimento de Software** | Assistência de código   | VS Code                | Git, JIRA, Compilação                  | Código contextualizado com padrões da empresa |
+| **Finanças**                    | Análise de relatórios   | Claude Desktop         | Banco de dados, SharePoint             | Análises financeiras contextualizadas         |
+| **Medicina**                    | Análise de caso clínico | Dashboard médico       | EMR, PubMed, Farmácia                  | Recomendações com histórico do paciente       |
+| **Educação**                    | Tutoria personalizada   | Plataforma de ensino   | Materiais do curso, Progresso do aluno | Explicações adaptadas ao histórico do aluno   |
+| **Legal**                       | Pesquisa jurídica       | Software jurídico      | Banco de jurisprudência, Códigos       | Pesquisa legal com contexto dos casos atuais  |
+| **Marketing**                   | Análise de campanha     | Dashboard de marketing | Analytics, CRM, Redes sociais          | Insights de campanha com dados reais          |
+| **Pessoal**                     | Assistente diário       | Claude Desktop         | Calendário, Email, Contatos            | Organização pessoal contextualizada           |
