@@ -190,19 +190,13 @@ class A1,A2,A3 agent;
 
   
 
-| Aspecto | MCP | A2A |
-
-|---------|-----|-----|
-
-| **Foco primário** | Conectar IA com ferramentas e recursos | Conectar múltiplos agentes de IA entre si |
-
-| **Tipo de interação** | Vertical (IA ↔ ferramentas) | Horizontal (IA ↔ IA) |
-
-| **Casos de uso** | Acesso a dados, execução de ações | Colaboração, delegação de tarefas |
-
-| **Estrutura** | Cliente-Servidor | Peer-to-Peer |
-
-| **Estado** | Protocolo estabelecido | Protocolo emergente |
+| Aspecto               | MCP                                    | A2A                                       |
+| --------------------- | -------------------------------------- | ----------------------------------------- |
+| **Foco primário**     | Conectar IA com ferramentas e recursos | Conectar múltiplos agentes de IA entre si |
+| **Tipo de interação** | Vertical (IA ↔ ferramentas)            | Horizontal (IA ↔ IA)                      |
+| **Casos de uso**      | Acesso a dados, execução de ações      | Colaboração, delegação de tarefas         |
+| **Estrutura**         | Cliente-Servidor                       | Peer-to-Peer                              |
+| **Estado**            | Protocolo estabelecido                 | Protocolo emergente                       |
 
   
 
