@@ -1,12 +1,12 @@
-# 🤝 A2A — Do Zero ao Hero: conversas entre agentes como se Martin Fowler estivesse rabiscando no quadro
+# 🤝 A2A — Do Zero Ao Hero
 
 > _“Não precisamos de um único agente omnisciente; precisamos de uma liga inteira de agentes especialistas que cooperam como uma orquestra bem ensaiada.”_
 
-![[Pasted image 20250422235944.png]]
+![[82636d50261fb170d65d97290cafb524_MD5.jpeg]]
 
 ---
 
-## 1 · Onde Estamos & Para Onde Vamos
+## 1 · Onde Estamos & Para Onde Vamos
 
 - **Modelos isolados** eram como _programas monolíticos_: geniais, mas sem portas nem janelas.
     
@@ -29,7 +29,7 @@ graph TD
 
 ---
 
-## 2 · O Problema da Cola
+## 2 · O Problema Da Cola
 
 Sem A2A:
 
@@ -63,7 +63,7 @@ graph TD
 
 ---
 
-## 3 · Princípios Arquiteturais
+## 3 · Princípios Arquiteturais
 
 1. **Autonomia** – cada agente gerencia seu estado.
     
@@ -78,7 +78,7 @@ graph TD
 
 ---
 
-## 4 · Os Quatro Pilares do A2A
+## 4 · Os Quatro Pilares Do A2A
 
 |Pilar|O que é|Por quê importa|
 |---|---|---|
@@ -87,7 +87,7 @@ graph TD
 |**Message & Parts**|Texto, arquivos, dados estruturados|Payloads flexíveis|
 |**Artifact**|Resultado persistente|Compartilhamento & auditoria|
 
-### Exemplo de Agent Card
+### Exemplo De Agent Card
 
 ```json
 {
@@ -106,7 +106,7 @@ graph TD
 
 ---
 
-## 5 · Ciclo de Vida de uma Task
+## 5 · Ciclo De Vida De Uma Task
 
 ```mermaid
 stateDiagram-v2
@@ -123,7 +123,7 @@ stateDiagram-v2
 
 ---
 
-## 6 · Under the Hood – JSON‑RPC 2.0 + HTTP(S)
+## 6 · Under the Hood – JSON‑RPC 2.0 + HTTP(S)
 
 - `tasks/send` – inicia ou continua trabalho
     
@@ -146,9 +146,9 @@ sequenceDiagram
 
 ---
 
-## 7 · Casos de Uso que Brilham
+## 7 · Casos De Uso Que Brilham
 
-### 7.1 Equipe de Software
+### 7.1 Equipe De Software
 
 ```mermaid
 graph TD
@@ -172,7 +172,7 @@ graph TD
 
 ---
 
-## 8 · Desafios & Armadilhas
+## 8 · Desafios & Armadilhas
 
 - **Padrão em movimento** – verifique _changelogs_.
     
@@ -185,7 +185,7 @@ graph TD
 
 ---
 
-## 9 · Do Zero ➡ Hello World
+## 9 · Do Zero ➡ Hello World
 
 ```python
 from a2a.common.server import A2AServer
@@ -216,7 +216,7 @@ app = server.create_app()
 
 ---
 
-## 10 · A2A ❤ MCP – Dê a Mão que Falta
+## 10 · A2A ❤ MCP – Dê a Mão Que Falta
 
 ```mermaid
 graph TD
@@ -232,7 +232,7 @@ graph TD
 
 ---
 
-## 11 · Roadmap Pessoal: seu caminho Hero
+## 11 · Roadmap Pessoal: Seu Caminho Hero
 
 1. **Explorar exemplos oficiais** – entender _happy path_.
     
@@ -247,7 +247,7 @@ graph TD
 
 ---
 
-## 12 · Conclusão
+## 12 · Conclusão
 
 > _“Em sistemas complexos, colaboração > centralização. Protocolos vencem pipelines manuais.”_
 
