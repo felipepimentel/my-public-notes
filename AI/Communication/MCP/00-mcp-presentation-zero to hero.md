@@ -318,6 +318,4 @@ graph LR
 
 ---
 
-# Obrigado
-
-Apresentação baseada na documentação oficial do MCP
+# Obrigado!!!
