@@ -1,4 +1,4 @@
-# 🤝 A2A — Do Zero Ao Hero: Conversas Entre Agentes Como Se Martin Fowler Estivesse Rabiscando no Quadro
+# 🤝 A2A — Do Zero Ao Hero
 
 > _“Não precisamos de um único agente omnisciente; precisamos de uma liga inteira de agentes especialistas que cooperam como uma orquestra bem ensaiada.”_
 
