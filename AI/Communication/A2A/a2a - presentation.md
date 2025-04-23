@@ -2,7 +2,7 @@
 
 > _“Não precisamos de um único agente omnisciente; precisamos de uma liga inteira de agentes especialistas que cooperam como uma orquestra bem ensaiada.”_
 
-![Banner A2A](https://google.github.io/A2A/assets/A2A_banner.png)
+![[Pasted image 20250422235944.png]]
 
 ---
 
