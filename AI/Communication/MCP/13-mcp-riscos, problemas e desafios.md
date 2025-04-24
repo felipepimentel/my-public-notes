@@ -1,10 +1,8 @@
-# Problemas, Desafios e Riscos do Model Context Protocol (MCP)
+# Problemas, Desafios E Riscos Do Model Context Protocol (MCP)
 
-Este documento foca especificamente nos problemas, vulnerabilidades e desafios enfrentados ao implementar e utilizar o Model Context Protocol (MCP). Como qualquer tecnologia emergente que cria pontes entre sistemas poderosos, o MCP apresenta riscos que precisam ser compreendidos e mitigados.
+## Desafios De Segurança
 
-## Desafios de Segurança
-
-### O Problema da Injeção de Prompt
+### O Problema Da Injeção De Prompt
 
 Os LLMs interpretam instruções em linguagem natural e decidem quando chamar ferramentas MCP. Esse design introduz uma superfície de ataque significativa através da injeção de prompt, onde mensagens aparentemente inofensivas podem conter comandos escondidos que manipulam o comportamento do modelo.
 
@@ -14,13 +12,13 @@ Simon Willison, especialista em segurança, [alerta](https://simonwillison.net/2
 
 A injeção de prompt torna-se particularmente perigosa quando ferramentas MCP podem executar ações como enviar mensagens, acessar arquivos ou interagir com APIs. Um atacante criativo poderia formular mensagens que parecem inofensivas para humanos, mas contêm comandos camuflados que o LLM interpreta como instruções para executar ações maliciosas.
 
-### Evolução Pós-Instalação de Ferramentas
+### Evolução Pós-Instalação De Ferramentas
 
 Imagine instalar um aplicativo aparentemente seguro que, após uma semana, silenciosamente altera seu comportamento para se tornar malicioso. Esse é um risco real com servidores MCP. As ferramentas podem [modificar suas próprias definições após a instalação](https://simonwillison.net/2025/Apr/9/mcp-prompt-injection/), transformando uma ferramenta inicialmente segura em um vetor de ataque.
 
 As implementações de clientes MCP devem monitorar mudanças nas descrições e capacidades das ferramentas, alertando os usuários sobre qualquer alteração suspeita.
 
-### O Risco de Comprometimento de Tokens
+### O Risco De Comprometimento De Tokens
 
 Os servidores MCP frequentemente armazenam tokens de autenticação para vários serviços, representando [um alvo de alto valor para atacantes](https://www.pillar.security/blog/the-security-risks-of-model-context-protocol-mcp). Se um servidor for comprometido, o atacante ganha:
 
@@ -33,17 +31,17 @@ Os servidores MCP frequentemente armazenam tokens de autenticação para vários
 
 Em um ambiente com múltiplos servidores MCP, um servidor malicioso pode [substituir ou interceptar chamadas](https://simonwillison.net/2025/Apr/9/mcp-prompt-injection/) destinadas a um servidor confiável. Esse tipo de ataque "homem no meio" pode permitir que ferramentas maliciosas se passem por legítimas, redirecionando dados sensíveis ou executando ações não autorizadas.
 
-## Limitações Técnicas e Arquitetônicas
+## Limitações Técnicas E Arquitetônicas
 
-### Paradoxo do Contexto
+### Paradoxo Do Contexto
 
 Um desafio fundamental dos LLMs é o que podemos chamar de "paradoxo do contexto" - quanto mais contexto instrucional fornecemos, muitas vezes [menos confiável se torna o desempenho](https://blog.sshh.io/p/everything-wrong-with-mcp). Isso contradiz a intuição de muitos usuários que acreditam que mais dados e integrações sempre melhoram os resultados.
 
-### Complexidade de Padronização
+### Complexidade De Padronização
 
 Criar padrões universais de ferramentas que funcionem bem com diferentes assistentes e aplicações é extremamente desafiador. Os [padrões de consulta-ferramenta ideais](https://blog.sshh.io/p/everything-wrong-with-mcp) podem variar significativamente entre diferentes LLMs e casos de uso.
 
-### Erros de Configuração e Implementação
+### Erros De Configuração E Implementação
 
 A maioria dos problemas práticos com MCP deriva de [erros de configuração ou dificuldades de integração](https://daily.dev/blog/what-is-mcp-model-context-protocol). Exemplos comuns incluem:
 
@@ -52,37 +50,37 @@ A maioria dos problemas práticos com MCP deriva de [erros de configuração ou 
 - Manipulação inadequada de erros
 - Falta de monitoramento de processos do servidor
 
-### Sobrecarga de Gerenciamento de Contexto
+### Sobrecarga De Gerenciamento De Contexto
 
 O gerenciamento eficaz de contexto é tecnicamente desafiador, envolvendo problemas de [sobrecarga computacional, detecção de relevância e preservação de coerência](https://ai2sql.io/mcp-ai) durante compressão e resumo de informações.
 
-## Riscos de Compatibilidade e Integração
+## Riscos De Compatibilidade E Integração
 
-### Bloqueio de Fornecedor (Vendor Lock-in)
+### Bloqueio De Fornecedor (Vendor Lock-in)
 
 Extensões proprietárias ao MCP podem resultar em [bloqueio de fornecedor](https://humanloop.com/blog/mcp), limitando a flexibilidade de implementações. Manter a compatibilidade retroativa à medida que o protocolo evolui também pode se tornar cada vez mais desafiador.
 
-### Curva de Aprendizado e Complexidade
+### Curva De Aprendizado E Complexidade
 
 O MCP introduz sua própria [curva de aprendizado e complexidades de integração](https://humanloop.com/blog/mcp), exigindo que empresas se familiarizem com conceitos específicos do protocolo como prompts, recursos e ferramentas.
 
-### Ausência de Padrões Estabelecidos
+### Ausência De Padrões Estabelecidos
 
 Estamos ainda nos estágios iniciais do MCP, com uma [ausência de padrões universalmente adotados](https://ai2sql.io/mcp-ai). Isso cria um cenário onde diferentes implementações podem ter divergências significativas, complicando a interoperabilidade.
 
-## Preocupações com Privacidade e Dados
+## Preocupações Com Privacidade E Dados
 
-### Propagação de Erros
+### Propagação De Erros
 
 Erros na [seleção inicial de contexto podem se propagar](https://ai2sql.io/mcp-ai) por toda a cadeia de processamento, levando a resultados incorretos ou inseguros.
 
-### Exfiltração de Dados
+### Exfiltração De Dados
 
 A combinação de dados privados, instruções não confiáveis e vetores de exfiltração cria um [coquetel potencialmente tóxico](https://simonwillison.net/2025/Apr/9/mcp-prompt-injection/) que ferramentas MCP podem facilmente viabilizar se não forem adequadamente controladas.
 
-## Melhores Práticas para um MCP Mais Seguro
+## Melhores Práticas Para Um MCP Mais Seguro
 
-### Para Desenvolvedores de Servidores
+### Para Desenvolvedores De Servidores
 
 1. **Validação rigorosa de entradas**
     
@@ -100,7 +98,7 @@ A combinação de dados privados, instruções não confiáveis e vetores de exf
     - Explique quais permissões são necessárias e por quê
     - Mantenha logs detalhados de todas as operações
 
-### Para Desenvolvedores de Clientes
+### Para Desenvolvedores De Clientes
 
 1. **Controle de usuário efetivo**
     
