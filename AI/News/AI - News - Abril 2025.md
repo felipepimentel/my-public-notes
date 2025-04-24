@@ -97,5 +97,3 @@ Em abril de 2025, a IA passa da era generativa para a era do raciocínio. Modelo
 **Tendência Emergente**: A convergência entre robótica avançada e agentes de IA está criando uma nova categoria de assistentes físicos inteligentes, com projeção de crescimento de 85% até 2027.
 
 ---
-
-_IA em Foco: Acompanhando o futuro, hoje._
