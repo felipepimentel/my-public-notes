@@ -1,5 +1,4 @@
-# AI - News - Abril 2025
-## Newsletter Mensal | Abril 2025
+# Newsletter Mensal | Abril 2025
 
 ## 💫 O Momento Da IA
 
