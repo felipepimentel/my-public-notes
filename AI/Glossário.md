@@ -1,20 +1,20 @@
-# 🌐 Glossário da Era da Inteligência Artificial 2025
+# 🌐 Glossário Da Era Da Inteligência Artificial 2025
 
-## Fundamentos de IA
+## Fundamentos De IA
 
-|Termo|Descrição|
-|---|---|
-|**Aprendizado de Máquina (Machine Learning)**|Algoritmos que aprendem padrões a partir de dados sem serem explicitamente programados.|
-|**Redes Neurais**|Sistemas computacionais inspirados no cérebro humano, compostos por nodos interconectados.|
-|**Aprendizado Profundo (Deep Learning)**|Técnica que utiliza redes neurais com múltiplas camadas para aprender representações complexas.|
-|**Processamento de Linguagem Natural (PLN)**|Campo da IA focado em como as máquinas entendem e respondem à linguagem humana.|
-|**Visão Computacional**|Área que permite computadores interpretar e processar informações visuais como imagens e vídeos.|
-|**Aprendizado por Reforço**|Técnica onde agentes aprendem a tomar decisões através de tentativa e erro para maximizar recompensas.|
-|**Classificação**|Tarefa de predição que atribui uma categoria ou rótulo a partir de dados de entrada.|
-|**Regressão**|Tarefa de predição onde o objetivo é estimar um valor numérico contínuo.|
-|**Dataset (Conjunto de Dados)**|Coleção de dados usada para treinar e avaliar modelos de IA.|
+| Termo                                         | Descrição                                                                                              |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| **Aprendizado de Máquina (Machine Learning)** | Algoritmos que aprendem padrões a partir de dados sem serem explicitamente programados.                |
+| **Redes Neurais**                             | Sistemas computacionais inspirados no cérebro humano, compostos por nodos interconectados.             |
+| **Aprendizado Profundo (Deep Learning)**      | Técnica que utiliza redes neurais com múltiplas camadas para aprender representações complexas.        |
+| **Processamento de Linguagem Natural (PLN)**  | Campo da IA focado em como as máquinas entendem e respondem à linguagem humana.                        |
+| **Visão Computacional**                       | Área que permite computadores interpretar e processar informações visuais como imagens e vídeos.       |
+| **Aprendizado por Reforço**                   | Técnica onde agentes aprendem a tomar decisões através de tentativa e erro para maximizar recompensas. |
+| **Classificação**                             | Tarefa de predição que atribui uma categoria ou rótulo a partir de dados de entrada.                   |
+| **Regressão**                                 | Tarefa de predição onde o objetivo é estimar um valor numérico contínuo.                               |
+| **Dataset (Conjunto de Dados)**               | Coleção de dados usada para treinar e avaliar modelos de IA.                                           |
 
-## Protocolos e Infraestrutura
+## Protocolos E Infraestrutura
 
 |Termo|Descrição|
 |---|---|
@@ -29,7 +29,7 @@
 |**AI Orchestration**|Sistemas que coordenam e gerenciam fluxos de trabalho entre múltiplos componentes de IA.|
 |**Serverless AI**|Modelos de implantação onde a infraestrutura é gerenciada automaticamente, escalando conforme necessário.|
 
-## Modelos e Arquiteturas
+## Modelos E Arquiteturas
 
 |Termo|Descrição|
 |---|---|
@@ -43,7 +43,7 @@
 |**SSM (State Space Models)**|Arquitetura alternativa aos transformers com melhor eficiência para sequências longas.|
 |**Stable Diffusion**|Modelo específico de difusão para geração de imagens que opera eficientemente em hardware comum.|
 
-## Técnicas e Metodologias
+## Técnicas E Metodologias
 
 |Termo|Descrição|
 |---|---|
@@ -67,7 +67,7 @@
 |**Análise de Cluster**|Técnica para agrupar dados similares em conjuntos (clusters) sem rótulos prévios.|
 |**Sistemas de Recomendação**|Algoritmos que preveem preferências de usuários para sugerir conteúdo ou produtos relevantes.|
 
-## Desafios e Limitações
+## Desafios E Limitações
 
 |Termo|Descrição|
 |---|---|
@@ -91,7 +91,7 @@
 |**Creative AI Tools**|Ferramentas que auxiliam em processos criativos como design, música e texto.|
 |**Chatbots e Agentes Conversacionais**|Sistemas que simulam conversas humanas para fornecer informações ou assistência.|
 
-## Agentes e Sistemas Autônomos
+## Agentes E Sistemas Autônomos
 
 |Termo|Descrição|
 |---|---|
@@ -104,7 +104,7 @@
 |**MRKL (Modular Reasoning, Knowledge and Language)**|Arquitetura que combina modelos neurais com sistemas simbólicos.|
 |**Robótica em IA**|Aplicação de técnicas de IA para permitir que robôs tomem decisões e executem tarefas autônomas.|
 
-## Ética e Responsabilidade
+## Ética E Responsabilidade
 
 |Termo|Descrição|
 |---|---|
@@ -129,7 +129,7 @@
 |**Collective Intelligence**|Sistemas que combinam inteligência humana e artificial.|
 |**Autonomous AI Systems**|Sistemas completamente autônomos capazes de aprender e operar independentemente.|
 
-## Empresas e Mercado
+## Empresas E Mercado
 
 |Termo|Descrição|
 |---|---|
@@ -151,7 +151,3 @@
 |**Democratized AI**|Movimento para tornar ferramentas de IA acessíveis a um público mais amplo.|
 |**AI Divide**|Disparidade no acesso e benefícios da IA entre diferentes grupos sociais.|
 |**Big Data**|Volumes massivos de dados estruturados e não-estruturados usados para treinar modelos de IA avançados.|
-
----
-
-_Este glossário captura os principais termos que definem a atual era da Inteligência Artificial. Última atualização: Abril 2025._
