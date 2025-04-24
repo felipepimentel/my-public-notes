@@ -1,12 +1,10 @@
-# AI - Landscape - Abril 2025
-
-# Landscape de Inteligência Artificial - Abril 2025
+# Landscape De Inteligência Artificial - Abril 2025
 
 ## Introdução
 
 O cenário de Inteligência Artificial continua em acelerada evolução, com avanços significativos em diversas áreas. Este documento apresenta um panorama abrangente e atualizado das principais categorias, ferramentas, aplicações e frameworks de IA disponíveis atualmente (abril de 2025), oferecendo uma visão clara do estado da arte neste campo dinâmico.
 
-## Categorias Principais de IA
+## Categorias Principais De IA
 
 ```mermaid
 graph TD
@@ -48,11 +46,11 @@ graph TD
     MLOPS --> ORC[Orchestration]
 ```
 
-## 1. Modelos de Linguagem (LLMs)
+## 1. Modelos De Linguagem (LLMs)
 
 Os Grandes Modelos de Linguagem representam um dos avanços mais significativos na IA recente, com capacidade de compreender contexto, gerar texto natural e resolver problemas complexos.
 
-### Principais Modelos e Plataformas
+### Principais Modelos E Plataformas
 
 |Modelo/Plataforma|Empresa|Características Principais|
 |---|---|---|
@@ -69,7 +67,7 @@ Os Grandes Modelos de Linguagem representam um dos avanços mais significativos 
 |[Mistral 3](https://mistral.ai/)|Mistral AI|Alta eficiência, desempenho em tarefas de baixa latência|
 |[Nemotron Ultra](https://www.nvidia.com/en-us/ai-data-science/)|NVIDIA|Modelo especializado em raciocínio adaptativo|
 
-### Frameworks para Fine-tuning e Implementação de LLMs
+### Frameworks Para Fine-tuning E Implementação De LLMs
 
 - [LangChain](https://www.langchain.com/) - Framework para desenvolvimento de aplicações baseadas em LLMs
 - [LlamaIndex](https://www.llamaindex.ai/) - Especializado em recuperação e indexação para LLMs
@@ -86,7 +84,7 @@ Os Grandes Modelos de Linguagem representam um dos avanços mais significativos 
 
 A visão computacional continua evoluindo rapidamente, integrando-se com modelos multimodais e oferecendo novas possibilidades de aplicação.
 
-### Principais Ferramentas e Frameworks
+### Principais Ferramentas E Frameworks
 
 - [YOLOv12](https://blog.roboflow.com/guide-to-yolo-models/) - Estado da arte para detecção de objetos em tempo real, lançado em fevereiro de 2025
 - [YOLO11](https://www.ultralytics.com/yolo) - Suporte para detecção de objetos, segmentação, classificação e detecção de keypoints
@@ -148,9 +146,9 @@ A IA generativa representa um dos campos mais dinâmicos, com avanços constante
 - [Eleven Labs](https://elevenlabs.io/) - Plataforma para vozes sintéticas ultra-realistas
 - [Play.ht](https://play.ht/) - Geração de vozes para diversos contextos
 
-## 4. MLOps e Infraestrutura
+## 4. MLOps E Infraestrutura
 
-### Plataformas de MLOps
+### Plataformas De MLOps
 
 - [MLflow](https://mlflow.org/) - Gestão do ciclo de vida de modelos de ML
 - [Kubeflow](https://www.kubeflow.org/) - Orquestração de fluxos de ML em Kubernetes
@@ -167,7 +165,7 @@ A IA generativa representa um dos campos mais dinâmicos, com avanços constante
 - [Baseten](https://www.baseten.co/) - Backend serverless para aplicações com ML
 - [Featureform](https://www.featureform.com/) - Plataforma de feature store para ML
 
-### Vector Databases e Infraestrutura
+### Vector Databases E Infraestrutura
 
 - [Pinecone](https://www.pinecone.io/) - Database vetorial totalmente gerenciada para buscas de similaridade
 - [Milvus](https://milvus.io/) - Database vetorial open-source para dados em grande escala
@@ -184,9 +182,9 @@ A IA generativa representa um dos campos mais dinâmicos, com avanços constante
 - [Megatron-LM](https://github.com/NVIDIA/Megatron-LM) - Framework para treinamento de LLMs
 - [Hugging Face Inference Endpoints](https://huggingface.co/inference-endpoints) - Deploy de modelos para inferência
 
-## 5. Aplicações Específicas e Verticais
+## 5. Aplicações Específicas E Verticais
 
-### IA para Design e Criatividade
+### IA Para Design E Criatividade
 
 - [Figma AI](https://www.figma.com/ai) - Assistência de design na plataforma Figma
 - [Adobe Firefly](https://www.adobe.com/sensei/generative-ai/firefly.html) - Suite de ferramentas generativas da Adobe
@@ -199,7 +197,7 @@ A IA generativa representa um dos campos mais dinâmicos, com avanços constante
 - [Scenario](https://www.scenario.com/) - Geração de artes conceituais para jogos
 - [UIzard](https://uizard.io/) - Transformação de esboços em designs funcionais
 
-### IA para Produtividade e Negócios
+### IA Para Produtividade E Negócios
 
 - [Copilot for Microsoft 365](https://www.microsoft.com/en-us/microsoft-copilot) - Assistente integrado ao ecossistema Microsoft
 - [Notion AI](https://www.notion.so/product/ai) - Recursos de IA integrados ao Notion
@@ -212,7 +210,7 @@ A IA generativa representa um dos campos mais dinâmicos, com avanços constante
 - [Writer](https://writer.com/) - Plataforma para criação e gestão de conteúdo empresarial
 - [Adept](https://www.adept.ai/) - Assistente de IA para profissionais
 
-### IA para Código e Desenvolvimento
+### IA Para Código E Desenvolvimento
 
 - [GitHub Copilot](https://github.com/features/copilot) - Assistente de codificação baseado em IA
 - [Amazon CodeWhisperer](https://aws.amazon.com/codewhisperer/) - Solução da AWS para assistência de código
@@ -225,9 +223,9 @@ A IA generativa representa um dos campos mais dinâmicos, com avanços constante
 - [Sourcegraph Cody](https://sourcegraph.com/cody) - Busca e compreensão de codebases
 - [Devin](https://www.cognition.dev/) - Agente autônomo para desenvolvimento de software
 
-## 6. IA Responsável e Ética
+## 6. IA Responsável E Ética
 
-### Ferramentas para IA Responsável
+### Ferramentas Para IA Responsável
 
 - [TruEra](https://truera.com/) - Avaliação de qualidade e explicabilidade de modelos
 - [Robust Intelligence](https://www.robustintelligence.com/) - Testes de segurança e robustez para IA
@@ -242,7 +240,7 @@ A IA generativa representa um dos campos mais dinâmicos, com avanços constante
 
 ## 7. Tendências Emergentes
 
-### IA Multiagente e Autônoma
+### IA Multiagente E Autônoma
 
 - [AutoGPT](https://github.com/Significant-Gravitas/AutoGPT) - Sistema experimental de agentes autônomos baseados em LLMs
 - [BabyAGI](https://github.com/yoheinakajima/babyagi) - Framework para tarefas autônomas sequenciais
