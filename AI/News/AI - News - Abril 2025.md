@@ -22,7 +22,7 @@
 
 **[Web Summit Rio](https://rio.websummit.com/)**: 27-30 de abril no Rio de Janeiro, reunindo líderes de tecnologia, investidores e startups para debater o futuro digital.
 
-## 🔮 Tendências em Destaque
+## 🔮 Tendências Em Destaque
 
 **Agentes de IA**: A evolução de assistentes para entidades capazes de realizar tarefas autônomas e tomar decisões complexas está redefinindo nossa interação com a tecnologia.
 
@@ -30,7 +30,7 @@
 
 **IA para Ciência**: Avanços na aplicação de IA para acelerar descobertas científicas, especialmente em áreas como materiais avançados e biomedicina.
 
-## 💼 IA na Prática
+## 💼 IA Na Prática
 
 **Setor Financeiro**: Instituições financeiras estão implementando IA para detecção de fraudes em tempo real, com redução de 37% em alarmes falsos e aumento de 28% na taxa de detecção.
 
@@ -44,7 +44,7 @@ A Comissão Europeia publicou novas diretrizes para implementação do AI Act, c
 
 No Brasil, o projeto de lei sobre regulamentação de IA teve sua tramitação acelerada no Senado, com expectativa de votação até junho.
 
-## 🔍 Glossário do Mês
+## 🔍 Glossário Do Mês
 
 **Agentes Inteligentes**: Sistemas de IA que podem perceber seu ambiente, tomar decisões e executar ações para atingir objetivos específicos.
 
@@ -55,8 +55,3 @@ No Brasil, o projeto de lei sobre regulamentação de IA teve sua tramitação a
 ## 🔜 Próximos Passos
 
 A corrida pela IA continua intensificando-se em 2025, com investimentos recordes das gigantes de tecnologia. Estes avanços prometem revolucionar vários setores da economia, mas também trazem desafios significativos em termos de ética, segurança e regulamentação.
-
----
-
-_Para sugestões ou mais informações, visite [nosso site](https://www.iaemfoco.com/) ou [entre em contato conosco](mailto:contato@iaemfoco.com)_
-
