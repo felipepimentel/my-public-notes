@@ -1,8 +1,6 @@
-# 📘 PDI TRANSFORMADOR
+# 📘 PDI
 
 ## Guia Definitivo para Desenvolvimento Profissional e Pessoal
-
-![Capa do Ebook](https://via.placeholder.com/800x400?text=PDI+Transformador)
 
 ---
 
@@ -810,7 +808,3 @@ O PDI mais sofisticado nada vale sem implementação consistente. Para maximizar
 Obrigado por investir tempo neste guia transformador de PDI. Lembre-se de que o desenvolvimento profissional é uma jornada, não um destino. Cada passo que você dá em direção ao seu melhor eu profissional não apenas transforma sua carreira, mas também impacta positivamente todos ao seu redor.
 
 Desejamos a você uma jornada de desenvolvimento inspiradora e transformadora!
-
----
-
-© 2025 | PDI Transformador: Guia Definitivo para Desenvolvimento Profissional e Pessoal
