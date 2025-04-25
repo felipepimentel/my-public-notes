@@ -3,7 +3,7 @@
 ## Sumário
 
 1. [Introdução](f5de6641-b431-45d8-9ab5-6021ed12f715#introdu%C3%A7%C3%A3o)
-2. [Metodologia de Detecção](f5de6641-b431-45d8-9ab5-6021ed12f715#metodologia-de-detec%C3%A7%C3%A3o)
+2. [Metodologia de Detecção](-6021ed12f715#metodologia-de-detec%C3%A7%C3%A3o)
 3. [Categorias Refinadas de Características](f5de6641-b431-45d8-9ab5-6021ed12f715#categorias-refinadas-de-caracter%C3%ADsticas)
 4. [Matriz de Características por Categoria](f5de6641-b431-45d8-9ab5-6021ed12f715#matriz-de-caracter%C3%ADsticas-por-categoria)
 5. [Sistema de Pontuação e Implementação](f5de6641-b431-45d8-9ab5-6021ed12f715#sistema-de-pontua%C3%A7%C3%A3o-e-implementa%C3%A7%C3%A3o)
