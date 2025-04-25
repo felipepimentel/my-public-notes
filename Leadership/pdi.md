@@ -1278,4 +1278,3 @@ Marina, líder técnica em uma fintech totalmente distribuída, implementou o se
 
 O componente mais inovador de sua abordagem é o conceito de "pair learning" remoto: ela estabelece parcerias de aprendizado com outros líderes técnicos onde compartilham objetivos de desenvolvimento, trocam recursos e mantêm check-ins regulares sobre progresso.
 
-> "No ambiente presencial, muito do desenvolvimento acontecia
