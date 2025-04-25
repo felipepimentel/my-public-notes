@@ -812,7 +812,3 @@ O PDI mais sofisticado nada vale sem implementação consistente. Para maximizar
 - **[Toastmasters](https://www.toastmasters.org/)** - Desenvolvimento de habilidades de comunicação e liderança
 
 ---
-
----
-
-© 2025 | PDI Transformador: Guia Definitivo para Desenvolvimento Profissional e Pessoal
