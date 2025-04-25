@@ -1409,13 +1409,3 @@ Em meio a tantas possibilidades tecnológicas, mantenha princípios fundamentais
 
 > "Meu maior aprendizado foi entender que liderança eficaz não se trata de ter todas as respostas, mas de fazer as perguntas certas e criar um ambiente onde a equipe possa prosperar. O PDI me forneceu estrutura para transformar essa compreensão em práticas diárias concretas." - Ana
 
-#### 📈 Caso 2: A Reinvenção Profissional de Marco
-
-**Contexto Inicial:** Marco, após 15 anos em marketing tradicional, percebeu a necessidade de se reinventar em um mercado cada vez mais digital e orientado a dados.
-
-**Abordagem de PDI:** Marco desenvolveu um plano de transição de dois anos para se tornar um profissional de marketing orientado a dados sem abandonar sua experiência estratégica, seguindo a metodologia de transição de carreira proposta por Herminia Ibarra da INSEAD em seu livro "Working Identity".
-
-**Elementos-chave do PDI:**
-
-- Imersão técnica: cursos formais de análise de dados e automação de marketing
-- Projetos paralelos: aplic
