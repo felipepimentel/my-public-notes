@@ -3,7 +3,7 @@
 ![[91bf74b659beb21622ff995a30ccd287_MD5.svg]]
 
 > _"A forma como nos comunicamos com os outros e conosco mesmos determina a qualidade de nossas vidas."_ — Anthony Robbins
-> 
+
 > _"A comunicação não é sobre dizer o que você pensa. É sobre garantir que o outro entenda o que você quer dizer."_ — Simon Sinek
 
 ## 🔍 Índice
