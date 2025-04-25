@@ -463,3 +463,4 @@ graph LR
     - Use perguntas que provocam compartilhamento de experiências
 
 **Exemplo prático:** Carla, CTO de uma startup
+
