@@ -1,9 +1,9 @@
 # A Arte da Comunicação Eficaz na Liderança: Um Guia Prático e Abrangente
 
-![Header Image](https://placehold.co/800x200/e9f5e9/31572c?text=Comunica%C3%A7%C3%A3o+Eficaz+em+Lideran%C3%A7a)
+![[91bf74b659beb21622ff995a30ccd287_MD5.svg]]
 
 > _"A forma como nos comunicamos com os outros e conosco mesmos determina a qualidade de nossas vidas."_ — Anthony Robbins
-
+> 
 > _"A comunicação não é sobre dizer o que você pensa. É sobre garantir que o outro entenda o que você quer dizer."_ — Simon Sinek
 
 ## 🔍 Índice
