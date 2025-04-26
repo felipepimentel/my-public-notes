@@ -289,7 +289,7 @@ Este jogo foi cientificamente elaborado para crianças com TDAH porque:
 
 ## Reflexão Final Para Os Pais
 
-Lembrem-se: a jornada do TDAH é como uma maratona, não uma corrida de 100 metros. Haverá dias difíceis e dias maravilhosos.
+	Lembrem-se: a jornada do TDAH é como uma maratona, não uma corrida de 100 metros. Haverá dias difíceis e dias maravilhosos.
 
 O que mais importa não é a "perfeição" na gestão do TDAH, mas a conexão, compreensão e crescimento conjunto da família. Vocês estão criando uma criança incrível que vê o mundo de forma única e tem potencial extraordinário!
 
