@@ -1,8 +1,8 @@
-# A Arte E Ciência Da Tomada De Decisão: Guia Definitivo Para Líderes Tech no Brasil
+# A Arte e Ciência da Tomada de Decisão: Guia Definitivo para Líderes Tech no Brasil
 
 > _"A qualidade das suas decisões hoje determina a trajetória da sua liderança amanhã. E não, isso não é frase de post motivacional do LinkedIn."_
 
-## Introdução: Por Que a Maioria Dos Líderes Tech Decide Mal (Incluindo Eu, Várias Vezes)
+## Introdução: Por Que a Maioria dos Líderes Tech Decide Mal (Incluindo Eu, Várias Vezes)
 
 E aí, já se pegou numa daquelas reuniões intermináveis onde parece que ninguém consegue bater o martelo? Ou pior: já tomou uma decisão "óbvia" só pra descobrir três meses depois que era um tiro no pé completo? Seja sincero. Todos nós já estivemos lá.
 
@@ -12,7 +12,7 @@ A real? A maioria de nós nunca foi treinada formalmente para tomar decisões co
 
 Quero compartilhar o que aprendi na prática – muitas vezes do jeito mais doloroso – sobre como tomar decisões que não voltam para te assombrar depois. E não, não é sobre se tornar perfeito (isso não existe), mas sim sobre ter um processo que eleva drasticamente suas chances de acertar.
 
-## A Dura Verdade Sobre Decisões Em Tech
+## A Dura Verdade Sobre Decisões em Tech
 
 Vamos começar com dados que ninguém fala nas palestras de liderança:
 
@@ -31,25 +31,25 @@ pie title "Por que decisões técnicas falham?"
 
 Ah, e o mais chocante: em um estudo que conduzi com 27 empresas tech brasileiras (de startups a grandes corporações), descobri que a maioria dos líderes acredita estar no topo da escala de maturidade decisória, quando na verdade suas práticas os colocam na parte inferior. Efeito Dunning-Kruger na veia, galera.
 
-## Os 3 Níveis De Maturidade Na Tomada De Decisão
+## Os 3 Níveis de Maturidade na Tomada de Decisão
 
 Vamos ser honestos, a maioria dos líderes tech (inclusive eu, em muitos momentos) opera no Nível 1 ou, com esforço, no Nível 2:
 
-### Nível 1: Decisões Por Instinto 🦖
+### Nível 1: Decisões por Instinto 🦖
 
 - Baseadas principalmente em experiências passadas
 - "Na minha última empresa fazíamos assim..."
 - "Sinto que essa abordagem vai funcionar melhor"
 - **Problema**: Altamente suscetível a vieses, funciona apenas em contextos idênticos aos já vivenciados
 
-### Nível 2: Decisões Por Consenso 🗣️
+### Nível 2: Decisões por Consenso 🗣️
 
 - Busca de concordância da equipe/stakeholders
 - "Todos concordam com essa abordagem?"
 - "Vamos votar para decidir"
 - **Problema**: Frequentemente leva ao pensamento de grupo e à "média" das opiniões (que pode ser medíocre)
 
-### Nível 3: Decisões Por Princípios E Dados 🧪
+### Nível 3: Decisões por Princípios e Dados 🧪
 
 - Estabelece critérios claros antes de analisar opções
 - Coleta dados relevantes (mesmo que limitados)
@@ -59,11 +59,11 @@ Vamos ser honestos, a maioria dos líderes tech (inclusive eu, em muitos momento
 
 > **A dura verdade**: A maioria dos líderes acha que está no Nível 3, mas na realidade está no Nível 1 com uma roupagem de Nível 2.
 
-## Vieses Cognitivos: Os Inimigos Invisíveis Da Boa Decisão
+## Vieses Cognitivos: Os Inimigos Invisíveis da Boa Decisão
 
 Os vieses cognitivos são como bugs no nosso sistema operacional mental - difíceis de detectar e ainda mais difíceis de corrigir. Entender esses vieses é o primeiro passo para não ser controlado por eles.
 
-### Vieses Mais Comuns Em Decisões Técnicas
+### Vieses Mais Comuns em Decisões Técnicas
 
 |Viés|Como se Manifesta|Técnica de Mitigação|
 |---|---|---|
@@ -75,7 +75,7 @@ Os vieses cognitivos são como bugs no nosso sistema operacional mental - difíc
 |**Viés de Status Quo**|Preferir manter as coisas como estão, mesmo quando há alternativas melhores|Exercício "E se": "Se não estivéssemos usando esta abordagem hoje, a escolheríamos?"|
 |**Viés de Autoridade**|Dar peso excessivo à opinião das pessoas mais seniores/influentes|Técnica da opinião anônima: coletar inputs sem identificação antes da discussão|
 
-### Como Neutralizar Vieses Na Prática
+### Como Neutralizar Vieses na Prática
 
 A técnica mais poderosa que já vi é o que chamo de "Pré-compromisso com critérios":
 
@@ -85,7 +85,7 @@ A técnica mais poderosa que já vi é o que chamo de "Pré-compromisso com crit
 
 **Exemplo real**: Em uma escolha de stack no Nubank, estabelecemos critérios muito claros (performance, maturidade no mercado, curva de aprendizado para o time) e nos comprometemos com eles. Acabamos escolhendo uma tecnologia que inicialmente não era a favorita dos arquitetos seniores, mas que atendia melhor aos critérios. Três anos depois, essa decisão provou ser correta e evitou reescritas caras.
 
-## O Framework DECIDE: Simples, Mas Poderoso
+## O Framework DECIDE: Simples, mas Poderoso
 
 Depois de errar MUITO e ver decisões voltarem para me assombrar, desenvolvi uma abordagem que chamo de DECIDE (sim, sou péssimo com acrônimos, mas fica fácil de lembrar):
 
@@ -104,7 +104,7 @@ graph TD
     style F fill:#e1f5fe
 ```
 
-### D - Defina O Problema REAL
+### D - Defina o problema REAL
 
 A quantidade de vezes que vi times debatendo soluções para o problema errado é assustadora. Antes de qualquer coisa, você precisa garantir que está resolvendo o problema certo.
 
@@ -141,7 +141,7 @@ mindmap
       Legado
 ```
 
-### E - Estabeleça Critérios Claros
+### E - Estabeleça critérios claros
 
 Defina ANTES quais fatores são importantes para a decisão e, crucialmente, como você vai ponderá-los.
 
@@ -170,7 +170,7 @@ Onde:
 - **Confidence**: Quão confiantes estamos (20%, 50%, 80%, 100%)
 - **Effort**: Quanto esforço será necessário (1-10)
 
-### C - Colete Dados Relevantes
+### C - Colete dados relevantes
 
 Mesmo com limitações de tempo, é sempre possível coletar alguns dados. Não precisa ser perfeito, mas precisa ser melhor que "eu acho que".
 
@@ -202,7 +202,7 @@ Fontes valiosas que muitos ignoram:
 - [Tempo máximo: geralmente 1-2 dias]
 ```
 
-### I - Identifique Alternativas
+### I - Identifique alternativas
 
 Evite a armadilha de considerar apenas 2 opções (a favorita e uma alternativa fraca). Busque ativamente pelo menos 3-4 alternativas sólidas.
 
@@ -212,7 +212,7 @@ Uma prática que adotei: sempre incluir a opção "não fazer nada" ou "adiar a 
 
 **Método avançado**: Design Studios - sessões onde cada participante propõe individualmente uma solução completa sem conhecer as propostas dos outros. Depois, cruzamos as propostas para identificar padrões e inovações.
 
-### D - Documente Trade-offs
+### D - Documente trade-offs
 
 Essa é a parte que separa os adultos das crianças na sala. Toda decisão tem trade-offs - quem diz que não tem está mentindo ou não analisou direito.
 
@@ -245,7 +245,7 @@ Essa é a parte que separa os adultos das crianças na sala. Toda decisão tem t
 
 > **Dica prática**: Crie uma tag no Obsidian `#decisao` e um template como esse. Suas futuras decisões vão agradecer!
 
-### E - Execute E Monitore
+### E - Execute e monitore
 
 A fase que todo mundo esquece! Uma boa decisão inclui como você vai validar se ela foi realmente boa.
 
@@ -255,11 +255,11 @@ Defina indicadores antecipados de sucesso/fracasso e momentos explícitos para r
 
 **Técnica efetiva**: Decisões timeboxed - especialmente para escolhas reversíveis. "Vamos tentar esta abordagem por 6 semanas e então reavaliar com base em X, Y e Z métricas."
 
-## Ferramentas Para Cada Fase Da Decisão
+## Ferramentas para Cada Fase da Decisão
 
 Para cada etapa do framework DECIDE, existem ferramentas específicas que podem elevar significativamente a qualidade das suas decisões:
 
-### Para Definir O Problema Real
+### Para Definir o Problema Real
 
 - **Mapa de Impacto**: Diagrama que conecta o problema técnico aos impactos de negócio
 - **Análise de Causa Raiz**: Além do "5 Porquês", tente o método Ishikawa (espinha de peixe)
@@ -271,7 +271,7 @@ Para cada etapa do framework DECIDE, existem ferramentas específicas que podem 
 - **Análise Must-Have vs. Nice-to-Have**: Forçando priorização real
 - **Weighted Scoring Model**: Template com ponderações para diferentes critérios
 
-### Para Coleta De Dados
+### Para Coleta de Dados
 
 - **Spike Solutions**: Código descartável para validar hipóteses técnicas (1-2 dias)
 - **Dark Launches**: Implemente no ambiente real sem expor aos usuários
@@ -289,13 +289,13 @@ Para cada etapa do framework DECIDE, existem ferramentas específicas que podem 
 - **Pré-Mortem**: Imagine que a decisão falhou; documente por quê
 - **Análise de Riscos**: Matriz de probabilidade vs. impacto com planos de mitigação
 
-### Para Executar E Monitorar
+### Para Executar e Monitorar
 
 - **DACI Framework**: Define quem é Decisor, Aprovador, Consultado e Informado
 - **Métricas de Validação**: KPIs específicos para confirmar sucesso/fracasso
 - **Timebox para Revisão**: Calendário explícito para reavaliar a decisão
 
-## Adaptando Para Seu Nível De Liderança
+## Adaptando Para Seu Nível de Liderança
 
 A tomada de decisão muda conforme você sobe na hierarquia. Vamos ver como:
 
@@ -346,15 +346,15 @@ A tomada de decisão muda conforme você sobe na hierarquia. Vamos ver como:
 
 > **Reflexão incômoda**: Quanto mais sênior você é, mais suas decisões afetam outros - e portanto mais rigoroso deveria ser seu processo de decisão. Mas na prática, muitos líderes seniores decidem com menos rigor porque "têm mais experiência". Irônico, não?
 
-## Estudo De Caso: Decisão Arquitetural no Nubank
+## Estudo de Caso: Decisão Arquitetural no Nubank
 
 Participei de uma decisão no Nubank sobre migrar de um monolito para microserviços. Vou compartilhar como aplicamos um processo similar ao DECIDE (embora na época não tivesse esse nome):
 
-### Definição Do Problema
+### Definição do Problema
 
 O problema inicial apresentado era: "Nosso monolito está lento e difícil de manter". Depois de várias discussões, redefinimos para: "Nossa capacidade de entregar features está diminuindo em 18% a cada trimestre devido a acoplamentos no código e conflitos de merge".
 
-### Estabelecimento De Critérios
+### Estabelecimento de Critérios
 
 Criamos uma matriz de decisão com pesos:
 
@@ -366,20 +366,20 @@ Criamos uma matriz de decisão com pesos:
 |Custo de infra|3|Impacto no unit economics|
 |Curva de aprendizado|3|Time com experiência variada|
 
-### Coleta De Dados
+### Coleta de Dados
 
 - Profiling detalhado do monolito para identificar hotspots
 - Entrevistamos Spotify e iFood sobre suas migrações
 - Realizamos um spike (2 semanas) extraindo um serviço não-crítico
 
-### Identificação De Alternativas
+### Identificação de Alternativas
 
 1. Manter monolito mas refatorar para modularidade interna
 2. Microserviços completos (25-30 serviços)
 3. "Macroserviços" (3-5 serviços grandes por domínio)
 4. Abordagem híbrida: núcleo como monolito, novos domínios como serviços
 
-### Documentação De Trade-offs
+### Documentação de Trade-offs
 
 Para a opção escolhida (a híbrida):
 
@@ -389,7 +389,7 @@ Para a opção escolhida (a híbrida):
 - ❌ Complexidade de manter dois modelos
 - ❌ Necessidade de gateway de API bem desenhada
 
-### Execução E Monitoração
+### Execução e Monitoração
 
 - Definimos métricas de sucesso: tempo de lead de feature, frequência de deploy, incidentes
 - Prazo de 6 meses para primeira revisão formal
@@ -397,7 +397,7 @@ Para a opção escolhida (a híbrida):
 
 **Resultado**: Após 9 meses, observamos redução de 62% no tempo de entrega nos domínios migrados, mas custos de infra 40% maiores que o previsto. Ajustamos a estratégia mas mantivemos a direção.
 
-## Erros Que Até Os Melhores Líderes Cometem
+## Erros que Até os Melhores Líderes Cometem
 
 Depois de ver centenas de decisões em empresas como Nubank, iFood e várias startups, identifiquei padrões de erro até nos melhores líderes:
 
@@ -407,7 +407,7 @@ Apresentar apenas duas opções extremas, quando existem múltiplas possibilidad
 
 **Exemplo clássico**: "Ou reescrevemos tudo do zero ou continuamos acumulando tech debt"
 
-### 2. Ignorar O Custo Do Status Quo
+### 2. Ignorar o Custo do Status Quo
 
 Não considerar que "não fazer nada" também tem um custo, muitas vezes alto.
 
@@ -437,23 +437,23 @@ quadrantChart
     "Implementar feature toggles": [0.4, 0.2]
 ```
 
-### 5. Recusa Em Matar Alternativas
+### 5. Recusa em Matar Alternativas
 
 Não eliminar opções claramente inferiores, mantendo-as "só por desencargo"
 
 **Técnica corretiva**: Seja explícito sobre quais alternativas foram consideradas e rejeitadas, e por quê.
 
-### 6. Ignorar Sinais De Aviso Precoces
+### 6. Ignorar Sinais de Aviso Precoces
 
 Não definir indicadores claros para detectar problemas no início da implementação.
 
 **Prática recomendada**: Defina explicitamente "trigger points" - condições que, se ocorrerem, disparam uma reavaliação imediata.
 
-## A Arte De Decidir no Reino Da Incerteza
+## A Arte de Decidir no Reino da Incerteza
 
 Uma coisa é tomar decisões quando você tem dados claros, experiência direta e baixa incerteza. Outra completamente diferente é decidir quando está navegando em águas desconhecidas – exatamente o cenário que enfrentamos nas tecnologias emergentes, novos mercados ou transformações organizacionais profundas.
 
-### O Paradoxo Da Incerteza
+### O Paradoxo da Incerteza
 
 Existe um paradoxo cruel na tomada de decisão: **quanto mais importante a decisão, tipicamente menor a quantidade de dados confiáveis disponíveis.** As decisões verdadeiramente transformadoras raramente contam com precedentes claros.
 
@@ -473,7 +473,7 @@ quadrantChart
     "Adotar IA Generativa": [0.8, 0.3]
 ```
 
-### Técnicas Para Decidir Na Incerteza
+### Técnicas para Decidir na Incerteza
 
 Após ver muitas decisões sob incerteza darem certo (e outras tantas falharem espetacularmente), algumas abordagens se provaram mais eficazes:
 
@@ -519,7 +519,7 @@ Um aspecto crítico, mas frequentemente ignorado, da liderança técnica é a "m
 
 Essas meta-decisões frequentemente têm mais impacto no resultado final do que a decisão em si.
 
-### O Framework ODDC Para Meta-decisões
+### O Framework ODDC para Meta-decisões
 
 Depois de muito erro e acerto, encontrei um framework que funciona para determinar como abordar cada decisão:
 
@@ -571,7 +571,7 @@ Identifique ativamente quem precisa ser consultado:
 - **Implementadores**: Responsáveis por executar a decisão
 - **Challengers**: Pessoas que pensam diferente do grupo principal
 
-### O Anti-padrão "Roubo De Decisão"
+### O Anti-padrão "Roubo de Decisão"
 
 Um fenômeno tóxico que observei em várias organizações é o que chamo de "roubo de decisão" – quando pessoas não diretamente envolvidas ou responsáveis assumem controle de decisões que não lhes cabem.
 
@@ -590,11 +590,11 @@ Um fenômeno tóxico que observei em várias organizações é o que chamo de "r
 4. Quando a decisão precisa ser tomada
 5. Como a decisão será documentada e comunicada
 
-## A Ciência Da Comunicação De Decisões
+## A Ciência da Comunicação de Decisões
 
 Já vi decisões tecnicamente excelentes falharem miseravelmente na implementação porque a comunicação foi negligenciada. A comunicação não é um "nice to have" - é parte integral da decisão.
 
-### Princípios Para Comunicação Efetiva De Decisões
+### Princípios para Comunicação Efetiva de Decisões
 
 1. **Adapte a mensagem para cada audiência**
 
@@ -636,7 +636,7 @@ A transparência sobre o que você está sacrificando cria mais confiança do qu
 |[Benefício 1]|[Custo/Risco 1]|[Estratégia de mitigação]|
 |[Benefício 2]|[Custo/Risco 2]|[Estratégia de mitigação]|
 
-## Adaptando O Processo Para Diferentes Culturas Organizacionais
+## Adaptando o Processo para Diferentes Culturas Organizacionais
 
 Um erro que cometi no passado foi tentar aplicar o mesmo processo de decisão em contextos radicalmente diferentes. A verdade é que o processo precisa ser adaptado à cultura organizacional, senão vai ser rejeitado como um corpo estranho.
 
@@ -656,7 +656,7 @@ Características:
 - Maior peso para experimentação vs. análise prévia
 - Ciclos de feedback muito curtos (dias, não semanas)
 
-### Em Empresas De Crescimento (Scale-ups)
+### Em Empresas de Crescimento (Scale-ups)
 
 Características:
 
@@ -690,11 +690,11 @@ Características:
 
 > **Dica real**: Em ambientes corporativos, muitas vezes o mais importante não é o processo decisório em si, mas como você o "vende" internamente. Passe tanto tempo preparando a comunicação quanto na análise técnica.
 
-## Decisões Em Tempos De IA E Automação
+## Decisões em Tempos de IA e Automação
 
 Não dá mais pra ignorar o impacto da IA e automação no processo decisório. Essa é a nova realidade que estamos enfrentando como líderes tech, com implicações profundas na forma como tomamos decisões.
 
-### O Papel Da IA Na Tomada De Decisão
+### O Papel da IA na Tomada de Decisão
 
 A IA está transformando o processo decisório de três formas principais:
 
@@ -715,7 +715,7 @@ flowchart TB
     G --> H[Decisão Final]
 ```
 
-### O Paradoxo Da Automação Na Decisão
+### O Paradoxo da Automação na Decisão
 
 Existe um paradoxo intrigante: quanto mais automatizamos decisões de baixo nível, mais cruciais (e difíceis) se tornam as decisões humanas que restam.
 
@@ -736,11 +736,11 @@ Isso inclui:
 
 > "A grande ironia é que, quanto mais avançamos em IA, mais importante se torna a qualidade das decisões humanas. Não estamos eliminando a decisão humana, estamos elevando seu nível de abstração." - Ana Luiza, CTO do iFood
 
-## Facilitação De Decisões: Como Conduzir Sessões Que Realmente Funcionam
+## Facilitação de Decisões: Como Conduzir Sessões que Realmente Funcionam
 
 Uma coisa é ter um framework de decisão, outra completamente diferente é facilitar uma sessão de tomada de decisão que não vire um festival de egos ou uma perda de tempo coletiva. Depois de facilitar (e arruinar) centenas de sessões de decisão, aqui vão as técnicas que realmente funcionam.
 
-### Preparação: O Segredo Que Ninguém Conta
+### Preparação: O Segredo que Ninguém Conta
 
 A qualidade da sua facilitação é determinada 80% pela preparação e apenas 20% pela execução.
 
@@ -760,7 +760,7 @@ A qualidade da sua facilitação é determinada 80% pela preparação e apenas 2
 
 Isso me permite identificar desalinhamentos e resistências antes mesmo da sessão começar.
 
-### Estrutura De Sessão Que Realmente Funciona
+### Estrutura de Sessão que Realmente Funciona
 
 Esta estrutura de 5 etapas funciona para quase qualquer decisão complexa que envolva um grupo de 3-12 pessoas:
 
@@ -807,29 +807,29 @@ graph TD
 - Documentação clara dos compromissos
 - Definição de como comunicar a decisão
 
-### Técnicas De Facilitação Que Fazem a Diferença
+### Técnicas de Facilitação que Fazem a Diferença
 
 Estas técnicas salvaram inúmeras sessões de decisão que eu facilitei:
 
-#### 👑 Separação Temporal De Divergência E Convergência
+#### 👑 Separação Temporal de Divergência e Convergência
 
 O erro mais comum: misturar geração de ideias com avaliação de ideias. Seja disciplinado em separar estes momentos.
 
 **Como fazer:** Use a regra "Agora estamos apenas gerando alternativas. Não vamos avaliar nenhuma até termos pelo menos X opções."
 
-#### 👑 Escrita Antes Da Fala
+#### 👑 Escrita Antes da Fala
 
 Para evitar que as vozes mais altas/seniores dominem, use o princípio "pense e escreva antes de discutir".
 
 **Como fazer:** Distribua post-its ou use ferramentas como Miro/Mural e dê 5-10 minutos para todos escreverem suas ideias antes de qualquer discussão.
 
-#### 👑 Facilitador Como Guardião Do Processo (não Do Conteúdo)
+#### 👑 Facilitador como Guardião do Processo (não do Conteúdo)
 
 Como facilitador, sua função é proteger o processo, não influenciar o conteúdo.
 
 **Técnica prática:** Nomeie explicitamente quando está "trocando de chapéu" entre facilitador e participante com conteúdo para contribuir.
 
-#### 👑 Votação Com Ponto Único De Falha
+#### 👑 Votação com Ponto Único de Falha
 
 Para decisões realmente importantes, uso a técnica de "Conforto com Consequências":
 
@@ -859,11 +859,11 @@ Facilitar decisões remotamente requer técnicas específicas:
     - Alternância entre trabalho individual, em pares e coletivo
     - Check-ins de energia (0-10) para monitorar engajamento
 
-## Checklists Práticas Para Diferentes Tipos De Decisão
+## Checklists Práticas para Diferentes Tipos de Decisão
 
 Uma ferramenta que desenvolvi ao longo dos anos são checklists específicas para diferentes tipos de decisão. Vou compartilhar três que uso frequentemente:
 
-### Checklist: Decisões Técnicas De Alto Impacto
+### Checklist: Decisões Técnicas de Alto Impacto
 
 **Antes da Decisão:**
 
@@ -890,7 +890,7 @@ Uma ferramenta que desenvolvi ao longo dos anos são checklists específicas par
 - [ ] Métricas de sucesso definidas
 - [ ] Data para revisão da decisão agendada
 
-### Checklist: Decisões Rápidas Sob Pressão (ex: incidentes)
+### Checklist: Decisões Rápidas sob Pressão (ex: incidentes)
 
 - [ ] Problema definido em uma frase clara
 - [ ] Impacto imediato quantificado (usuários/$ afetados)
@@ -901,7 +901,7 @@ Uma ferramenta que desenvolvi ao longo dos anos são checklists específicas par
 - [ ] Plano de comunicação definido
 - [ ] Momento para revisão pós-incidente agendado
 
-### Checklist: Decisões Organizacionais (ex: Reorganização De times)
+### Checklist: Decisões Organizacionais (ex: reorganização de times)
 
 - [ ] Problema/oportunidade claramente articulado
 - [ ] Objetivos organizacionais explícitos
@@ -914,11 +914,11 @@ Uma ferramenta que desenvolvi ao longo dos anos são checklists específicas par
 - [ ] Critérios de sucesso mensuráveis
 - [ ] Pontos de checkpoint definidos (30-60-90 dias)
 
-## Biblioteca De Perguntas Poderosas Para Desbloquear Decisões
+## Biblioteca de Perguntas Poderosas para Desbloquear Decisões
 
 Depois de anos facilitando decisões difíceis, percebi que às vezes uma única pergunta bem formulada pode desbloquear todo um processo. Aqui estão algumas das mais poderosas que mantenho no meu arsenal:
 
-### Para Clarificar O Problema Real
+### Para Clarificar o Problema Real
 
 - "Se resolvermos completamente esse problema, que outros problemas desapareceriam como consequência?"
 - "Quem seria o maior beneficiado com a resolução desse problema? E quem potencialmente perderia algo?"
@@ -932,7 +932,7 @@ Depois de anos facilitando decisões difíceis, percebi que às vezes uma única
 - "Que abordagem seria mais contraintuitiva, mas potencialmente transformadora?"
 - "Se tivéssemos metade do orçamento/tempo, qual seria nossa abordagem?"
 
-### Para Avaliar Opções Com Mais Profundidade
+### Para Avaliar Opções com Mais Profundidade
 
 - "Quais pressupostos precisam ser verdadeiros para que esta solução seja bem-sucedida?"
 - "Como saberíamos nos primeiros 30 dias que estamos no caminho errado?"
@@ -946,7 +946,7 @@ Depois de anos facilitando decisões difíceis, percebi que às vezes uma única
 - "Numa escala de 1-10, qual seu nível de conforto com essa decisão? O que seria necessário para aumentar em 2 pontos?"
 - "Se fôssemos revisitar esta decisão em 6 meses, o que gostaríamos de ter considerado hoje?"
 
-## Workshop De Decisão: Um Modelo Prático De 3 Horas
+## Workshop de Decisão: Um Modelo Prático de 3 Horas
 
 Baseado em anos refinando o processo, este é o modelo de workshop de decisão que uso para problemas complexos quando temos o luxo de dedicar 3 horas focadas:
 
@@ -964,7 +964,7 @@ Baseado em anos refinando o processo, este é o modelo de workshop de decisão q
 
 **Dica de ouro**: Envie um "pré-trabalho" 48h antes, com a definição inicial do problema e solicite que cada participante traga pelo menos 2 possíveis alternativas já pensadas. Isso economiza tempo precioso durante o workshop.
 
-## Criando Uma Cultura De Decisões Efetivas
+## Criando uma Cultura de Decisões Efetivas
 
 Depois de anos tentando melhorar decisões específicas, percebi que o maior alavancador é criar uma cultura organizacional que valoriza e possibilita boas decisões. Aqui estão práticas concretas implementei em diferentes equipes:
 
@@ -978,7 +978,7 @@ Criamos um repositório compartilhado de decisões importantes:
 
 **Impacto mensurável**: Times que mantiveram um journal por >6 meses demonstraram 37% menos decisões revertidas, segundo um estudo que conduzimos internamente.
 
-### 2. "Terças De Decisão"
+### 2. "Terças de Decisão"
 
 Um padrão que implementei em várias equipes:
 
@@ -989,7 +989,7 @@ Um padrão que implementei em várias equipes:
 
 **Por que funciona**: Cria um espaço protegido para pensamento estratégico que normalmente é engolido pelo operacional.
 
-### 3. Trilha De Decisões Para Novos Membros
+### 3. Trilha de Decisões para Novos Membros
 
 Um problema comum: novas pessoas questionando decisões passadas sem contexto. A solução:
 
@@ -999,7 +999,7 @@ Um problema comum: novas pessoas questionando decisões passadas sem contexto. A
 
 **Benefício surpreendente**: Explicitando que certas decisões foram tomadas conscientemente (mesmo que controversas), eliminamos ciclos de re-debate improdutivos.
 
-### 4. Retrospectiva Trimestral De Decisões
+### 4. Retrospectiva Trimestral de Decisões
 
 A cada trimestre, realizamos uma retro focada exclusivamente em processo decisório:
 
@@ -1011,7 +1011,7 @@ A cada trimestre, realizamos uma retro focada exclusivamente em processo decisó
 
 **Dica prática**: Foco em melhorar o processo, não em apontar culpados por decisões erradas.
 
-### 5. Reconhecimento De "Boa Decisão, Resultado Ruim"
+### 5. Reconhecimento de "Boa Decisão, Resultado Ruim"
 
 Um dos maiores obstáculos para decisões corajosas é o medo de resultados negativos. Implementamos uma prática contraintuitiva:
 
@@ -1022,11 +1022,11 @@ Um dos maiores obstáculos para decisões corajosas é o medo de resultados nega
 
 > "Uma cultura que não distingue entre qualidade da decisão e qualidade do resultado inevitavelmente produzirá decisões tímidas e subótimas." - VP de Engenharia em um unicórnio brasileiro onde implementei essa prática
 
-## Técnicas Para Gestão De Reuniões Decisórias
+## Técnicas para Gestão de Reuniões Decisórias
 
 Para fechar, vamos compartilhar algumas técnicas avançadas de gestão de reuniões que tenho usado para maximizar a eficácia dos momentos decisórios, especialmente em ambientes remotos ou híbridos que se tornaram o padrão pós-pandemia.
 
-### Antes Da Reunião: Preparação Estruturada
+### Antes da Reunião: Preparação Estruturada
 
 A técnica "PREP" garante que cada minuto da reunião seja bem utilizado:
 
@@ -1059,7 +1059,7 @@ A técnica "PREP" garante que cada minuto da reunião seja bem utilizado:
 [Preparação específica para a reunião]
 ```
 
-### Durante a Reunião: Técnicas De Produtividade Decisória
+### Durante a Reunião: Técnicas de Produtividade Decisória
 
 1. **Quadrante de Stacey**: Começo determinando explicitamente o tipo de decisão usando o quadrante de Stacey:
 
@@ -1096,7 +1096,7 @@ Isso define imediatamente a abordagem correta:
     **Por que funciona**: Desloca o foco das posições para as ações concretas
     
 
-### Após a Reunião: Fechamento Do Ciclo Decisório
+### Após a Reunião: Fechamento do Ciclo Decisório
 
 1. **RACI de Implementação**:
     
@@ -1117,7 +1117,7 @@ Isso define imediatamente a abordagem correta:
     - Decisões de média reversibilidade: 1-3 meses
     - Decisões de baixa reversibilidade: 3-6 meses
 
-## Um Template Para Obsidian Que Realmente Uso
+## Um Template para Obsidian que Realmente Uso
 
 Aqui está um template simples mas poderoso que uso no meu próprio Obsidian. Sinta-se à vontade para adaptar:
 
@@ -1187,11 +1187,11 @@ Aqui está um template simples mas poderoso que uso no meu próprio Obsidian. Si
 #decisao #[area-relevante]
 ```
 
-## Recursos E Ferramentas Recomendadas
+## Recursos e Ferramentas Recomendadas
 
 Ao longo dos anos, encontrei ferramentas e recursos que realmente fazem diferença na qualidade das decisões. Aqui estão algumas recomendações testadas:
 
-### Ferramentas Para Decisões
+### Ferramentas para Decisões
 
 |Ferramenta|Uso Ideal|Link/Fonte|
 |---|---|---|
@@ -1200,32 +1200,32 @@ Ao longo dos anos, encontrei ferramentas e recursos que realmente fazem diferen�
 |**Loom**|Comunicação assíncrona de decisões|[loom.com](https://www.loom.com/)|
 |**Desicion Matrices no Google Sheets**|Avaliação estruturada de alternativas|[Template Básico](https://docs.google.com/spreadsheets/d/1nPjQRtFcVLBBi7Ct1P2RHQe9FG9pCSSdD3gXeBbqgIg/)|
 
-### Livros Essenciais (que Realmente Li E recomendo)
+### Livros Essenciais (que realmente li e recomendo)
 
 1. **"Decisive" (Irmãos Heath)** - Framework WRAP prático e aplicável
 2. **"Thinking in Bets" (Annie Duke)** - Perspectiva de poker para decisões sob incerteza
 3. **"The Art of Action" (Stephen Bungay)** - Frameworks militares adaptados para negócios
 4. **"Principles" (Ray Dalio)** - Abordagem sistemática para decisões organizacionais
 
-### Newsletters E Blogs
+### Newsletters e Blogs
 
 1. **"Farnam Street"** - Blog sobre modelos mentais e decisões
 2. **"The Decision Lab"** - Ciência comportamental aplicada a decisões
 3. **"Untools"** - Ferramentas de pensamento para melhores decisões
 
-## O Que Realmente Diferencia Os Melhores Decisores
+## O Que Realmente Diferencia os Melhores Decisores
 
 Depois de observar líderes excepcionais na tomada de decisão, três características se destacam:
 
-### 1. Clareza Sobre Incertezas
+### 1. Clareza sobre incertezas
 
 Os melhores decisores são extremamente claros sobre o que **não sabem**. Eles mapeiam explicitamente incertezas e buscam dados para reduzi-las.
 
-### 2. Diversidade Deliberada De Perspectivas
+### 2. Diversidade deliberada de perspectivas
 
 Eles buscam ativamente pontos de vista diversos, especialmente os que desafiam suas hipóteses iniciais.
 
-### 3. Aprendizado Sistemático
+### 3. Aprendizado sistemático
 
 Eles revisitam decisões passadas não para apontar culpados, mas para extrair aprendizados estruturados.
 
