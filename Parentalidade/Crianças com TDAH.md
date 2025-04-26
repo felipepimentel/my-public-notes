@@ -2,6 +2,8 @@
 
 > "Criar um filho de 6 anos com TDAH é como tentar ensinar um filhote de cachorro entusiasmado a seguir um percurso de obstáculos enquanto há fogos de artifício acontecendo ao redor – exige amor infinito, paciência extra e muito senso de humor."
 
+![[Pasted image 20250426004059.png]]
+
 Bem-vindo a este guia especial para pais e cuidadores! Como profissionais e pais que vivenciaram essa jornada, reunimos aqui estratégias testadas e baseadas em evidências para apoiar crianças de 6 anos com TDAH. Esta idade é fascinante, cheia de curiosidade e energia, mas também marcada por grandes transições – a entrada no ensino fundamental, novas expectativas sociais e acadêmicas, e o crescente autoconhecimento da criança.
 
 Se você está se perguntando "estou fazendo certo?", "por que é tão difícil?" ou "será que só o meu filho é assim?", queremos que saiba: **você não está sozinho** e, mais importante, **você está no caminho certo** – porque está buscando entender e apoiar seu filho exatamente como ele é.
