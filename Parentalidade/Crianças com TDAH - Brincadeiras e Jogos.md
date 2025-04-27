@@ -2,8 +2,6 @@
 
 > "Brincar é o trabalho mais sério da infância. E para nossos pequenos com cérebros que funcionam em alta velocidade, é também terapia, aprendizado e alegria em um só pacote."
 
-![[nota-brincar-tdah.png]]
-
 ## ✨ Por Que Falar Sobre Brincadeiras É Tão Importante?
 
 A gente sabe como é. Entre as consultas médicas, as reuniões na escola, as terapias e as lições de casa intermináveis, às vezes esquecemos o óbvio: **nossos filhos são crianças antes de tudo**. E crianças precisam brincar. Mas não é só isso.
