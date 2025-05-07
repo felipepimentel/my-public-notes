@@ -741,7 +741,7 @@ graph LR
 
 # O Futuro é Padronizado, Aberto e Interoperável
 
-> "Em 2025, toda aplicação de IA séria usará MCP. A questão não é SE você vai adotar, mas QUANDO." - F
+> "Em 2025, toda aplicação de IA séria usará MCP. A questão não é SE você vai adotar, mas QUANDO." - Pimente, Felipe
 
 ## Por que esperar?
 
