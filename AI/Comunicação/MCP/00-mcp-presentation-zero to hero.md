@@ -4,6 +4,9 @@
 
 ---
 
+![[Pasted image 20250507015044.png]]
+
+---
 # O Problema: IAs Desconectadas do Mundo Real 🔌
 
 ### "Quantas vezes você precisou pedir para sua IA acessar seus dados reais?" 🤔
