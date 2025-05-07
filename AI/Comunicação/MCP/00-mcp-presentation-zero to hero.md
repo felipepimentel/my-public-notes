@@ -1,14 +1,14 @@
 # Model Context Protocol (MCP)
 
-## O Adaptador Universal Para Aplicações de IA
+## O Adaptador Universal Para Aplicações De IA
 
 ---
 
-# Quantas vezes você precisou pedir para sua IA acessar seus dados reais? 🤔
+# Quantas Vezes Você Precisou Pedir Para Sua IA Acessar Seus Dados Reais? 🤔
 
 ---
 
-# O Que É o MCP?
+# O Que É O MCP?
 
 O Model Context Protocol (MCP) é um padrão que permite que aplicações de IA se conectem com fontes de dados e ferramentas. Ele facilita a integração entre modelos de linguagem e sistemas externos.
 
@@ -21,7 +21,7 @@ Pense no MCP como um adaptador universal para aplicações de IA, similar ao que
 
 ---
 
-# O Mundo Antes e Depois do MCP
+# O Mundo Antes E Depois Do MCP
 
 ```mermaid
 graph LR
@@ -46,7 +46,7 @@ graph LR
 
 ---
 
-# O Desafio das IAs Isoladas
+# O Desafio Das IAs Isoladas
 
 ```mermaid
 graph TD
@@ -64,7 +64,7 @@ graph TD
 
 ---
 
-# O Problema da Torre de Babel Digital
+# O Problema Da Torre De Babel Digital
 
 ```mermaid
 graph LR
@@ -115,7 +115,7 @@ flowchart LR
     end
 ```
 
-## Os Três Pilares do MCP
+## Os Três Pilares Do MCP
 
 1. **MCP Hosts (Clientes):** Aplicações que incorporam LLMs
 2. **MCP Servers (Servidores):** Fornecem acesso a sistemas específicos
@@ -123,7 +123,7 @@ flowchart LR
 
 ---
 
-# O Ecossistema MCP em Crescimento
+# O Ecossistema MCP Em Crescimento
 
 ```mermaid
 graph TD
@@ -192,7 +192,7 @@ graph TD
 
 ---
 
-# Conceitos Fundamentais: Prompts e Sampling
+# Conceitos Fundamentais: Prompts E Sampling
 
 - **Prompts:** Instruções padronizadas que guiam o LLM em tarefas específicas
     
@@ -205,7 +205,7 @@ graph TD
 
 ---
 
-# Segurança e Controle no MCP 🔐
+# Segurança E Controle no MCP 🔐
 
 ```mermaid
 graph TD
@@ -224,7 +224,7 @@ graph TD
 
 ---
 
-# Como o MCP Funciona na Prática
+# Como O MCP Funciona Na Prática
 
 ```mermaid
 sequenceDiagram
@@ -244,7 +244,7 @@ sequenceDiagram
 
 ---
 
-# MCP vs Outras Soluções
+# MCP Vs Outras Soluções
 
 |Solução|Prós|Contras|Quando Usar|
 |---|---|---|---|
@@ -254,7 +254,7 @@ sequenceDiagram
 
 ---
 
-# Casos de Uso Por Indústria
+# Casos De Uso Por Indústria
 
 ```mermaid
 mindmap
@@ -283,7 +283,7 @@ mindmap
 
 ---
 
-# MCP na Prática: Setor Financeiro
+# MCP Na Prática: Setor Financeiro
 
 ```mermaid
 sequenceDiagram
@@ -304,7 +304,7 @@ sequenceDiagram
 
 ---
 
-# ROI e Métricas de Negócio 💰
+# ROI E Métricas De Negócio 💰
 
 ```mermaid
 graph TD
@@ -314,7 +314,7 @@ graph TD
     A --> E[Time-to-market 3x mais rápido]
 ```
 
-## Impacto Mensurável:
+## Impacto Mensurável
 
 - **Produtividade:** Desenvolvedores focam em lógica de negócio, não em integrações
 - **Escalabilidade:** Novos assistentes conectam instantaneamente a sistemas existentes
@@ -340,7 +340,7 @@ async def buscar_cliente(id: str):
 app.run()
 ```
 
-## Começando em 3 Passos:
+## Começando Em 3 Passos
 
 1. Instale o SDK: `pip install mcp`
 2. Copie o código acima
@@ -348,7 +348,7 @@ app.run()
 
 ---
 
-# Roadmap do MCP: O Que Está Por Vir
+# Roadmap Do MCP: O Que Está Por Vir
 
 ```mermaid
 timeline
@@ -370,16 +370,16 @@ timeline
 
 ---
 
-# Como Começar com MCP Hoje
+# Como Começar Com MCP Hoje
 
-## 🛠️ Para Desenvolvedores:
+## 🛠️ Para Desenvolvedores
 
 1. Escolha seu SDK preferido (Python/TypeScript/Java)
 2. Clone um exemplo de servidor do GitHub
 3. Customize para seu caso de uso
 4. Teste com Claude Desktop
 
-## 🏢 Para Empresas:
+## 🏢 Para Empresas
 
 1. Identifique 3 sistemas críticos para integrar
 2. Faça um piloto com 1 servidor básico
@@ -400,21 +400,21 @@ timeline
 
 # Chamada Para Ação 🎯
 
-## Desenvolvedores:
+## Desenvolvedores
 
 > "Construa seu primeiro servidor MCP em 30 minutos e conecte sua aplicação favorita!"
 
-## Gestores e Líderes:
+## Gestores E Líderes
 
 > "Identifique 3 sistemas na sua empresa que poderiam se beneficiar do MCP e comece um piloto!"
 
-## Todos:
+## Todos
 
 > "Junte-se à comunidade MCP e ajude a moldar o futuro das integrações de IA!"
 
 ---
 
-# Obrigado!
+# Obrigado
 
 > 💼 Apresentação sobre Model Context Protocol (MCP)
 
