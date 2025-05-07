@@ -1167,7 +1167,6 @@ interface Capabilities {
 **A inteligência artificial sem contexto é apenas potencial.**  
 **Com MCP, transformamos potencial em realidade.**
 
-Comece h
 A revolução já começou. Junte-se a nós.
 
 **🚀 [modelcontextprotocol.io](https://modelcontextprotocol.io/) 🚀**
