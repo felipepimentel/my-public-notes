@@ -55,6 +55,11 @@ graph TD
 
 ---
 
+
+"Sem MCP, sua IA é apenas um cérebro sem corpo. Com MCP, ela ganha olhos, ouvidos e mãos." — **Felipe Pimentel**
+
+---
+
 # Apresentando o Model Context Protocol
 
 ## O USB-C da Inteligência Artificial 🔌
