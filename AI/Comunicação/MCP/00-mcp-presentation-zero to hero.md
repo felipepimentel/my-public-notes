@@ -1,10 +1,10 @@
 # Model Context Protocol (MCP)
 
-## A Ponte Entre IAs Poderosas e o Mundo Real 🌉
+## A Ponte Entre IAs Poderosas E O Mundo Real 🌉
 
 ---
 
-# O Paradoxo da IA Moderna
+# O Paradoxo Da IA Moderna
 
 ```mermaid
 graph TD
@@ -30,7 +30,7 @@ graph TD
 
 # Model Context Protocol: O Padrão Universal
 
-## Como o USB-C Revolucionou Dispositivos, MCP Revoluciona IA 🔌
+## Como O USB-C Revolucionou Dispositivos, MCP Revoluciona IA 🔌
 
 ```mermaid
 graph LR
@@ -62,7 +62,7 @@ MCP é um protocolo aberto que padroniza como aplicações de IA se conectam a f
 
 ---
 
-# Arquitetura Fundamental do MCP
+# Arquitetura Fundamental Do MCP
 
 ```mermaid
 graph TB
@@ -110,7 +110,7 @@ graph TB
 
 # O Protocolo: JSON-RPC 2.0
 
-## Tipos de Mensagens Fundamentais
+## Tipos De Mensagens Fundamentais
 
 ```mermaid
 graph TD
@@ -125,7 +125,7 @@ graph TD
     style MSG fill:#2196F3,color:#fff
 ```
 
-### Características do Protocolo
+### Características Do Protocolo
 
 - **Stateful**: Mantém sessão entre cliente e servidor
 - **Bidirectional**: Ambos podem iniciar comunicação
@@ -134,7 +134,7 @@ graph TD
 
 ---
 
-# Ciclo de Vida da Conexão MCP
+# Ciclo De Vida Da Conexão MCP
 
 ```mermaid
 sequenceDiagram
@@ -158,7 +158,7 @@ sequenceDiagram
     Client->>Server: close connection
 ```
 
-### Negociação de Capacidades
+### Negociação De Capacidades
 
 Durante a inicialização, cliente e servidor negociam:
 
@@ -175,7 +175,7 @@ Durante a inicialização, cliente e servidor negociam:
 
 ---
 
-# Os Três Primitivos do MCP
+# Os Três Primitivos Do MCP
 
 ```mermaid
 graph TB
@@ -198,7 +198,7 @@ graph TB
     style TOO fill:#e8f5e9
 ```
 
-### Hierarquia de Controle
+### Hierarquia De Controle
 
 |Primitivo|Controle|Descrição|Exemplos|
 |---|---|---|---|
@@ -208,7 +208,7 @@ graph TB
 
 ---
 
-# Resources: Dados Estruturados para Contexto
+# Resources: Dados Estruturados Para Contexto
 
 ```mermaid
 sequenceDiagram
@@ -230,7 +230,7 @@ sequenceDiagram
     Note over App,Client: App anexa ao contexto da IA
 ```
 
-### Características de Resources
+### Características De Resources
 
 - **URI-based**: Identificados por URIs (`file://`, `database://`, etc.)
 - **MIME-typed**: Tipo de conteúdo explícito
@@ -264,7 +264,7 @@ graph TD
     style FILLED fill:#2196F3
 ```
 
-### Exemplo de Prompt
+### Exemplo De Prompt
 
 ```json
 {
@@ -280,7 +280,7 @@ graph TD
 }
 ```
 
-### Casos de Uso
+### Casos De Uso
 
 - Comandos slash (`/analyze`, `/summarize`)
 - Templates de workflow
@@ -289,7 +289,7 @@ graph TD
 
 ---
 
-# Tools: Ações Executáveis pela IA
+# Tools: Ações Executáveis Pela IA
 
 ```mermaid
 sequenceDiagram
@@ -309,7 +309,7 @@ sequenceDiagram
     Note over LLM: Continua resposta com dados
 ```
 
-### Estrutura de Tool
+### Estrutura De Tool
 
 ```typescript
 {
@@ -326,7 +326,7 @@ sequenceDiagram
 }
 ```
 
-### Segurança de Tools
+### Segurança De Tools
 
 ⚠️ **Tools representam execução de código arbitrário**
 
@@ -337,7 +337,7 @@ sequenceDiagram
 
 ---
 
-# Transports: Como MCP se Comunica
+# Transports: Como MCP Se Comunica
 
 ```mermaid
 graph TD
@@ -375,9 +375,9 @@ graph TD
 
 ---
 
-# Implementando um Servidor MCP
+# Implementando Um Servidor MCP
 
-## Exemplo em Python: Servidor de Métricas
+## Exemplo Em Python: Servidor De Métricas
 
 ```python
 from mcp.server import Server, Resource
@@ -439,7 +439,7 @@ async def handle_call_tool(name: str, arguments: dict) -> list[types.TextContent
 
 ---
 
-# Segurança em MCP: Defesa em Profundidade
+# Segurança Em MCP: Defesa Em Profundidade
 
 ```mermaid
 graph TD
@@ -461,7 +461,7 @@ graph TD
     style L3 fill:#ff9800,color:#fff
 ```
 
-### Princípios de Segurança
+### Princípios De Segurança
 
 1. **Princípio do Menor Privilégio**: Servidores só acessam o necessário
 2. **Consentimento Explícito**: Usuário controla todas as operações
@@ -471,9 +471,9 @@ graph TD
 
 ---
 
-# Padrões de Implementação MCP
+# Padrões De Implementação MCP
 
-## 1. Servidor de Dados (Read-Only)
+## 1. Servidor De Dados (Read-Only)
 
 ```mermaid
 graph LR
@@ -491,7 +491,7 @@ graph LR
 
 Ideal para: Documentação, schemas, dados históricos
 
-## 2. Servidor de Ferramentas (Action-Based)
+## 2. Servidor De Ferramentas (Action-Based)
 
 ```mermaid
 graph LR
@@ -530,7 +530,7 @@ Ideal para: Sistemas complexos, workflows completos
 
 ---
 
-# Comparativo Técnico: MCP vs Alternativas
+# Comparativo Técnico: MCP Vs Alternativas
 
 ```mermaid
 graph TD
@@ -595,7 +595,7 @@ graph TD
 
 ---
 
-# Roadmap e Futuro do MCP
+# Roadmap E Futuro Do MCP
 
 ```mermaid
 timeline
@@ -628,7 +628,7 @@ timeline
 
 ---
 
-# Como Começar com MCP Hoje
+# Como Começar Com MCP Hoje
 
 ## 1. Para Experimentar (15 minutos)
 
@@ -674,7 +674,7 @@ graph LR
 
 ---
 
-# Recursos Essenciais para Desenvolvedores
+# Recursos Essenciais Para Desenvolvedores
 
 ```mermaid
 graph TD
@@ -714,7 +714,7 @@ graph TD
 
 ---
 
-# Casos de Uso Avançados por Indústria
+# Casos De Uso Avançados Por Indústria
 
 ## 🏦 Fintech & Banking
 
@@ -790,7 +790,7 @@ graph LR
 
 ---
 
-# Padrões Arquiteturais com MCP
+# Padrões Arquiteturais Com MCP
 
 ## 1. Gateway Pattern
 
@@ -848,7 +848,7 @@ graph LR
 
 ---
 
-# Performance e Escalabilidade
+# Performance E Escalabilidade
 
 ```mermaid
 graph TD
@@ -867,7 +867,7 @@ graph TD
     style PERF fill:#607d8b,color:#fff
 ```
 
-### Best Practices para Performance
+### Best Practices Para Performance
 
 1. **Connection Management**
     
@@ -887,7 +887,7 @@ graph TD
 
 ---
 
-# Debugging e Observabilidade
+# Debugging E Observabilidade
 
 ```mermaid
 graph TD
@@ -910,7 +910,7 @@ graph TD
     style DEBUG fill:#795548,color:#fff
 ```
 
-### Estratégia de Debugging
+### Estratégia De Debugging
 
 1. **Development**
     
@@ -925,7 +925,7 @@ graph TD
 
 ---
 
-# Conclusão: O Futuro é Contextual
+# Conclusão: O Futuro É Contextual
 
 ```mermaid
 graph LR
@@ -965,7 +965,7 @@ graph LR
 
 # Apêndice: Referência Rápida
 
-## Estrutura de Mensagem MCP
+## Estrutura De Mensagem MCP
 
 ```typescript
 // Request
@@ -1029,7 +1029,7 @@ interface ServerCapabilities {
 
 ---
 
-# MCP: Construindo o Futuro da IA Contextual
+# MCP: Construindo O Futuro Da IA Contextual
 
 A revolução já começou. Junte-se a nós.
 
