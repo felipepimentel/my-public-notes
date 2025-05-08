@@ -502,3 +502,15 @@ Your Markdown notes will now be converted to a static website and published to G
 
 ---
 
+_**User**_
+
+reaplique essas ultimas mudanças. fiz algumas mudanças
+
+---
+
+_**Assistant**_
+
+
+
+---
+
