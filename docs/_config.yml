@@ -53,6 +53,13 @@ toc:
 link_previews:
   enabled: true
 
+# Enable Mermaid diagram support
+mermaid:
+  # Version of mermaid library
+  version: "9.1.6"
+  # Set to true to initialize mermaid on every page load
+  initialize: true
+
 # Google Analytics Tracking
 # ga_tracking: UA-XXXXXXXX-X
 # ga_tracking_anonymize_ip: true

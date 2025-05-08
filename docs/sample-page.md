@@ -38,6 +38,74 @@ The theme uses a clean, highly readable font stack optimized for both desktop an
 
 This is regular paragraph text. It can include **bold text**, *italicized text*, and `code snippets`. You can also [add links](#) to your content.
 
+## Mermaid Diagrams
+
+The theme supports Mermaid diagrams for easy visualization:
+
+### Flowchart
+
+```mermaid
+graph TD
+    A[Start] --> B{Is it working?}
+    B -->|Yes| C[Great!]
+    B -->|No| D[Debug]
+    D --> B
+```
+
+### Sequence Diagram
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant System
+    
+    User->>System: Request data
+    System->>Database: Query data
+    Database-->>System: Return results
+    System-->>User: Display results
+```
+
+### Class Diagram
+
+```mermaid
+classDiagram
+    class Animal {
+        +name: string
+        +age: int
+        +makeSound()
+    }
+    class Dog {
+        +breed: string
+        +fetch()
+    }
+    class Cat {
+        +color: string
+        +climb()
+    }
+    Animal <|-- Dog
+    Animal <|-- Cat
+```
+
+### Gantt Chart
+
+```mermaid
+gantt
+    title Project Timeline
+    dateFormat  YYYY-MM-DD
+    
+    section Planning
+    Requirements      :a1, 2025-01-01, 10d
+    Design            :a2, after a1, 15d
+    
+    section Development
+    Implementation    :a3, after a2, 25d
+    Testing           :a4, after a3, 10d
+    
+    section Deployment
+    Deployment        :a5, after a4, 5d
+    Maintenance       :a6, after a5, 20d
+```
+
 ## Custom Callouts
 
 The theme includes custom callout styles for important information.

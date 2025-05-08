@@ -123,6 +123,8 @@ a:not(.btn) {
 // Improve main content readability
 .main-content {
     line-height: $content-line-height;
+    font-size: 16px;
+    letter-spacing: 0.01em;
 
     p {
         margin-bottom: 1.2rem;
@@ -165,5 +167,62 @@ a:not(.btn) {
         &.active {
             font-weight: 600;
         }
+    }
+}
+
+// Mermaid diagram styling
+.mermaid {
+    margin: 2rem auto;
+    text-align: center;
+    background-color: $body-background-color;
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-x: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+    svg {
+        max-width: 100%;
+        height: auto !important;
+    }
+
+    .node rect,
+    .node circle,
+    .node ellipse,
+    .node polygon,
+    .node path {
+        fill: #f5f8ff;
+        stroke: #0366d6;
+        stroke-width: 1px;
+    }
+
+    .edgePath .path {
+        stroke: #444;
+        stroke-width: 1.5px;
+    }
+
+    .label {
+        font-family: $body-font-family;
+        color: $body-text-color;
+    }
+}
+
+// Responsive improvements
+@media (max-width: 768px) {
+    .main-content {
+        padding: 1rem;
+    }
+
+    .mermaid {
+        margin: 1.5rem -1rem;
+        padding: 1rem;
+        border-radius: 0;
+    }
+}
+
+// Print styles
+@media print {
+    .mermaid {
+        box-shadow: none;
+        border: 1px solid $border-color;
     }
 }

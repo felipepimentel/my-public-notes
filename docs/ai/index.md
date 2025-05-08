@@ -30,6 +30,17 @@ Stay informed about the latest developments in AI technology.
 - [April 2025 Updates]({{ site.baseurl }}/AI/Novidades/Abril%20-%202025/)
 - [May 2025 Updates]({{ site.baseurl }}/AI/Novidades/Maio%20-%202025/)
 
+## Example Workflow Diagram
+
+```mermaid
+graph LR
+    Data[Data Collection] --> Processing[Data Processing]
+    Processing --> Training[Model Training]
+    Training --> Evaluation[Model Evaluation]
+    Evaluation -->|Satisfactory| Deployment[Deployment]
+    Evaluation -->|Needs Improvement| Processing
+```
+
 ## Key Topics
 
 - Machine Learning

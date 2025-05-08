@@ -46,6 +46,18 @@ Resources and notes on parenting topics, including:
 
 ---
 
+## Mermaid Diagram Example
+
+Below is an example of a Mermaid diagram showing a simple workflow:
+
+```mermaid
+graph TD
+    A[Start] --> B{Is it working?}
+    B -->|Yes| C[Great!]
+    B -->|No| D[Debug]
+    D --> B
+```
+
 ## About This Site
 
 This site is automatically generated from Markdown files in my GitHub repository using Jekyll and the Just-the-Docs theme. The content is regularly updated with new insights and resources. 
