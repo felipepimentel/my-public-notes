@@ -1,13 +1,102 @@
 title: My Public Notes
 description: Personal notes on AI, Leadership, and Parenting
-theme: jekyll-theme-minimal
+remote_theme: just-the-docs/just-the-docs
 baseurl: "/my-public-notes"
 url: "https://felipepimentel.github.io"
 
-# Theme customization
-logo: /assets/img/logo.png
+# Theme settings for Just-the-Docs
+color_scheme: light
+heading_anchors: true
+search_enabled: true
+search:
+  # Split pages into sections that can be searched individually
+  heading_level: 2
+  previews: 3
+  preview_words_before: 5
+  preview_words_after: 10
+  tokenizer_separator: /[\s/]+/
+  # Display the relative url in search results
+  rel_url: true
+  # Enable or disable the search button that appears in the bottom right corner of every page
+  button: true
 
-# Enable GitHub Flavored Markdown
+# Aux links for the upper right navigation
+aux_links:
+  "View on GitHub":
+    - "//github.com/felipepimentel/my-public-notes"
+
+# Makes Aux links open in a new tab
+aux_links_new_tab: true
+
+# Back to top link
+back_to_top: true
+back_to_top_text: "Back to top"
+
+# Footer content
+footer_content: "Copyright &copy; Felipe Pimentel. Distributed under the <a href=\"https://github.com/felipepimentel/my-public-notes/blob/main/LICENSE\">MIT License.</a>"
+
+# Enable or disable heading anchors
+heading_anchors: true
+
+# Sort order for navigation links
+nav_sort: case_insensitive # default, equivalent to nil
+# nav_sort: case_sensitive # Capital letters sorted before lowercase
+
+# Enable or disable the site search
+search_enabled: true
+
+# Enable or disable the table of contents on the right side of pages
+toc:
+  enabled: true
+
+# Enable or disable link previews (page previews when hovering over internal links)
+link_previews:
+  enabled: true
+
+# Google Analytics Tracking
+# ga_tracking: UA-XXXXXXXX-X
+# ga_tracking_anonymize_ip: true
+
+# Define collections for different content types
+collections:
+  ai:
+    permalink: "/:collection/:path/"
+    output: true
+  leadership:
+    permalink: "/:collection/:path/"
+    output: true
+  parenting:
+    permalink: "/:collection/:path/"
+    output: true
+
+# Default YAML values for specific files/paths
+defaults:
+  - 
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  -
+    scope:
+      path: "AI"
+    values:
+      layout: "default"
+      parent: "AI"
+  -
+    scope:
+      path: "Liderança"
+    values:
+      layout: "default"
+      parent: "Leadership"
+  -
+    scope:
+      path: "Parentalidade"
+    values:
+      layout: "default"
+      parent: "Parenting"
+
+# Enable GFM (GitHub Flavored Markdown)
 markdown: kramdown
 kramdown:
   input: GFM
