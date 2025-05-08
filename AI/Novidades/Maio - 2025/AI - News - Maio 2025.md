@@ -131,16 +131,16 @@ pie title Impacto da IA por Setor (Maio 2025)
     "Agricultura" : 7
 ```
 
-|Setor|Empresa|Implementação|Resultados Mensuráveis|
-|---|---|---|---|
-|**Saúde**|Johns Hopkins Medicine|IA para diagnóstico precoce de Alzheimer|Detecção 15 anos antes dos sintomas, 89% precisão|
-|**Finanças**|Goldman Sachs|Trading algorítmico quântico-neural|+34% retorno vs. modelos tradicionais, -42% volatilidade|
-|**Manufatura**|Tesla|Otimização de linha com agentes autônomos|+45% eficiência, -60% defeitos, produção 24/7|
-|**Educação**|Khan Academy|Tutor IA personalizado multimodal|+52% retenção de aprendizado, -30% tempo para proficiência|
-|**Agricultura**|John Deere|Robôs autônomos com visão neuromórfica|+40% yield, -70% uso de pesticidas, -50% água|
-|**Varejo**|Amazon|Previsão de demanda com IA causal|-35% estoque excedente, +28% satisfação do cliente|
-|**Energia**|Shell|Descoberta de reservas com IA geológica|3 novos campos descobertos, -60% custo de exploração|
-|**Farmacêutica**|Pfizer|Design de moléculas com IA quântica|5 candidatos promissores em 3 meses vs. 2 anos tradicional|
+| Setor            | Empresa                | Implementação                             | Resultados Mensuráveis                                     |
+| ---------------- | ---------------------- | ----------------------------------------- | ---------------------------------------------------------- |
+| **Saúde**        | Johns Hopkins Medicine | IA para diagnóstico precoce de Alzheimer  | Detecção 15 anos antes dos sintomas, 89% precisão          |
+| **Finanças**     | Goldman Sachs          | Trading algorítmico quântico-neural       | +34% retorno vs. modelos tradicionais, -42% volatilidade   |
+| **Manufatura**   | Tesla                  | Otimização de linha com agentes autônomos | +45% eficiência, -60% defeitos, produção 24/7              |
+| **Educação**     | Khan Academy           | Tutor IA personalizado multimodal         | +52% retenção de aprendizado, -30% tempo para proficiência |
+| **Agricultura**  | John Deere             | Robôs autônomos com visão neuromórfica    | +40% yield, -70% uso de pesticidas, -50% água              |
+| **Varejo**       | Amazon                 | Previsão de demanda com IA causal         | -35% estoque excedente, +28% satisfação do cliente         |
+| **Energia**      | Shell                  | Descoberta de reservas com IA geológica   | 3 novos campos descobertos, -60% custo de exploração       |
+| **Farmacêutica** | Pfizer                 | Design de moléculas com IA quântica       | 5 candidatos promissores em 3 meses vs. 2 anos tradicional |
 
 ## ⚖️ Desenvolvimentos Regulatórios
 
