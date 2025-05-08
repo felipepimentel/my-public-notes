@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: default
 title: Home
 nav_order: 1
 permalink: /
@@ -21,14 +21,14 @@ This site contains my personal notes organized into different categories. Use th
 
 ## Main Categories
 
-### [AI]({{ site.baseurl }}/ai/)
+### [AI]({{ site.baseurl }}/AI/)
 
 Notes about artificial intelligence topics, including:
 - Communication strategies between AI systems
 - Recent developments and news
 - Implementation techniques
 
-### [Leadership]({{ site.baseurl }}/leadership/)
+### [Leadership]({{ site.baseurl }}/Liderança/)
 
 Thoughts and resources on leadership principles and practices, covering:
 - Team management
@@ -36,7 +36,7 @@ Thoughts and resources on leadership principles and practices, covering:
 - Decision making frameworks
 - Leadership styles
 
-### [Parenting]({{ site.baseurl }}/parenting/)
+### [Parenting]({{ site.baseurl }}/Parentalidade/)
 
 Resources and notes on parenting topics, including:
 - Child development stages

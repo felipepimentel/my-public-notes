@@ -1,6 +1,6 @@
 title: My Public Notes
 description: Personal notes on AI, Leadership, and Parenting
-remote_theme: just-the-docs/just-the-docs
+remote_theme: just-the-docs/just-the-docs@v0.4.0.rc4
 baseurl: "/my-public-notes"
 url: "https://felipepimentel.github.io"
 
@@ -23,7 +23,7 @@ search:
 # Aux links for the upper right navigation
 aux_links:
   "View on GitHub":
-    - "//github.com/felipepimentel/my-public-notes"
+    - "https://github.com/felipepimentel/my-public-notes"
 
 # Makes Aux links open in a new tab
 aux_links_new_tab: true
@@ -40,10 +40,6 @@ heading_anchors: true
 
 # Sort order for navigation links
 nav_sort: case_insensitive # default, equivalent to nil
-# nav_sort: case_sensitive # Capital letters sorted before lowercase
-
-# Enable or disable the site search
-search_enabled: true
 
 # Enable or disable the table of contents on the right side of pages
 toc:
@@ -60,19 +56,12 @@ mermaid:
   # Set to true to initialize mermaid on every page load
   initialize: true
 
-# Google Analytics Tracking
-# ga_tracking: UA-XXXXXXXX-X
-# ga_tracking_anonymize_ip: true
+# Show excerpts on the home page
+show_excerpts: true
 
 # Define collections for different content types
 collections:
-  ai:
-    permalink: "/:collection/:path/"
-    output: true
-  leadership:
-    permalink: "/:collection/:path/"
-    output: true
-  parenting:
+  docs:
     permalink: "/:collection/:path/"
     output: true
 
@@ -81,7 +70,6 @@ defaults:
   - 
     scope:
       path: ""
-      type: "pages"
     values:
       layout: "default"
   -
@@ -107,33 +95,4 @@ defaults:
 markdown: kramdown
 kramdown:
   input: GFM
-  syntax_highlighter: rouge
-
-# Show excerpts on the home page
-show_excerpts: true
-
-# Set the default layout for collections
-defaults:
-  - 
-    scope:
-      path: ""
-    values:
-      layout: "default"
-  -
-    scope:
-      path: "AI"
-    values:
-      layout: "default"
-      category: "AI"
-  -
-    scope:
-      path: "Liderança"
-    values:
-      layout: "default"
-      category: "Leadership"
-  -
-    scope:
-      path: "Parentalidade"
-    values:
-      layout: "default"
-      category: "Parenting" 
+  syntax_highlighter: rouge 

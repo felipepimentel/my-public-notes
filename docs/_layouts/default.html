@@ -5,7 +5,38 @@ layout: default
 {{ content }}
 
 {% if site.mermaid.initialize %}
-{% include mermaid.html %}
+<script src="https://cdn.jsdelivr.net/npm/mermaid@{{ site.mermaid.version }}/dist/mermaid.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true
+            },
+            securityLevel: 'loose'
+        });
+
+        // Select all pre code blocks with language-mermaid class
+        const mermaidBlocks = document.querySelectorAll('pre code.language-mermaid');
+
+        // Process each mermaid code block
+        mermaidBlocks.forEach(function (block) {
+            // Create div for mermaid with proper class
+            const div = document.createElement('div');
+            div.classList.add('mermaid');
+            div.textContent = block.textContent;
+
+            // Replace pre element with the new div
+            const pre = block.parentElement;
+            pre.parentElement.replaceChild(div, pre);
+        });
+
+        // Initialize Mermaid on all mermaid divs
+        mermaid.init(undefined, '.mermaid');
+    });
+</script>
 {% endif %}
 
 <!DOCTYPE html>
