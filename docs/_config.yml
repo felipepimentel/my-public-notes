@@ -5,7 +5,7 @@ baseurl: "/my-public-notes"
 url: "https://felipepimentel.github.io"
 
 # Theme settings for Just-the-Docs
-color_scheme: light
+color_scheme: custom
 heading_anchors: true
 search_enabled: true
 search:
