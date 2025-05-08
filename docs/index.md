@@ -9,15 +9,15 @@ This site contains my personal notes on various topics.
 
 ## Categories
 
-### [AI](AI/)
+### [AI]({{ site.baseurl }}/AI/)
 Notes about artificial intelligence, including:
 - Communication
 - News and updates
 
-### [Leadership](Liderança/)
+### [Leadership]({{ site.baseurl }}/Liderança/)
 Thoughts and resources on leadership principles and practices.
 
-### [Parenting](Parentalidade/)
+### [Parenting]({{ site.baseurl }}/Parentalidade/)
 Resources and notes on parenting topics.
 
 ---

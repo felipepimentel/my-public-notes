@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+            <p>{{ site.description }}</p>
+
+            <nav>
+                <ul>
+                    <li><a href="{{ site.baseurl }}/">Home</a></li>
+                    <li><a href="{{ site.baseurl }}/AI/">AI</a></li>
+                    <li><a href="{{ site.baseurl }}/Liderança/">Leadership</a></li>
+                    <li><a href="{{ site.baseurl }}/Parentalidade/">Parenting</a></li>
+                </ul>
+            </nav>
+
+            <p class="view"><a href="https://github.com/felipepimentel/my-public-notes">View the Project on GitHub</a>
+            </p>
+        </header>
+
+        <main>
+            {% if page.category %}
+            <span class="category-label">{{ page.category }}</span>
+            {% endif %}
+
+            {{ content }}
+        </main>
+
+        <footer>
+            <p>This site is maintained by <a href="https://github.com/felipepimentel">Felipe Pimentel</a></p>
+            <p><small>Hosted on GitHub Pages &mdash; Theme based on minimal</small></p>
+        </footer>
+    </div>
+</body>
+
+</html>

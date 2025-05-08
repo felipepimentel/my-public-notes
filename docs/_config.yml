@@ -2,6 +2,10 @@ title: My Public Notes
 description: Personal notes on AI, Leadership, and Parenting
 theme: jekyll-theme-minimal
 baseurl: "/my-public-notes"
+url: "https://felipepimentel.github.io"
+
+# Theme customization
+logo: /assets/img/logo.png
 
 # Enable GitHub Flavored Markdown
 markdown: kramdown
@@ -18,4 +22,22 @@ defaults:
     scope:
       path: ""
     values:
-      layout: "default" 
+      layout: "default"
+  -
+    scope:
+      path: "AI"
+    values:
+      layout: "default"
+      category: "AI"
+  -
+    scope:
+      path: "Liderança"
+    values:
+      layout: "default"
+      category: "Leadership"
+  -
+    scope:
+      path: "Parentalidade"
+    values:
+      layout: "default"
+      category: "Parenting" 
