@@ -29,8 +29,9 @@ sass:
     - _sass
     - assets/css
 
-# Ensures all links are prefixed with baseurl
+# Ensure all assets and paths use baseurl prefix
 absolute_links: false
+aux_links_new_tab: true
 
 # Aux links for the upper right navigation
 aux_links:
@@ -113,6 +114,16 @@ defaults:
       layout: "default"
       nav_exclude: true
       search_exclude: true
+  -
+    scope:
+      path: "assets/css/**/*.scss"
+    values:
+      sass: true
+  -
+    scope:
+      path: "assets/js/**/*.js"
+    values:
+      layout: null
 
 # Enable GFM (GitHub Flavored Markdown)
 markdown: kramdown

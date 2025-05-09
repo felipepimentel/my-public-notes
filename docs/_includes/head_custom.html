@@ -83,7 +83,8 @@
 <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico" type="image/x-icon">
 <link rel="icon" href="{{ site.baseurl }}/favicon.ico" type="image/x-icon">
 
-<!-- Add custom CSS -->
+<!-- Add custom CSS (explicit paths) -->
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/just-the-docs.css">
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/custom.css">
 
 <!-- Fix for path issues -->
@@ -91,7 +92,7 @@
     // This helps prevent 404 errors for assets
     document.addEventListener('DOMContentLoaded', function () {
         // Check if we're on a 404 page
-        if (window.location.pathname.endsWith('/404.html')) {
+        if (window.location.pathname.includes('/404.html') || document.body.className.includes('not-found')) {
             // Fix CSS and JS paths
             const baseUrl = '{{ site.baseurl }}';
             const fixPath = function (element, attribute) {
@@ -100,6 +101,9 @@
                     const path = el.getAttribute(attribute);
                     if (path && path.startsWith('/') && !path.startsWith(baseUrl)) {
                         el.setAttribute(attribute, baseUrl + path);
+                    } else if (path && path.includes('{{ site.theme }}')) {
+                        // Replace any unprocessed Liquid tags
+                        el.setAttribute(attribute, baseUrl + '/assets/css/just-the-docs.css');
                     }
                 });
             };

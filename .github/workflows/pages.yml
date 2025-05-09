@@ -44,18 +44,34 @@ jobs:
           bundle install
           bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
           # Debug - list files in the build directory
+          echo "Listing files in _site directory:"
           find _site -type f | sort
         env:
           JEKYLL_ENV: production
       
-      - name: Fix asset paths for 404 page
+      - name: Fix CSS paths in output
         working-directory: ./docs/_site
         run: |
-          # Ensure 404.html exists
+          # Replace any unprocessed liquid variables in CSS files
+          find . -name "*.css" -o -name "*.html" | xargs grep -l "{{ site.theme }}" || echo "No files with {{ site.theme }}"
+          # Replace the {{ site.theme }} with just-the-docs in all .css files
+          find . -name "*.css" -type f -exec sed -i 's/{{ site.theme }}/just-the-docs/g' {} \;
+          find . -name "*.html" -type f -exec sed -i 's/{{ site.theme }}/just-the-docs/g' {} \;
+          
+          # Check if generated CSS files exist, if not, create them
+          if [ ! -f "assets/css/just-the-docs.css" ]; then
+            echo "Creating just-the-docs.css"
+            mkdir -p assets/css
+            cp ../assets/css/custom.css assets/css/just-the-docs.css || echo "No custom.css to copy"
+          fi
+          
+          # Ensure 404.html exists and has proper JS for CSS fixing
           if [ -f "404.html" ]; then
             echo "404.html exists - checking for asset references"
             # Add a script to fix asset paths on 404 page
-            sed -i 's/<\/head>/<script>document.addEventListener("DOMContentLoaded",function(){const e="{{ site.baseurl }}",t=document.querySelectorAll("link[rel=stylesheet]");t.forEach(t=>{t.href.startsWith("/")&&!t.href.startsWith(e)&&(t.href=e+t.href)});const r=document.querySelectorAll("script[src]");r.forEach(t=>{t.src.startsWith("/")&&!t.src.startsWith(e)&&(t.src=e+t.src)});const s=document.querySelectorAll("img");s.forEach(t=>{t.src.startsWith("/")&&!t.src.startsWith(e)&&(t.src=e+t.src)})});<\/script><\/head>/' 404.html
+            if ! grep -q "document.addEventListener('DOMContentLoaded'" 404.html; then
+              sed -i 's/<\/head>/<script>document.addEventListener("DOMContentLoaded",function(){const e="'"${{ steps.pages.outputs.base_path }}"'",t=document.querySelectorAll("link[rel=stylesheet]");t.forEach(t=>{t.href.startsWith("/")&&!t.href.startsWith(e)&&(t.href=e+t.href)});const r=document.querySelectorAll("script[src]");r.forEach(t=>{t.src.startsWith("/")&&!t.src.startsWith(e)&&(t.src=e+t.src)});const s=document.querySelectorAll("img");s.forEach(t=>{t.src.startsWith("/")&&!t.src.startsWith(e)&&(t.src=e+t.src)})});<\/script><\/head>/' 404.html
+            fi
           else
             echo "Warning: 404.html not found in build output"
           fi

@@ -34,3 +34,18 @@ body {
 .btn.btn-primary:hover {
     background-color: #0056b3;
 }
+
+/* Additional styles to fix GitHub Pages themes */
+.page-content a {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+.page-content a:hover {
+    text-decoration: underline;
+}
+
+.main-content a:not(.btn) {
+    color: #0366d6;
+    text-decoration: none;
+}

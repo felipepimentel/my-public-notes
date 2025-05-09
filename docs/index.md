@@ -5,6 +5,9 @@ nav_order: 1
 permalink: /
 ---
 
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/just-the-docs.css">
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/custom.css">
+
 # Welcome to My Public Notes
 {: .fs-9 }
 
