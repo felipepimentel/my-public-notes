@@ -1,5 +1,6 @@
 title: My Public Notes
 description: Personal notes on AI, Leadership, and Parenting
+theme: just-the-docs
 remote_theme: just-the-docs/just-the-docs@v0.4.0.rc4
 baseurl: "/my-public-notes"
 url: "https://felipepimentel.github.io"
@@ -58,6 +59,10 @@ mermaid:
 
 # Show excerpts on the home page
 show_excerpts: true
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
 
 # Define collections for different content types
 collections:
