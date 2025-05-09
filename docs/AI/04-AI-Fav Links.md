@@ -76,11 +76,3 @@
 
 - Governança de IA sustenta conformidade e uso responsável bem-sucedidos
 - Estratégia robusta de IA focada em valor econômico levará empresas à adoção sustentável de IA
-
-## 🎯 Próximos Prompts Sugeridos:
-
-1. "Como as empresas estão balanceando investimento em IA com retorno esperado? Analise os dados de 2024"
-2. "Quais são os principais padrões de arquitetura do Agent Design Pattern Catalogue e como aplicá-los?"
-3. "Compare as abordagens de IA responsável da Anthropic, Google DeepMind e OpenAI"
-4. "Quais métricas as empresas estão usando para medir sucesso em implementações de IA?"
-5. "Como o framework DTEF pode ser implementado na prática para governança de IA?"
