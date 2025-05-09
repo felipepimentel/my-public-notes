@@ -45,6 +45,19 @@ jobs:
           mkdir -p docs/assets/css docs/assets/js docs/assets/img
           
           echo "Workspace preparation complete"
+      
+      - name: Fix SCSS frontmatter
+        run: |
+          echo "Fixing SCSS frontmatter..."
+          
+          # Fix any SCSS files with --- --- format or inline frontmatter
+          find docs/assets/css -name "*.scss" -type f -exec sed -i 's/^--- ---/---\n---/g' {} \;
+          find docs/assets/css -name "*.scss" -type f -exec sed -i 's/^--- layout: null ---/---\nlayout: null\n---/g' {} \;
+          
+          # Check all SCSS files in custom directories
+          find docs/assets/css/custom -name "*.scss" -type f -exec sed -i 's/^--- ---/---\n---/g' {} \;
+          
+          echo "SCSS frontmatter fixed"
 
       - name: Build with Jekyll
         working-directory: ./docs
