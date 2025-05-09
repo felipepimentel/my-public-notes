@@ -1,12 +1,10 @@
 title: My Public Notes
 description: Personal notes on AI, Leadership, and Parenting
-# theme: just-the-docs
 remote_theme: just-the-docs/just-the-docs@v0.4.2
 baseurl: "/my-public-notes"
 url: "https://felipepimentel.github.io"
 
 # Theme settings for Just-the-Docs
-color_scheme: custom
 heading_anchors: true
 search_enabled: true
 search:
@@ -20,14 +18,6 @@ search:
   rel_url: true
   # Enable or disable the search button that appears in the bottom right corner of every page
   button: true
-
-# Important: Make sure all assets use relative URLs
-sass:
-  style: compressed
-  sass_dir: _sass
-  load_paths:
-    - _sass
-    - assets/css
 
 # Ensure all assets and paths use baseurl prefix
 absolute_links: false
@@ -114,16 +104,6 @@ defaults:
       layout: "default"
       nav_exclude: true
       search_exclude: true
-  -
-    scope:
-      path: "assets/css/**/*.scss"
-    values:
-      sass: true
-  -
-    scope:
-      path: "assets/js/**/*.js"
-    values:
-      layout: null
 
 # Enable GFM (GitHub Flavored Markdown)
 markdown: kramdown
