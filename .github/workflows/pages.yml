@@ -34,36 +34,65 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
       
-      - name: Prepare site files
+      - name: Prepare workspace
         run: |
-          echo "Preparing site files..."
+          echo "Preparing workspace..."
           
-          # Ensure .nojekyll exists
-          touch docs/.nojekyll
+          # Ensure .nojekyll exists in the docs directory
+          cp .nojekyll docs/ 2>/dev/null || touch docs/.nojekyll
           
-          # Create necessary directories
-          mkdir -p docs/assets/{css,js,img}
+          # Create assets directories if they don't exist
+          mkdir -p docs/assets/css docs/assets/js docs/assets/img
           
-          # Create simple Gemfile if not exists
-          if [ ! -f "docs/Gemfile" ]; then
-            cat > docs/Gemfile << 'EOF'
-source "https://rubygems.org"
-gem "github-pages", group: :jekyll_plugins
-gem "jekyll-remote-theme"
-gem "jekyll-seo-tag"
-gem "webrick", "~> 1.7"
-EOF
-          fi
-
-          echo "Site files prepared"
-
-      - name: Build site
-        working-directory: ./docs
-        run: |
-          echo "Building Jekyll site..."
-          bundle install
-          JEKYLL_ENV=production bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+          echo "Workspace preparation complete"
       
+      - name: Fix SCSS frontmatter
+        run: |
+          echo "Fixing SCSS frontmatter..."
+          
+          # Fix any SCSS files with --- --- format or inline frontmatter
+          find docs/assets/css -name "*.scss" -type f -exec sed -i 's/^--- ---/---\n---/g' {} \;
+          find docs/assets/css -name "*.scss" -type f -exec sed -i 's/^--- layout: null ---/---\nlayout: null\n---/g' {} \;
+          
+          # Check all SCSS files in custom directories
+          find docs/assets/css/custom -name "*.scss" -type f -exec sed -i 's/^--- ---/---\n---/g' {} \;
+          
+          echo "SCSS frontmatter fixed"
+
+      - name: Build with Jekyll
+        working-directory: ./docs
+        id: build
+        continue-on-error: true
+        run: |
+          echo "Installing dependencies..."
+          bundle install --jobs 4 --retry 3
+          
+          echo "Building Jekyll site..."
+          bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+          
+      - name: Debug SCSS issues if build failed
+        if: steps.build.outcome == 'failure'
+        run: |
+          echo "Build failed, debugging SCSS files..."
+          
+          echo "Listing all SCSS files:"
+          find docs/assets/css -name "*.scss" -type f | sort
+          
+          echo "\nSample of problematic files contents:"
+          for file in $(find docs/assets/css -name "*.scss" -type f | sort); do
+            echo "\n--- Content of $file ---"
+            head -n 10 "$file"
+          done
+          
+          echo "\nFixing frontmatter and retrying build..."
+          # More aggressive fix for SCSS frontmatter issues
+          find docs/assets/css -name "*.scss" -type f -exec sed -i '1s/^---.*---$/---\n---/' {} \;
+          find docs/assets/css -name "*.scss" -type f -exec sed -i '1s/^--- .*$/---\n---/' {} \;
+          
+          cd docs && bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+          
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

@@ -2,7 +2,6 @@
 layout: default
 title: Home
 nav_order: 1
-description: "Personal notes on AI, Leadership, and Parenting"
 permalink: /
 ---
 
@@ -12,29 +11,8 @@ permalink: /
 # Welcome to My Public Notes
 {: .fs-9 }
 
-This is a collection of personal notes on various topics including:
-
-- **AI**: Technologies, tools, and frameworks
-- **Leadership**: Skills and strategies for effective leadership
-- **Parenting**: Tips and resources for parents
-
-## Recent Updates
-
-- Added new AI section with tools and frameworks
-- Expanded Leadership resources with team management techniques
-- Created Parenting section with age-appropriate activities
-
-## About
-
-This site serves as a knowledge base and reference for topics I'm passionate about. Feel free to explore the different sections using the navigation menu.
-
-## Getting Started
-
-Choose a topic from the menu to begin exploring the content:
-
-1. [AI](/my-public-notes/ai/) - Artificial Intelligence concepts and tools
-2. [Leadership](/my-public-notes/leadership/) - Leadership skills and strategies
-3. [Parenting](/my-public-notes/parenting/) - Parenting tips and resources
+A collection of personal notes on various topics including AI, Leadership, and Parenting.
+{: .fs-6 .fw-300 }
 
 [View on GitHub](https://github.com/felipepimentel/my-public-notes){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
