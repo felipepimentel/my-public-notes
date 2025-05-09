@@ -34,13 +34,31 @@ jobs:
         id: pages
         uses: actions/configure-pages@v4
       
+      - name: Copy .nojekyll file
+        run: |
+          cp .nojekyll docs/ || touch docs/.nojekyll
+      
       - name: Build with Jekyll
         working-directory: ./docs
         run: |
           bundle install
           bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+          # Debug - list files in the build directory
+          find _site -type f | sort
         env:
           JEKYLL_ENV: production
+      
+      - name: Fix asset paths for 404 page
+        working-directory: ./docs/_site
+        run: |
+          # Ensure 404.html exists
+          if [ -f "404.html" ]; then
+            echo "404.html exists - checking for asset references"
+            # Add a script to fix asset paths on 404 page
+            sed -i 's/<\/head>/<script>document.addEventListener("DOMContentLoaded",function(){const e="{{ site.baseurl }}",t=document.querySelectorAll("link[rel=stylesheet]");t.forEach(t=>{t.href.startsWith("/")&&!t.href.startsWith(e)&&(t.href=e+t.href)});const r=document.querySelectorAll("script[src]");r.forEach(t=>{t.src.startsWith("/")&&!t.src.startsWith(e)&&(t.src=e+t.src)});const s=document.querySelectorAll("img");s.forEach(t=>{t.src.startsWith("/")&&!t.src.startsWith(e)&&(t.src=e+t.src)})});<\/script><\/head>/' 404.html
+          else
+            echo "Warning: 404.html not found in build output"
+          fi
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

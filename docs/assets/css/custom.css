@@ -1,0 +1,36 @@
+/* This file ensures custom styles are correctly loaded on all pages including 404 */
+
+/* Global styles */
+body {
+    /* Custom body styles here */
+}
+
+/* 404 page specific styles */
+.container {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.container h1 {
+    font-size: 80px;
+    margin-bottom: 20px;
+    color: #0366d6;
+}
+
+/* Custom button styles */
+.btn.btn-primary {
+    background-color: #0366d6;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn.btn-primary:hover {
+    background-color: #0056b3;
+}

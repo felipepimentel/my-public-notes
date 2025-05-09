@@ -21,6 +21,17 @@ search:
   # Enable or disable the search button that appears in the bottom right corner of every page
   button: true
 
+# Important: Make sure all assets use relative URLs
+sass:
+  style: compressed
+  sass_dir: _sass
+  load_paths:
+    - _sass
+    - assets/css
+
+# Ensures all links are prefixed with baseurl
+absolute_links: false
+
 # Aux links for the upper right navigation
 aux_links:
   "View on GitHub":
@@ -95,6 +106,13 @@ defaults:
     values:
       layout: "default"
       parent: "Parenting"
+  -
+    scope:
+      path: "404.md"
+    values:
+      layout: "default"
+      nav_exclude: true
+      search_exclude: true
 
 # Enable GFM (GitHub Flavored Markdown)
 markdown: kramdown

@@ -1,3 +1,14 @@
 @import "{{ site.theme }}";
 
 /* Add any custom CSS below this line */
+body {
+    /* Add any global styles here */
+}
+
+/* Fix for assets in 404 pages */
+.error-404 img,
+.error-404 script,
+.error-404 link[rel="stylesheet"] {
+    /* Force absolute URLs to use site.baseurl */
+    content: attr(src) attr(href);
+}
