@@ -315,5 +315,190 @@ class MultiProtocolOrchestrator {
   
   async executeWorkflow(task: WorkflowTask) {
     // Encontra agente com capacidade necessária
-    cons
+    const agentsWithTools = this.capabilityRegistry
+      .findAgentsWithCapability('tools');
+    
+    // Executa tarefa com fallback
+    for (const agentId of agentsWithTools) {
+      try {
+        return await this.protocolManager.routeRequest(
+          agentId, 
+          'executeTool', 
+          [task.tool, task.args]
+        );
+      } catch (error) {
+        console.warn(`Agent ${agentId} failed, trying next...`);
+      }
+    }
+    
+    throw new Error('No agent could complete the task');
+  }
+}
 ```
+
+### 4.2 Migração Entre Protocolos
+
+```typescript
+class ProtocolMigrationService {
+  async migrate(
+    fromProtocol: ProtocolType,
+    toProtocol: ProtocolType,
+    config: MigrationConfig
+  ): Promise<MigrationResult> {
+    // 1. Cria adaptadores
+    const sourceAdapter = await AdapterFactory.create(fromProtocol, config.source);
+    const targetAdapter = await AdapterFactory.create(toProtocol, config.target);
+    
+    // 2. Conecta aos serviços
+    await sourceAdapter.connect();
+    await targetAdapter.connect();
+    
+    // 3. Migra dados e configurações
+    const migrationTasks = [
+      this.migrateTools(sourceAdapter, targetAdapter),
+      this.migrateResources(sourceAdapter, targetAdapter),
+      this.migratePrompts(sourceAdapter, targetAdapter)
+    ];
+    
+    const results = await Promise.allSettled(migrationTasks);
+    
+    // 4. Valida migração
+    return this.validateMigration(results);
+  }
+  
+  private async migrateTools(source: IAgentService, target: IAgentService) {
+    if (!source.listTools || !target.listTools) return;
+    
+    const tools = await source.listTools();
+    // Lógica de migração de ferramentas
+  }
+}
+```
+
+## 5. Considerações de Implementação
+
+### 5.1 Performance
+
+```mermaid
+graph TD
+    subgraph "Otimizações"
+        Cache[Cache de Capacidades]
+        Pool[Pool de Conexões]
+        Lazy[Lazy Loading]
+        Batch[Batch Operations]
+    end
+    
+    subgraph "Monitoramento"
+        Metrics[Métricas de Performance]
+        Tracing[Distributed Tracing]
+        Health[Health Checks]
+    end
+    
+    Cache --> Metrics
+    Pool --> Metrics
+    Lazy --> Metrics
+    Batch --> Metrics
+```
+
+### 5.2 Segurança
+
+1. **Isolamento de Protocolos**: Cada adaptador roda em contexto isolado
+2. **Validação de Entrada**: Todas as operações são validadas
+3. **Rate Limiting**: Controle de taxa por protocolo/agente
+4. **Audit Trail**: Log de todas as operações
+
+### 5.3 Resiliência
+
+```typescript
+class ResilientProtocolManager extends ProtocolManager {
+  private circuitBreakers: Map<string, CircuitBreaker> = new Map();
+  
+  async routeRequest(agentId: string, operation: string, params: any) {
+    const circuitBreaker = this.getCircuitBreaker(agentId);
+    
+    return await circuitBreaker.execute(async () => {
+      return await super.routeRequest(agentId, operation, params);
+    });
+  }
+  
+  private getCircuitBreaker(agentId: string): CircuitBreaker {
+    if (!this.circuitBreakers.has(agentId)) {
+      this.circuitBreakers.set(agentId, new CircuitBreaker({
+        failureThreshold: 5,
+        resetTimeout: 60000
+      }));
+    }
+    return this.circuitBreakers.get(agentId)!;
+  }
+}
+```
+
+## 6. Plano de Evolução
+
+### 6.1 Fase 1: MVP (Q1 2025)
+
+- Suporte básico para MCP e OpenAI
+- Interface unificada mínima
+- Adaptadores simples
+
+### 6.2 Fase 2: Expansão (Q2 2025)
+
+- Adicionar suporte A2A e AutoGen
+- Sistema de capacidades completo
+- Orquestração básica
+
+### 6.3 Fase 3: Maturidade (Q3-Q4 2025)
+
+- Registry distribuído
+- Migração automática
+- Otimizações de performance
+
+## 7. Riscos e Mitigações
+
+|Risco|Impacto|Probabilidade|Mitigação|
+|---|---|---|---|
+|Mudanças breaking em protocolos|Alto|Alta|Versionamento rigoroso de adaptadores|
+|Overhead de abstração|Médio|Média|Benchmarks contínuos, otimizações|
+|Complexidade de manutenção|Alto|Média|Documentação extensa, testes automatizados|
+|Fragmentação do ecossistema|Alto|Alta|Participação ativa em grupos de padronização|
+
+## 8. Conclusão
+
+Esta arquitetura fornece:
+
+1. **Flexibilidade** para adaptar-se a mudanças no ecossistema
+2. **Resiliência** para lidar com falhas e indisponibilidades
+3. **Simplicidade** para desenvolvedores implementarem
+4. **Performance** adequada para casos de uso reais
+
+A abordagem permite que nossa aplicação evolua junto com o ecossistema de protocolos, sem comprometer a estabilidade ou exigir reescritas significativas.
+
+## 9. Próximos Passos
+
+1. **Validar arquitetura** com POC usando MCP e OpenAI
+2. **Definir interfaces** detalhadas para cada componente
+3. **Implementar adaptadores** piloto
+4. **Estabelecer métricas** de sucesso
+5. **Criar roadmap** detalhado de implementação
+
+## 10. Apêndices
+
+### A. Glossário de Termos
+
+- **Adaptador**: Componente que traduz entre protocolo específico e interface unificada
+- **Capacidade**: Funcionalidade que um agente/protocolo suporta
+- **Orquestrador**: Componente que coordena múltiplos agentes
+- **Registry**: Banco de dados de capacidades e metadados
+
+### B. Referências
+
+- MCP Specification v2025-03-26
+- Google A2A Proposal
+- Microsoft AutoGen Documentation
+- OpenAI Assistants API Reference
+
+### C. Decisões Arquiteturais (ADRs)
+
+- ADR-001: Uso de adaptadores ao invés de plugins
+- ADR-002: Registry centralizado vs distribuído
+- ADR-003: Estratégia de versionamento de protocolos
