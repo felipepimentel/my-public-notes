@@ -1,4 +1,4 @@
-# 🌟 Recursos Emergentes de IA - Tecnologias e Arquiteturas Inovadoras
+# 🌟 Recursos Emergentes De IA - Tecnologias E Arquiteturas Inovadoras
 
 ## 📚 Índice
 
@@ -12,7 +12,7 @@
 
 ---
 
-## 🔌 Protocolos de Comunicação e Integração
+## 🔌 Protocolos De Comunicação E Integração
 
 ### Model Context Protocol (MCP) - Anthropic
 
@@ -37,7 +37,7 @@
     - Parceiros: Atlassian, Box, Cohere, Intuit, MongoDB, PayPal, Salesforce, SAP
     - Microsoft adotou o protocolo para Azure AI Foundry e Copilot Studio
 
-### Diferenças MCP vs A2A
+### Diferenças MCP Vs A2A
 
 - **MCP**: Foco em conectar LLMs a dados e ferramentas
 - **A2A**: Foco em comunicação e colaboração entre agentes
@@ -45,7 +45,7 @@
 
 ---
 
-## 🎭 Frameworks de Orquestração de Agentes
+## 🎭 Frameworks De Orquestração De Agentes
 
 ### LangGraph - LangChain
 
@@ -71,7 +71,7 @@
     - Integração com Azure AI e Copilot Studio
     - Convergência planejada com AutoGen em 2025
 
-### mcp-agent - LastMile AI
+### Mcp-agent - LastMile AI
 
 - **GitHub**: [lastmile-ai/mcp-agent](https://github.com/lastmile-ai/mcp-agent)
 - **Características**:
@@ -83,7 +83,7 @@
 
 ---
 
-## 💻 Programação de IA e Otimização de Prompts
+## 💻 Programação De IA E Otimização De Prompts
 
 ### DSPy - Stanford
 
@@ -101,22 +101,22 @@
 
 ---
 
-## 🛡️ Segurança e Privacidade em IA
+## 🛡️ Segurança E Privacidade Em IA
 
-### Federated Learning com Privacidade
+### Federated Learning Com Privacidade
 
 - **Tecnologias**:
     - **Differential Privacy (DP)**: Adiciona ruído aos dados mantendo propriedades estatísticas
     - **Homomorphic Encryption (HE)**: Computação sobre dados criptografados
     - **Secure Multi-Party Computation (SMPC)**: Computação colaborativa sem revelar dados
 
-### Papers de Referência
+### Papers De Referência
 
 - "Exploring Homomorphic Encryption and Differential Privacy Techniques towards Secure Federated Learning"
 - "Privacy-preserving federated learning based on multi-key homomorphic encryption"
 - "Differentially Private Secure Multi-Party Computation for Federated Learning"
 
-### Frameworks e Implementações
+### Frameworks E Implementações
 
 - **xMK-CKKS**: Protocolo de criptografia homomórfica multi-chave melhorado
 - **D-MHE**: Brakerski-Fan-Vercauteren multipartidário para deep learning
@@ -124,7 +124,7 @@
 
 ---
 
-## 🧠 Hardware e Computação Neuromórfica
+## 🧠 Hardware E Computação Neuromórfica
 
 ### Computação Neuromórfica
 
@@ -155,7 +155,7 @@
 
 ---
 
-## 🏛️ Governança e IA Responsável
+## 🏛️ Governança E IA Responsável
 
 ### Digital Trust Ecosystem Framework (DTEF) - ISACA
 
@@ -181,7 +181,7 @@
 
 ---
 
-## 🏗️ Arquiteturas Multi-Agentes e Padrões de Design
+## 🏗️ Arquiteturas Multi-Agentes E Padrões De Design
 
 ### Agent Design Pattern Catalogue
 
@@ -192,7 +192,7 @@
     - Modelo de decisão para seleção de padrões
     - Guia para arquitetura de agentes IA
 
-### Padrões de Workflow (Anthropic)
+### Padrões De Workflow (Anthropic)
 
 - **Evaluator-Optimizer**: Avaliação iterativa e otimização
 - **Orchestrator-Worker**: Orquestrador central com trabalhadores especializados
@@ -208,9 +208,9 @@
 
 ---
 
-## 🔮 Tendências e Direções Futuras
+## 🔮 Tendências E Direções Futuras
 
-### Convergência de Tecnologias
+### Convergência De Tecnologias
 
 - Integração MCP + A2A para sistemas complexos
 - Semantic Kernel + AutoGen (previsão para 2025)
@@ -223,7 +223,7 @@
 - Computação híbrida (fotônica, neuromórfica, quântica)
 - Federated learning com privacidade forte
 
-### Desafios em Aberto
+### Desafios Em Aberto
 
 - Padronização de protocolos (MCP vs. A2A)
 - Governança de sistemas multi-agentes
