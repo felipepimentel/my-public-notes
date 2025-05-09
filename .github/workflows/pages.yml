@@ -61,6 +61,8 @@ jobs:
 
       - name: Build with Jekyll
         working-directory: ./docs
+        id: build
+        continue-on-error: true
         run: |
           echo "Installing dependencies..."
           bundle install --jobs 4 --retry 3
@@ -69,7 +71,28 @@ jobs:
           bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
-
+          
+      - name: Debug SCSS issues if build failed
+        if: steps.build.outcome == 'failure'
+        run: |
+          echo "Build failed, debugging SCSS files..."
+          
+          echo "Listing all SCSS files:"
+          find docs/assets/css -name "*.scss" -type f | sort
+          
+          echo "\nSample of problematic files contents:"
+          for file in $(find docs/assets/css -name "*.scss" -type f | sort); do
+            echo "\n--- Content of $file ---"
+            head -n 10 "$file"
+          done
+          
+          echo "\nFixing frontmatter and retrying build..."
+          # More aggressive fix for SCSS frontmatter issues
+          find docs/assets/css -name "*.scss" -type f -exec sed -i '1s/^---.*---$/---\n---/' {} \;
+          find docs/assets/css -name "*.scss" -type f -exec sed -i '1s/^--- .*$/---\n---/' {} \;
+          
+          cd docs && bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+          
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
