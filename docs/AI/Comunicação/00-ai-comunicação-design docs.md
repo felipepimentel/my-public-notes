@@ -1,14 +1,18 @@
-# 📋 Documento de Design: Arquitetura Multi-Protocolo para Agentes IA
+# Design Doc: Arquitetura Multi-Protocolo para Agentes IA
 
-## 1. Contexto e Justificativa
+## Sumário Executivo
 
-### 1.1 Panorama Atual dos Protocolos
+Este documento descreve a arquitetura de um sistema capaz de integrar múltiplos protocolos de agentes IA (MCP, A2A, AutoGen, etc.) através de uma camada de abstração unificada. A solução permite flexibilidade para evolução futura, mantendo simplicidade de implementação e uso.
 
-Estamos vivendo um momento de **proliferação de protocolos** para agentes IA, com múltiplos players competindo para estabelecer padrões:
+## 1. Contexto e Problema
+
+### 1.1 Cenário Atual
+
+O ecossistema de agentes IA está fragmentado com múltiplos protocolos competindo:
 
 ```mermaid
 timeline
-    title Evolução do Ecossistema de Protocolos
+    title Evolução dos Protocolos de Agentes IA
     2023 : OpenAI Assistants API domina
          : Frameworks como LangChain emergem
     2024 Q1-Q2 : MCP (Anthropic) lançado
@@ -17,488 +21,772 @@ timeline
                : AWS Bedrock Agents cresce
     2025 : MCP adiciona Agent Graphs
          : Múltiplos protocolos competindo
-         : Necessidade de interoperabilidade
+         : Necessidade crítica de interoperabilidade
 ```
 
-### 1.2 Protocolos Principais e Seus Roadmaps
+### 1.2 Desafio Principal
 
-|Protocolo|Empresa|Status|Direção Futura|
-|---|---|---|---|
-|**MCP**|Anthropic|Produção|Agent Graphs, Multi-agent, Registry|
-|**A2A**|Google|Proposto|Comunicação peer-to-peer nativa|
-|**AutoGen**|Microsoft|Framework|Protocolo implícito emergindo|
-|**Assistants API**|OpenAI|Produção|Padrão de facto do mercado|
-|**Bedrock Agents**|AWS|Produção|Integração enterprise|
+Como construir aplicações que possam:
 
-### 1.3 Tendências Identificadas
+- Trabalhar com múltiplos protocolos simultaneamente
+- Migrar entre protocolos sem reescrever código
+- Adaptar-se a novos protocolos que surgirem
+- Manter performance e simplicidade
 
-1. **Convergência para Multi-Agente**: Todos os protocolos estão evoluindo para suportar sistemas multi-agente
-2. **Necessidade de Interoperabilidade**: Mercado demanda integração entre diferentes protocolos
-3. **Especialização por Camadas**: Protocolos focando em diferentes aspectos (tools vs comunicação vs orquestração)
+### 1.3 Requisitos Técnicos
 
-## 2. Decisões Arquiteturais
+1. **Flexibilidade**: Suportar protocolos atuais e futuros
+2. **Performance**: Overhead mínimo da abstração
+3. **Simplicidade**: API intuitiva para desenvolvedores
+4. **Resiliência**: Fallback entre protocolos quando necessário
+5. **Evolução**: Capacidade de adicionar features incrementalmente
 
-### 2.1 Princípios de Design
+## 2. Arquitetura Proposta
 
-```mermaid
-mindmap
-  root((Princípios))
-    Flexibilidade
-      Suporte multi-protocolo
-      Migração facilitada
-      Extensibilidade
-    Resiliência
-      Fallback entre protocolos
-      Degradação graciosa
-      Monitoramento
-    Simplicidade
-      Abstrações claras
-      DX amigável
-      Configuração mínima
-    Performance
-      Overhead mínimo
-      Caching inteligente
-      Lazy loading
-```
-
-### 2.2 Arquitetura Proposta
+### 2.1 Visão Geral
 
 ```mermaid
 graph TB
-    subgraph "Camada de Aplicação"
-        App[Aplicação de Negócio]
-        Orchestrator[Orquestrador de Agentes]
+    subgraph "Aplicação"
+        BL[Lógica de Negócio]
+        ORC[Orquestrador]
     end
     
     subgraph "Camada de Abstração"
-        AgentInterface[IAgentService]
-        ProtocolManager[Gerenciador de Protocolos]
-        Registry[Registry de Capacidades]
+        API[API Unificada]
+        PM[Protocol Manager]
+        REG[Registry de Capacidades]
     end
     
-    subgraph "Camada de Adaptação"
-        AdapterFactory[Factory de Adaptadores]
-        MCPAdapter[Adaptador MCP]
-        A2AAdapter[Adaptador A2A]
-        AutoGenAdapter[Adaptador AutoGen]
-        OpenAIAdapter[Adaptador OpenAI]
-        CustomAdapter[Adaptador Custom]
+    subgraph "Adaptadores"
+        MCPA[Adaptador MCP]
+        A2AA[Adaptador A2A]
+        AGA[Adaptador AutoGen]
+        OAA[Adaptador OpenAI]
     end
     
-    subgraph "Camada de Protocolo"
-        MCPClient[Cliente MCP]
-        A2AClient[Cliente A2A]
-        AutoGenClient[Cliente AutoGen]
-        OpenAIClient[Cliente OpenAI]
+    subgraph "Protocolos Nativos"
+        MCP[MCP Client]
+        A2A[A2A Client]
+        AG[AutoGen Client]
+        OA[OpenAI Client]
     end
     
-    App --> Orchestrator
-    Orchestrator --> AgentInterface
-    AgentInterface --> ProtocolManager
-    ProtocolManager --> Registry
-    ProtocolManager --> AdapterFactory
+    BL --> ORC
+    ORC --> API
+    API --> PM
+    PM --> REG
+    PM --> MCPA
+    PM --> A2AA
+    PM --> AGA
+    PM --> OAA
     
-    AdapterFactory --> MCPAdapter
-    AdapterFactory --> A2AAdapter
-    AdapterFactory --> AutoGenAdapter
-    AdapterFactory --> OpenAIAdapter
-    AdapterFactory --> CustomAdapter
+    MCPA --> MCP
+    A2AA --> A2A
+    AGA --> AG
+    OAA --> OA
     
-    MCPAdapter --> MCPClient
-    A2AAdapter --> A2AClient
-    AutoGenAdapter --> AutoGenClient
-    OpenAIAdapter --> OpenAIClient
-    
-    style AgentInterface fill:#4CAF50,stroke:#2E7D32,stroke-width:3px
-    style ProtocolManager fill:#2196F3,stroke:#1565C0,stroke-width:3px
+    style API fill:#4CAF50,stroke:#2E7D32,stroke-width:3px
+    style PM fill:#2196F3,stroke:#1565C0,stroke-width:3px
 ```
 
-## 3. Componentes Principais
+### 2.2 Componentes Principais
 
-### 3.1 Interface de Agente Unificada
+#### 2.2.1 Interface Unificada
+
+A interface define um contrato comum para todos os protocolos:
 
 ```typescript
-// Definição agnóstica de protocolo
 interface IAgentService {
   // Ciclo de vida
   initialize(config: AgentConfig): Promise<void>;
   connect(): Promise<void>;
   disconnect(): Promise<void>;
   
-  // Capacidades básicas
+  // Descoberta de capacidades
   getCapabilities(): Promise<AgentCapabilities>;
   
-  // Ferramentas
+  // Operações básicas
   listTools(): Promise<Tool[]>;
   executeTool(name: string, args: any): Promise<ExecutionResult>;
   
-  // Recursos (quando suportado)
+  // Operações avançadas (opcionais)
   listResources?(): Promise<Resource[]>;
   readResource?(uri: string): Promise<any>;
-  
-  // Comunicação (quando suportado)
   sendMessage?(to: AgentId, message: Message): Promise<void>;
-  onMessage?(handler: MessageHandler): void;
-  
-  // Sampling/Geração (quando suportado)
   generateResponse?(prompt: string, context?: any): Promise<string>;
 }
-```
 
-### 3.2 Gerenciador de Protocolos
-
-```typescript
-class ProtocolManager {
-  private adapters: Map<string, IAgentService> = new Map();
-  private registry: CapabilityRegistry;
-  
-  async registerProtocol(
-    type: ProtocolType, 
-    config: ProtocolConfig
-  ): Promise<void> {
-    const adapter = await AdapterFactory.create(type, config);
-    await adapter.initialize(config);
-    this.adapters.set(config.agentId, adapter);
-    
-    // Registra capacidades
-    const capabilities = await adapter.getCapabilities();
-    this.registry.register(config.agentId, capabilities);
-  }
-  
-  async routeRequest(
-    agentId: string, 
-    operation: string, 
-    params: any
-  ): Promise<any> {
-    const adapter = this.adapters.get(agentId);
-    if (!adapter) throw new Error(`Agent ${agentId} not found`);
-    
-    // Verifica se operação é suportada
-    const capabilities = this.registry.get(agentId);
-    if (!this.isOperationSupported(operation, capabilities)) {
-      throw new Error(`Operation ${operation} not supported`);
-    }
-    
-    // Executa operação
-    return await adapter[operation](...params);
-  }
+interface AgentCapabilities {
+  tools: boolean;
+  resources: boolean;
+  prompts: boolean;
+  sampling: boolean;
+  messaging: boolean;
+  streaming: boolean;
+  multiModal: boolean;
 }
 ```
 
-### 3.3 Sistema de Adaptadores
+#### 2.2.2 Padrão Adapter
+
+Escolhemos o padrão Adapter ao invés de um sistema de plugins por várias razões:
+
+```mermaid
+graph LR
+    subgraph "Nossa Escolha: Adapter Pattern"
+        I[Interface]
+        A1[MCPAdapter]
+        A2[A2AAdapter]
+        I --> A1
+        I --> A2
+    end
+    
+    subgraph "Alternativa: Plugin System"
+        PM[Plugin Manager]
+        P1[MCP Plugin]
+        P2[A2A Plugin]
+        PM -.-> P1
+        PM -.-> P2
+    end
+    
+    style I fill:#4CAF50
+```
+
+**Razões da escolha:**
+
+- ✅ Type safety em tempo de compilação
+- ✅ Debugging mais simples e stack traces claros
+- ✅ Melhor performance (sem overhead de carregamento dinâmico)
+- ✅ Maior segurança (menor superfície de ataque)
+- ✅ Melhor suporte de IDEs
+
+**Trade-offs aceitos:**
+
+- ❌ Requer recompilação para novos protocolos
+- ❌ Menos flexível para extensões de terceiros
+
+Implementação exemplo:
 
 ```typescript
 abstract class BaseProtocolAdapter implements IAgentService {
   protected config: AgentConfig;
   protected capabilities: AgentCapabilities;
   
-  // Implementação base comum
   async initialize(config: AgentConfig): Promise<void> {
     this.config = config;
     this.capabilities = await this.detectCapabilities();
   }
   
   abstract detectCapabilities(): Promise<AgentCapabilities>;
-  
-  // Métodos que subclasses devem implementar
   abstract connect(): Promise<void>;
   abstract disconnect(): Promise<void>;
   abstract listTools(): Promise<Tool[]>;
   abstract executeTool(name: string, args: any): Promise<ExecutionResult>;
 }
 
-// Exemplo: Adaptador MCP
 class MCPAdapter extends BaseProtocolAdapter {
-  private mcpClient: MCPClient;
+  private client: MCPClient;
   
   async detectCapabilities(): Promise<AgentCapabilities> {
-    // Detecta capacidades do servidor MCP
+    // Detecta capacidades específicas do MCP
+    const serverInfo = await this.client.getServerInfo();
     return {
-      tools: true,
-      resources: true,
-      prompts: true,
-      sampling: false,
-      messaging: false
+      tools: !!serverInfo.capabilities.tools,
+      resources: !!serverInfo.capabilities.resources,
+      prompts: !!serverInfo.capabilities.prompts,
+      sampling: false, // MCP não suporta ainda
+      messaging: false,
+      streaming: !!serverInfo.capabilities.streaming,
+      multiModal: false
     };
   }
   
   async connect(): Promise<void> {
-    this.mcpClient = new MCPClient(this.config);
-    await this.mcpClient.initialize();
+    this.client = new MCPClient(this.config);
+    await this.client.initialize();
   }
   
   async listTools(): Promise<Tool[]> {
-    const mcpTools = await this.mcpClient.listTools();
-    return this.transformMCPTools(mcpTools);
+    const mcpTools = await this.client.listTools();
+    return mcpTools.map(this.transformTool);
   }
   
-  private transformMCPTools(mcpTools: any[]): Tool[] {
-    // Transforma formato MCP para formato unificado
-    return mcpTools.map(tool => ({
-      id: tool.name,
-      name: tool.name,
-      description: tool.description,
-      parameters: tool.inputSchema,
+  private transformTool(mcpTool: MCPTool): Tool {
+    return {
+      id: mcpTool.name,
+      name: mcpTool.name,
+      description: mcpTool.description,
+      parameters: mcpTool.inputSchema,
       type: 'function'
-    }));
+    };
   }
 }
 ```
 
-### 3.4 Registry de Capacidades
+#### 2.2.3 Gerenciador de Protocolos
 
 ```typescript
-interface AgentCapabilities {
-  tools?: boolean;
-  resources?: boolean;
-  prompts?: boolean;
-  sampling?: boolean;
-  messaging?: boolean;
-  streaming?: boolean;
-  multiModal?: boolean;
-  [key: string]: boolean | undefined;
-}
-
-class CapabilityRegistry {
-  private capabilities: Map<string, AgentCapabilities> = new Map();
-  
-  register(agentId: string, capabilities: AgentCapabilities): void {
-    this.capabilities.set(agentId, capabilities);
-  }
-  
-  get(agentId: string): AgentCapabilities | undefined {
-    return this.capabilities.get(agentId);
-  }
-  
-  findAgentsWithCapability(capability: string): string[] {
-    return Array.from(this.capabilities.entries())
-      .filter(([_, caps]) => caps[capability])
-      .map(([agentId, _]) => agentId);
-  }
-}
-```
-
-## 4. Padrões de Uso
-
-### 4.1 Orquestração Multi-Protocolo
-
-```typescript
-class MultiProtocolOrchestrator {
-  private protocolManager: ProtocolManager;
-  private capabilityRegistry: CapabilityRegistry;
+class ProtocolManager {
+  private adapters: Map<string, IAgentService> = new Map();
+  private registry: CapabilityRegistry;
   
   constructor() {
-    this.protocolManager = new ProtocolManager();
-    this.capabilityRegistry = new CapabilityRegistry();
+    this.registry = new CapabilityRegistry();
   }
   
-  async setupAgents() {
-    // Registra agentes com diferentes protocolos
-    await this.protocolManager.registerProtocol('mcp', {
-      agentId: 'researcher',
-      type: 'mcp',
-      config: { /* config MCP */ }
-    });
+  async registerAgent(
+    agentId: string,
+    type: ProtocolType,
+    config: ProtocolConfig
+  ): Promise<void> {
+    const adapter = AdapterFactory.create(type, config);
+    await adapter.initialize(config);
     
-    await this.protocolManager.registerProtocol('a2a', {
-      agentId: 'analyzer',
-      type: 'a2a',
-      config: { /* config A2A */ }
-    });
+    this.adapters.set(agentId, adapter);
     
-    await this.protocolManager.registerProtocol('openai', {
-      agentId: 'writer',
-      type: 'openai',
-      config: { /* config OpenAI */ }
-    });
+    const capabilities = await adapter.getCapabilities();
+    this.registry.register(agentId, capabilities);
   }
   
-  async executeWorkflow(task: WorkflowTask) {
-    // Encontra agente com capacidade necessária
-    const agentsWithTools = this.capabilityRegistry
-      .findAgentsWithCapability('tools');
-    
-    // Executa tarefa com fallback
-    for (const agentId of agentsWithTools) {
-      try {
-        return await this.protocolManager.routeRequest(
-          agentId, 
-          'executeTool', 
-          [task.tool, task.args]
-        );
-      } catch (error) {
-        console.warn(`Agent ${agentId} failed, trying next...`);
-      }
+  async execute(
+    agentId: string,
+    operation: string,
+    params: any[]
+  ): Promise<any> {
+    const adapter = this.adapters.get(agentId);
+    if (!adapter) {
+      throw new Error(`Agent ${agentId} not found`);
     }
     
-    throw new Error('No agent could complete the task');
-  }
-}
-```
-
-### 4.2 Migração Entre Protocolos
-
-```typescript
-class ProtocolMigrationService {
-  async migrate(
-    fromProtocol: ProtocolType,
-    toProtocol: ProtocolType,
-    config: MigrationConfig
-  ): Promise<MigrationResult> {
-    // 1. Cria adaptadores
-    const sourceAdapter = await AdapterFactory.create(fromProtocol, config.source);
-    const targetAdapter = await AdapterFactory.create(toProtocol, config.target);
+    // Verifica se operação é suportada
+    if (!this.isOperationSupported(agentId, operation)) {
+      throw new Error(`Operation ${operation} not supported by ${agentId}`);
+    }
     
-    // 2. Conecta aos serviços
-    await sourceAdapter.connect();
-    await targetAdapter.connect();
-    
-    // 3. Migra dados e configurações
-    const migrationTasks = [
-      this.migrateTools(sourceAdapter, targetAdapter),
-      this.migrateResources(sourceAdapter, targetAdapter),
-      this.migratePrompts(sourceAdapter, targetAdapter)
-    ];
-    
-    const results = await Promise.allSettled(migrationTasks);
-    
-    // 4. Valida migração
-    return this.validateMigration(results);
+    return await adapter[operation](...params);
   }
   
-  private async migrateTools(source: IAgentService, target: IAgentService) {
-    if (!source.listTools || !target.listTools) return;
-    
-    const tools = await source.listTools();
-    // Lógica de migração de ferramentas
+  private isOperationSupported(agentId: string, operation: string): boolean {
+    const capabilities = this.registry.getCapabilities(agentId);
+    // Lógica para verificar se operação é suportada baseado nas capacidades
+    return true; // simplificado
   }
 }
 ```
 
-## 5. Considerações de Implementação
+#### 2.2.4 Registry de Capacidades
 
-### 5.1 Performance
+Optamos por um registry centralizado ao invés de distribuído pelas seguintes razões:
 
 ```mermaid
 graph TD
-    subgraph "Otimizações"
+    subgraph "Registry Centralizado - Nossa Escolha"
+        CR[Central Registry]
+        A1[Agent 1] -->|Register| CR
+        A2[Agent 2] -->|Register| CR
+        A3[Agent 3] -->|Register| CR
+        Client -->|Query| CR
+    end
+    
+    subgraph "Registry Distribuído - Alternativa"
+        A1D[Agent 1] <-->|Sync| A2D[Agent 2]
+        A2D <-->|Sync| A3D[Agent 3]
+        ClientD -->|Multiple Queries| A1D
+        ClientD --> A2D
+    end
+    
+    style CR fill:#2196F3
+```
+
+**Razões da escolha:**
+
+- ✅ Implementação mais simples
+- ✅ Queries mais rápidas (ponto único)
+- ✅ Consistência garantida
+- ✅ Debugging facilitado
+
+**Trade-offs aceitos:**
+
+- ❌ Ponto único de falha (mitigado com cache e backup)
+- ❌ Possível gargalo de performance (mitigado com otimizações)
+
+Implementação com mitigações:
+
+```typescript
+class CapabilityRegistry {
+  private capabilities: Map<string, AgentCapabilities> = new Map();
+  private cache: LRUCache<string, string[]>;
+  
+  constructor() {
+    this.cache = new LRUCache({ max: 1000 });
+  }
+  
+  register(agentId: string, capabilities: AgentCapabilities): void {
+    this.capabilities.set(agentId, capabilities);
+    this.invalidateCache();
+  }
+  
+  findAgentsWithCapability(capability: string): string[] {
+    // Verifica cache primeiro
+    const cached = this.cache.get(capability);
+    if (cached) return cached;
+    
+    // Busca agentes com a capacidade
+    const agents = Array.from(this.capabilities.entries())
+      .filter(([_, caps]) => caps[capability])
+      .map(([agentId, _]) => agentId);
+    
+    // Atualiza cache
+    this.cache.set(capability, agents);
+    return agents;
+  }
+  
+  getCapabilities(agentId: string): AgentCapabilities | undefined {
+    return this.capabilities.get(agentId);
+  }
+}
+
+// Registry resiliente com fallback
+class ResilientRegistry extends CapabilityRegistry {
+  private backup: BackupRegistry;
+  private healthChecker: HealthChecker;
+  
+  constructor() {
+    super();
+    this.backup = new BackupRegistry();
+    this.healthChecker = new HealthChecker(this);
+  }
+  
+  async register(agentId: string, capabilities: AgentCapabilities): Promise<void> {
+    try {
+      super.register(agentId, capabilities);
+      await this.backup.sync(agentId, capabilities);
+    } catch (error) {
+      // Em caso de falha, tenta backup
+      await this.backup.register(agentId, capabilities);
+      throw error;
+    }
+  }
+}
+```
+
+### 2.3 Fluxo de Operação
+
+```mermaid
+sequenceDiagram
+    participant App as Aplicação
+    participant Orch as Orquestrador
+    participant PM as Protocol Manager
+    participant Reg as Registry
+    participant Adapter as Adapter (MCP/A2A/etc)
+    participant Protocol as Protocolo Nativo
+
+    App->>Orch: executeTask(task)
+    Orch->>PM: findAgentForTask(task)
+    PM->>Reg: findAgentsWithCapability(capability)
+    Reg-->>PM: [agentIds]
+    
+    loop Para cada agente até sucesso
+        PM->>Adapter: executeTool(name, args)
+        Adapter->>Protocol: [protocolo específico]
+        Protocol-->>Adapter: resultado
+        Adapter-->>PM: resultado normalizado
+    end
+    
+    PM-->>Orch: resultado
+    Orch-->>App: resultado
+```
+
+### 2.4 Versionamento de Protocolos
+
+Adotamos versionamento semântico com adaptadores versionados:
+
+```mermaid
+graph TD
+    subgraph "Estratégia de Versionamento"
+        Factory[AdapterFactory]
+        Config["{protocol: 'mcp', version: '2.0'}"]
+        
+        MCP10[MCPAdapter v1.0]
+        MCP11[MCPAdapter v1.1]
+        MCP20[MCPAdapter v2.0]
+        
+        Config --> Factory
+        Factory --> MCP10
+        Factory --> MCP11
+        Factory --> MCP20
+    end
+```
+
+```typescript
+interface VersionedConfig {
+  protocol: string;
+  version: string;
+  fallbackVersion?: string;
+}
+
+class VersionedAdapterFactory {
+  private static adapters: Map<string, new() => IAgentService> = new Map([
+    ['mcp-1.0', MCPAdapterV1_0],
+    ['mcp-1.1', MCPAdapterV1_1],
+    ['mcp-2.0', MCPAdapterV2_0],
+    ['a2a-1.0', A2AAdapterV1_0],
+  ]);
+  
+  static create(config: VersionedConfig): IAgentService {
+    const key = `${config.protocol}-${config.version}`;
+    const AdapterClass = this.adapters.get(key);
+    
+    if (AdapterClass) {
+      return new AdapterClass();
+    }
+    
+    // Tenta fallback
+    if (config.fallbackVersion) {
+      const fallbackKey = `${config.protocol}-${config.fallbackVersion}`;
+      const FallbackClass = this.adapters.get(fallbackKey);
+      if (FallbackClass) {
+        console.warn(`Using fallback version ${config.fallbackVersion}`);
+        return new FallbackClass();
+      }
+    }
+    
+    throw new Error(`No adapter found for ${config.protocol} v${config.version}`);
+  }
+  
+  static isVersionSupported(protocol: string, version: string): boolean {
+    return this.adapters.has(`${protocol}-${version}`);
+  }
+}
+```
+
+## 3. Casos de Uso
+
+### 3.1 Orquestração Multi-Protocolo
+
+```typescript
+class MultiAgentOrchestrator {
+  private protocolManager: ProtocolManager;
+  
+  async executeWorkflow(workflow: Workflow) {
+    for (const step of workflow.steps) {
+      const result = await this.executeStep(step);
+      if (!result.success) {
+        await this.handleFailure(step, result);
+      }
+    }
+  }
+  
+  private async executeStep(step: WorkflowStep) {
+    // Encontra agentes capazes de executar a tarefa
+    const capableAgents = this.protocolManager
+      .findAgentsWithCapability(step.requiredCapability);
+    
+    // Tenta executar com fallback
+    for (const agentId of capableAgents) {
+      try {
+        return await this.protocolManager.execute(
+          agentId,
+          step.operation,
+          step.params
+        );
+      } catch (error) {
+        console.warn(`Agent ${agentId} failed:`, error);
+        continue; // Tenta próximo agente
+      }
+    }
+    
+    throw new Error(`No agent could execute step: ${step.name}`);
+  }
+}
+```
+
+### 3.2 Migração Entre Protocolos
+
+```typescript
+class ProtocolMigrationService {
+  async migrate(from: MigrationSource, to: MigrationTarget) {
+    // 1. Backup estado atual
+    const state = await this.exportState(from);
+    
+    // 2. Valida compatibilidade
+    await this.validateCompatibility(state, to);
+    
+    // 3. Executa migração
+    await this.importState(state, to);
+    
+    // 4. Verifica integridade
+    await this.verifyMigration(from, to);
+  }
+  
+  private async exportState(source: MigrationSource) {
+    const adapter = this.getAdapter(source);
+    return {
+      tools: await adapter.listTools(),
+      capabilities: await adapter.getCapabilities(),
+      configuration: source.config,
+      metadata: {
+        exportedAt: new Date(),
+        version: source.version
+      }
+    };
+  }
+}
+```
+
+## 4. Considerações de Implementação
+
+### 4.1 Performance
+
+```mermaid
+graph TD
+    subgraph "Otimizações de Performance"
         Cache[Cache de Capacidades]
         Pool[Pool de Conexões]
         Lazy[Lazy Loading]
         Batch[Batch Operations]
+        
+        Cache --> Metrics[Métricas de Performance]
+        Pool --> Metrics
+        Lazy --> Metrics
+        Batch --> Metrics
     end
-    
-    subgraph "Monitoramento"
-        Metrics[Métricas de Performance]
-        Tracing[Distributed Tracing]
-        Health[Health Checks]
-    end
-    
-    Cache --> Metrics
-    Pool --> Metrics
-    Lazy --> Metrics
-    Batch --> Metrics
 ```
 
-### 5.2 Segurança
-
-1. **Isolamento de Protocolos**: Cada adaptador roda em contexto isolado
-2. **Validação de Entrada**: Todas as operações são validadas
-3. **Rate Limiting**: Controle de taxa por protocolo/agente
-4. **Audit Trail**: Log de todas as operações
-
-### 5.3 Resiliência
-
 ```typescript
-class ResilientProtocolManager extends ProtocolManager {
-  private circuitBreakers: Map<string, CircuitBreaker> = new Map();
+class PerformanceOptimizedManager extends ProtocolManager {
+  private connectionPool: ConnectionPool;
+  private operationCache: OperationCache;
   
-  async routeRequest(agentId: string, operation: string, params: any) {
-    const circuitBreaker = this.getCircuitBreaker(agentId);
-    
-    return await circuitBreaker.execute(async () => {
-      return await super.routeRequest(agentId, operation, params);
-    });
+  constructor() {
+    super();
+    this.connectionPool = new ConnectionPool({ maxSize: 10 });
+    this.operationCache = new OperationCache({ ttl: 60000 });
   }
   
-  private getCircuitBreaker(agentId: string): CircuitBreaker {
-    if (!this.circuitBreakers.has(agentId)) {
-      this.circuitBreakers.set(agentId, new CircuitBreaker({
-        failureThreshold: 5,
-        resetTimeout: 60000
-      }));
+  async execute(agentId: string, operation: string, params: any[]) {
+    // Verifica cache
+    const cacheKey = this.getCacheKey(agentId, operation, params);
+    const cached = this.operationCache.get(cacheKey);
+    if (cached) return cached;
+    
+    // Executa com connection pooling
+    const connection = await this.connectionPool.acquire(agentId);
+    try {
+      const result = await super.execute(agentId, operation, params);
+      this.operationCache.set(cacheKey, result);
+      return result;
+    } finally {
+      this.connectionPool.release(connection);
     }
-    return this.circuitBreakers.get(agentId)!;
   }
 }
 ```
 
-## 6. Plano de Evolução
+### 4.2 Segurança
 
-### 6.1 Fase 1: MVP (Q1 2025)
+```typescript
+class SecureProtocolManager extends ProtocolManager {
+  private validator: InputValidator;
+  private rateLimiter: RateLimiter;
+  private auditor: SecurityAuditor;
+  
+  async execute(agentId: string, operation: string, params: any[]) {
+    // Validação de entrada
+    this.validator.validate(operation, params);
+    
+    // Rate limiting
+    await this.rateLimiter.checkLimit(agentId, operation);
+    
+    // Executa operação
+    const result = await super.execute(agentId, operation, params);
+    
+    // Auditoria
+    await this.auditor.log({
+      agentId,
+      operation,
+      timestamp: new Date(),
+      result: result.success
+    });
+    
+    return result;
+  }
+}
+```
 
-- Suporte básico para MCP e OpenAI
-- Interface unificada mínima
-- Adaptadores simples
+### 4.3 Monitoramento
 
-### 6.2 Fase 2: Expansão (Q2 2025)
+```typescript
+interface SystemMetrics {
+  operationsPerSecond: number;
+  averageLatency: number;
+  errorRate: number;
+  activeConnections: number;
+  protocolDistribution: Record<string, number>;
+}
 
-- Adicionar suporte A2A e AutoGen
-- Sistema de capacidades completo
-- Orquestração básica
+class MonitoringService {
+  private metrics: MetricsCollector;
+  private alerts: AlertManager;
+  
+  async collectMetrics(): Promise<SystemMetrics> {
+    return {
+      operationsPerSecond: await this.metrics.getOpsPerSecond(),
+      averageLatency: await this.metrics.getAvgLatency(),
+      errorRate: await this.metrics.getErrorRate(),
+      activeConnections: await this.metrics.getActiveConnections(),
+      protocolDistribution: await this.metrics.getProtocolUsage()
+    };
+  }
+  
+  async checkHealth(): Promise<HealthStatus> {
+    const metrics = await this.collectMetrics();
+    
+    if (metrics.errorRate > 0.05) {
+      await this.alerts.trigger('HIGH_ERROR_RATE', metrics);
+    }
+    
+    if (metrics.averageLatency > 1000) {
+      await this.alerts.trigger('HIGH_LATENCY', metrics);
+    }
+    
+    return {
+      status: this.calculateHealthStatus(metrics),
+      metrics
+    };
+  }
+}
+```
 
-### 6.3 Fase 3: Maturidade (Q3-Q4 2025)
+## 5. Plano de Implementação
 
-- Registry distribuído
-- Migração automática
+### 5.1 Fase 1: MVP (4 semanas)
+
+- Interface básica IAgentService
+- Adaptadores para MCP e OpenAI
+- Protocol Manager simples
+- Testes unitários básicos
+
+### 5.2 Fase 2: Expansão (6 semanas)
+
+- Registry de capacidades
+- Suporte a A2A e AutoGen
+- Sistema de versionamento
+- Métricas básicas
+
+### 5.3 Fase 3: Produção (8 semanas)
+
 - Otimizações de performance
+- Segurança e rate limiting
+- Monitoramento completo
+- Documentação e exemplos
 
-## 7. Riscos e Mitigações
+### 5.4 Fase 4: Evolução (Contínuo)
+
+- Novos adaptadores conforme necessário
+- Melhorias baseadas em feedback
+- Otimizações avançadas
+- Ferramentas de desenvolvimento
+
+## 6. Riscos e Mitigações
 
 |Risco|Impacto|Probabilidade|Mitigação|
 |---|---|---|---|
-|Mudanças breaking em protocolos|Alto|Alta|Versionamento rigoroso de adaptadores|
-|Overhead de abstração|Médio|Média|Benchmarks contínuos, otimizações|
-|Complexidade de manutenção|Alto|Média|Documentação extensa, testes automatizados|
-|Fragmentação do ecossistema|Alto|Alta|Participação ativa em grupos de padronização|
+|Mudanças breaking em protocolos|Alto|Alta|Versionamento rigoroso, testes de regressão|
+|Overhead de performance|Médio|Média|Benchmarks contínuos, profiling|
+|Complexidade crescente|Alto|Alta|Documentação detalhada, exemplos|
+|Adoção lenta|Médio|Média|Developer experience excelente|
+
+## 7. Métricas de Sucesso
+
+1. **Performance**
+    
+    - Latência de abstração < 5ms
+    - Throughput > 1000 ops/segundo
+    - Memory overhead < 50MB
+2. **Confiabilidade**
+    
+    - Disponibilidade > 99.9%
+    - Taxa de erro < 0.1%
+    - Tempo de recuperação < 30s
+3. **Adoção**
+    
+    - Tempo de integração < 1 dia
+    - Satisfação do desenvolvedor > 4.5/5
+    - Número de protocolos suportados > 5
 
 ## 8. Conclusão
 
-Esta arquitetura fornece:
+Esta arquitetura fornece uma base sólida para integração multi-protocolo com:
 
-1. **Flexibilidade** para adaptar-se a mudanças no ecossistema
-2. **Resiliência** para lidar com falhas e indisponibilidades
-3. **Simplicidade** para desenvolvedores implementarem
-4. **Performance** adequada para casos de uso reais
+- **Flexibilidade** para adaptar-se ao ecossistema em evolução
+- **Simplicidade** para desenvolvedores implementarem
+- **Performance** adequada para produção
+- **Resiliência** para lidar com falhas
 
-A abordagem permite que nossa aplicação evolua junto com o ecossistema de protocolos, sem comprometer a estabilidade ou exigir reescritas significativas.
+O design permite evolução incremental, começando simples e adicionando complexidade conforme necessário.
 
-## 9. Próximos Passos
+## 9. Apêndices
 
-1. **Validar arquitetura** com POC usando MCP e OpenAI
-2. **Definir interfaces** detalhadas para cada componente
-3. **Implementar adaptadores** piloto
-4. **Estabelecer métricas** de sucesso
-5. **Criar roadmap** detalhado de implementação
+### A. Exemplos de Código
 
-## 10. Apêndices
+```typescript
+// Exemplo completo de uso
+async function main() {
+  const orchestrator = new MultiAgentOrchestrator();
+  
+  // Registra agentes com diferentes protocolos
+  await orchestrator.registerAgent('researcher', {
+    protocol: 'mcp',
+    version: '2.0',
+    config: {
+      command: 'node',
+      args: ['./mcp-server.js']
+    }
+  });
+  
+  await orchestrator.registerAgent('analyzer', {
+    protocol: 'a2a',
+    version: '1.0',
+    config: {
+      endpoint: 'https://analyzer.example.com'
+    }
+  });
+  
+  // Executa workflow multi-protocolo
+  const result = await orchestrator.executeWorkflow({
+    name: 'Research and Analysis',
+    steps: [
+      {
+        name: 'Research',
+        agentId: 'researcher',
+        operation: 'search',
+        params: { query: 'AI protocols comparison' }
+      },
+      {
+        name: 'Analyze',
+        agentId: 'analyzer',
+        operation: 'analyze',
+        params: { data: '${steps.research.result}' }
+      }
+    ]
+  });
+  
+  console.log('Workflow completed:', result);
+}
+```
 
-### A. Glossário de Termos
+### B. Glossário
 
-- **Adaptador**: Componente que traduz entre protocolo específico e interface unificada
-- **Capacidade**: Funcionalidade que um agente/protocolo suporta
-- **Orquestrador**: Componente que coordena múltiplos agentes
-- **Registry**: Banco de dados de capacidades e metadados
+- **Adapter**: Componente que traduz entre protocolo específico e interface unificada
+- **Capability**: Funcionalidade que um agente/protocolo suporta
+- **Protocol Manager**: Componente central que gerencia todos os adaptadores
+- **Registry**: Sistema de descoberta de capacidades dos agentes
 
-### B. Referências
+### C. Referências
 
-- MCP Specification v2025-03-26
-- Google A2A Proposal
+- MCP Specification (Anthropic)
+- Google A2A Protocol Proposal
 - Microsoft AutoGen Documentation
 - OpenAI Assistants API Reference
-
-### C. Decisões Arquiteturais (ADRs)
-
-- ADR-001: Uso de adaptadores ao invés de plugins
-- ADR-002: Registry centralizado vs distribuído
-- ADR-003: Estratégia de versionamento de protocolos
