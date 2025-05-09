@@ -1,4 +1,4 @@
-# Guia Completo Do Fluxo MCP - Arquitetura E Funcionamento
+# Passo a passo - do prompt 
 
 ## Introdução Ao MCP
 
