@@ -146,6 +146,72 @@ graph TD
     style Governance fill:#96ceb4
 ```
 
+### Control Plane: O Cérebro do AI Mesh
+
+O Control Plane é absolutamente fundamental para o AI Mesh. Enquanto no Service Mesh tradicional ele gerencia configurações e políticas, no AI Mesh ele se torna um verdadeiro "cérebro" do sistema:
+
+```mermaid
+graph LR
+    subgraph "Service Mesh Control Plane"
+        Config[Configuração]
+        Discovery[Service Discovery]
+        Policy[Políticas]
+        Telemetry[Telemetria]
+    end
+    
+    subgraph "AI Mesh Control Plane"
+        Understanding[Compreensão Semântica]
+        Learning[Aprendizado Contínuo]
+        Ethics[Governança Ética]
+        Optimization[Otimização Inteligente]
+        Context[Gestão de Contexto]
+        Evolution[Auto-evolução]
+    end
+    
+    Config --> Understanding
+    Discovery --> Learning
+    Policy --> Ethics
+    Telemetry --> Optimization
+    
+    style Understanding fill:#4ecdc4
+    style Learning fill:#45b7d1
+    style Ethics fill:#ff6b6b
+    style Evolution fill:#ffd93d
+```
+
+#### Componentes do AI Control Plane:
+
+1. **Compreensão Semântica**
+    
+    - Analisa intenções, não apenas requests
+    - Mapeia capacidades dos agentes
+    - Entende contexto e nuances
+2. **Aprendizado Contínuo**
+    
+    - Melhora roteamento com o tempo
+    - Identifica padrões de colaboração
+    - Otimiza workflows automaticamente
+3. **Governança Ética**
+    
+    - Aplica políticas de IA responsável
+    - Monitora viés e fairness
+    - Garante compliance regulatório
+4. **Otimização Inteligente**
+    
+    - Balanceia custo vs qualidade
+    - Gerencia recursos (tokens, compute)
+    - Prediz e previne gargalos
+5. **Gestão de Contexto**
+    
+    - Mantém estado conversacional
+    - Compartilha conhecimento entre agentes
+    - Preserva consistência semântica
+6. **Auto-evolução**
+    
+    - Adapta topologia dinamicamente
+    - Sugere novos agentes/capacidades
+    - Evolui políticas baseado em outcomes
+
 ## 4. Componentes Chave do AI Mesh
 
 ### 4.1 Roteamento Semântico
@@ -235,7 +301,72 @@ graph TB
     AI5 --> D3
 ```
 
-## 5. Casos de Uso e Padrões
+## 5. Métricas e KPIs do AI Mesh
+
+### 5.1 Métricas Tradicionais vs AI Mesh
+
+```mermaid
+graph TD
+    subgraph "Métricas Service Mesh"
+        T1[Latência P99]
+        T2[Taxa de Erro]
+        T3[Throughput]
+        T4[Saturação]
+    end
+    
+    subgraph "Métricas AI Mesh"
+        A1[Qualidade Semântica]
+        A2[Custo por Insight]
+        A3[Taxa de Alucinação]
+        A4[Coerência de Contexto]
+        A5[Eficiência de Colaboração]
+        A6[Satisfação do Usuário]
+        A7[Drift de Comportamento]
+        A8[ROI de Automação]
+    end
+    
+    T1 --> A1
+    T2 --> A3
+    T3 --> A5
+    T4 --> A2
+```
+
+### 5.2 Dashboard de Observabilidade AI
+
+```mermaid
+graph TB
+    subgraph "AI Mesh Operations Dashboard"
+        subgraph "Real-time Metrics"
+            RT1[Active Agents]
+            RT2[Messages/sec]
+            RT3[Token Usage]
+            RT4[Cost/hour]
+        end
+        
+        subgraph "Quality Metrics"
+            Q1[Response Quality Score]
+            Q2[Hallucination Rate]
+            Q3[Context Coherence]
+            Q4[User Satisfaction]
+        end
+        
+        subgraph "Performance Metrics"
+            P1[Latency by Agent Type]
+            P2[Success Rate by Task]
+            P3[Resource Utilization]
+            P4[Cache Hit Rate]
+        end
+        
+        subgraph "Business Metrics"
+            B1[Tasks Automated]
+            B2[Human Interventions]
+            B3[Cost Savings]
+            B4[Time to Value]
+        end
+    end
+```
+
+## 6. Casos de Uso e Padrões
 
 ### 5.1 Padrão: Sistema de Pesquisa Distribuído
 
