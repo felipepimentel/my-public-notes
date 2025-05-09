@@ -262,13 +262,13 @@ graph TB
 
 ### Tipos de Agentes
 
-|Termo|Descrição|
-|---|---|
-|**Reactive Agents**|Agentes que respondem diretamente a estímulos sem estado interno.|
-|**Deliberative Agents**|Agentes com modelo interno do mundo que planejam antes de agir.|
-|**Learning Agents**|Agentes que melhoram performance através de experiência.|
-|**Collaborative Agents**|Sistemas multi-agente que trabalham juntos para objetivos comuns.|
-|**Autonomous AI Agents**|Agentes com alto grau de autonomia para tomada de decisão e execução.|
+| Termo                    | Descrição                                                             |
+| ------------------------ | --------------------------------------------------------------------- |
+| **Reactive Agents**      | Agentes que respondem diretamente a estímulos sem estado interno.     |
+| **Deliberative Agents**  | Agentes com modelo interno do mundo que planejam antes de agir.       |
+| **Learning Agents**      | Agentes que melhoram performance através de experiência.              |
+| **Collaborative Agents** | Sistemas multi-agente que trabalham juntos para objetivos comuns.     |
+| **Autonomous AI Agents** | Agentes com alto grau de autonomia para tomada de decisão e execução. |
 
 ### Capacidades e Ferramentas
 
