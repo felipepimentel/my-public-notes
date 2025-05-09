@@ -1,1 +1,3 @@
---- layout: null --- @import "just-the-docs";
+--- layout: null --- @import "{{ site.theme }}";
+@import "color_schemes/custom";
+@import "./custom/custom";
