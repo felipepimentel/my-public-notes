@@ -46,32 +46,16 @@ jobs:
           
           echo "Workspace preparation complete"
 
-      - name: Prepare SCSS files
+      - name: Build with Jekyll
         working-directory: ./docs
         run: |
-          echo "Ensuring proper front matter in SCSS files..."
+          echo "Installing dependencies..."
+          bundle install --jobs 4 --retry 3
           
-          # Process all SCSS files
-          find assets/css -name "*.scss" -type f | while read -r file; do
-            echo "Checking $file"
-            # Check if file has front matter
-            if ! grep -q "^---" "$file"; then
-              echo "Adding front matter to $file"
-              temp_file=$(mktemp)
-              echo "---" > "$temp_file"
-              echo "---" >> "$temp_file"
-              cat "$file" >> "$temp_file"
-              mv "$temp_file" "$file"
-            fi
-          done
-          
-          echo "SCSS preparation complete"
-
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./docs
-          destination: ./docs/_site
+          echo "Building Jekyll site..."
+          bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -1,7 +1,11 @@
+# Ignore the local site output
 _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
+
+# Ignore the dependency lock file 
 Gemfile.lock
+
 vendor/
 .bundle/ 

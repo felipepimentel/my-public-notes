@@ -1,7 +1,7 @@
 title: My Public Notes
 description: Personal notes on AI, Leadership, and Parenting
-theme: just-the-docs
-remote_theme: just-the-docs/just-the-docs
+# theme: just-the-docs
+remote_theme: just-the-docs/just-the-docs@v0.4.2
 baseurl: "/my-public-notes"
 url: "https://felipepimentel.github.io"
 

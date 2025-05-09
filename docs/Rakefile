@@ -1,0 +1,22 @@
+require 'jekyll'
+
+task :default => :serve
+
+desc "Build the site"
+task :build do
+  jekyll('build')
+end
+
+desc "Serve the site locally"
+task :serve do
+  jekyll('serve')
+end
+
+desc "Clean the site"
+task :clean do
+  jekyll('clean')
+end
+
+def jekyll(command)
+  system("bundle exec jekyll #{command}")
+end 
