@@ -1,0 +1,4 @@
+# AI Comunicação Landscape
+
+## Notas
+
