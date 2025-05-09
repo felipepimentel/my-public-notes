@@ -23,6 +23,64 @@ jobs:
         with:
           fetch-depth: 0
       
+      - name: Prepare workspace
+        run: |
+          echo "Preparing workspace..."
+          
+          # Ensure .nojekyll exists in the docs directory
+          cp .nojekyll docs/ 2>/dev/null || touch docs/.nojekyll
+          
+          # Create assets directories if they don't exist
+          mkdir -p docs/assets/css docs/assets/js docs/assets/img
+          
+          # Check for critical files and directories
+          if [ ! -f "docs/_config.yml" ]; then
+            echo "Warning: _config.yml is missing!"
+          fi
+          
+          if [ ! -f "docs/Gemfile" ]; then
+            echo "Warning: Gemfile is missing!"
+          fi
+          
+          if [ ! -d "docs/_layouts" ]; then
+            echo "Creating minimal _layouts directory..."
+            mkdir -p docs/_layouts
+            # Create a default layout if it doesn't exist
+            if [ ! -f "docs/_layouts/default.html" ]; then
+              echo '<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/just-the-docs.css">
+  {% if site.search_enabled != false %}
+  <script src="{{ site.baseurl }}/assets/js/just-the-docs-search.js"></script>
+  {% endif %}
+  <script src="{{ site.baseurl }}/assets/js/just-the-docs.js"></script>
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="side-bar">
+      <a href="{{ site.baseurl }}/" class="site-title">{{ site.title }}</a>
+      <div class="navigation main-nav">{{ content }}</div>
+    </div>
+    <div class="main-content-wrap">
+      <div class="main-content">
+        <div class="page-header">
+          <h1>{{ page.title }}</h1>
+        </div>
+        <div class="page-content">{{ content }}</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>' > docs/_layouts/default.html
+            fi
+          fi
+          
+          echo "Workspace preparation complete"
+      
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -33,10 +91,6 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
-      
-      - name: Copy .nojekyll file
-        run: |
-          cp .nojekyll docs/ || touch docs/.nojekyll
       
       - name: Check and fix SCSS front matter
         working-directory: ./docs
@@ -73,46 +127,91 @@ jobs:
         run: |
           echo "Creating fallback CSS files..."
           
-          # Ensure just-the-docs.css exists
+          # Create directory for CSS files
+          mkdir -p assets/css
+          
+          # Create just-the-docs.css file
           if [ ! -f "assets/css/just-the-docs.css" ]; then
-            mkdir -p assets/css
-            cat > assets/css/just-the-docs.css << 'EOF'
----
-layout: null
----
-/* Fallback just-the-docs styles */
-@import url("https://cdn.jsdelivr.net/npm/just-the-docs@0.4.0/assets/css/just-the-docs.min.css");
-EOF
+            echo "---" > assets/css/just-the-docs.css
+            echo "layout: null" >> assets/css/just-the-docs.css
+            echo "---" >> assets/css/just-the-docs.css
+            echo "/* Fallback just-the-docs styles */" >> assets/css/just-the-docs.css
+            echo '@import url("https://cdn.jsdelivr.net/npm/just-the-docs@0.4.0/assets/css/just-the-docs.min.css");' >> assets/css/just-the-docs.css
           fi
           
-          # Ensure dark theme file exists
+          # Create dark theme file
           if [ ! -f "assets/css/just-the-docs-dark.css" ]; then
-            mkdir -p assets/css
-            cat > assets/css/just-the-docs-dark.css << 'EOF'
----
-layout: null
----
-/* Fallback dark theme styles */
-body { color: #e1e1e1; background-color: #1e2028; }
-EOF
+            echo "---" > assets/css/just-the-docs-dark.css
+            echo "layout: null" >> assets/css/just-the-docs-dark.css
+            echo "---" >> assets/css/just-the-docs-dark.css
+            echo "/* Fallback dark theme styles */" >> assets/css/just-the-docs-dark.css
+            echo "body { color: #e1e1e1; background-color: #1e2028; }" >> assets/css/just-the-docs-dark.css
           fi
           
           echo "Fallback CSS files created"
       
+      - name: Ensure SCSS front matter
+        working-directory: ./docs
+        run: |
+          echo "Ensuring proper front matter in SCSS files..."
+          
+          # Process main.scss and style.scss first
+          for file in assets/css/main.scss assets/css/style.scss; do
+            if [ -f "$file" ]; then
+              echo "Checking $file"
+              # Check if file has front matter, if not add it
+              if ! grep -q "^---" "$file"; then
+                echo "Adding front matter to $file"
+                temp_file=$(mktemp)
+                echo "---" > "$temp_file"
+                echo "---" >> "$temp_file"
+                cat "$file" >> "$temp_file"
+                mv "$temp_file" "$file"
+              fi
+            fi
+          done
+          
+          # Process all other SCSS files
+          find assets/css -name "*.scss" -type f | while read -r file; do
+            echo "Checking $file"
+            # Check if file already has front matter
+            if ! grep -q "^---" "$file"; then
+              echo "Adding front matter to $file"
+              temp_file=$(mktemp)
+              echo "---" > "$temp_file"
+              echo "---" >> "$temp_file"
+              cat "$file" >> "$temp_file"
+              mv "$temp_file" "$file"
+            fi
+          done
+          
+          echo "SCSS front matter check complete"
+      
       - name: Build with Jekyll
         working-directory: ./docs
         run: |
+          echo "Installing dependencies..."
           bundle install
-          bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}" || {
+          
+          echo "Building Jekyll site..."
+          JEKYLL_ENV=production bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}" || {
             echo "Jekyll build failed but continuing to create fallback site..."
             # Create a basic site structure if Jekyll build fails
-            mkdir -p _site/assets/css
-            cp -r assets/css/* _site/assets/css/ || echo "No CSS to copy"
-            cp -r assets/js/* _site/assets/js/ || echo "No JS to copy"
-            cp -r assets/img/* _site/assets/img/ || echo "No images to copy"
+            mkdir -p _site/assets/css _site/assets/js _site/assets/img
             
-            # Copy HTML files directly if they exist
-            find . -name "*.html" -not -path "./_site/*" -exec cp {} _site/ \; || echo "No HTML files found"
+            # Copy static assets
+            cp -r assets/css/* _site/assets/css/ 2>/dev/null || echo "No CSS to copy"
+            cp -r assets/js/* _site/assets/js/ 2>/dev/null || echo "No JS to copy"
+            cp -r assets/img/* _site/assets/img/ 2>/dev/null || echo "No images to copy"
+            
+            # Copy HTML files
+            find . -name "*.html" -not -path "./_site/*" -exec cp {} _site/ \; 2>/dev/null || echo "No HTML files found"
+            find . -name "*.md" -not -path "./_site/*" -exec cp {} _site/ \; 2>/dev/null || echo "No Markdown files found"
+            
+            # Create index.html if missing
+            if [ ! -f "_site/index.html" ]; then
+              echo '<html><head><title>My Public Notes</title><link rel="stylesheet" href="assets/css/custom.css"></head><body><h1>My Public Notes</h1><p>This is a fallback page created when the build failed.</p></body></html>' > _site/index.html
+            fi
             
             # Create a basic 404 page if it doesn't exist
             if [ ! -f "_site/404.html" ]; then
@@ -122,45 +221,46 @@ EOF
           
           # Debug - list files in the build directory
           echo "Listing files in _site directory:"
-          find _site -type f | sort
+          find _site -type f | sort | head -20
         env:
           JEKYLL_ENV: production
       
       - name: Fix CSS paths in output
         working-directory: ./docs/_site
         run: |
-          # Replace any unprocessed liquid variables in CSS files
-          find . -name "*.css" -o -name "*.html" | xargs grep -l "{{ site.theme }}" || echo "No files with {{ site.theme }}"
-          # Replace the {{ site.theme }} with just-the-docs in all files
-          find . -name "*.css" -type f -exec sed -i 's/{{ site.theme }}/just-the-docs/g' {} \;
-          find . -name "*.html" -type f -exec sed -i 's/{{ site.theme }}/just-the-docs/g' {} \;
-          find . -name "*.js" -type f -exec sed -i 's/{{ site.theme }}/just-the-docs/g' {} \;
+          echo "Fixing CSS paths and variable references in output files..."
           
-          # Replace any other unprocessed liquid variables
-          find . -name "*.css" -type f -exec sed -i 's/{{.*}}/just-the-docs/g' {} \;
-          find . -name "*.html" -type f -exec sed -i 's/{{ site.baseurl }}/'"${{ steps.pages.outputs.base_path }}"'/g' {} \;
-          
-          # Check if generated CSS files exist, if not, create them
+          # Create theme CSS file if missing
           if [ ! -f "assets/css/just-the-docs.css" ]; then
-            echo "Creating just-the-docs.css"
+            echo "Creating just-the-docs.css fallback..."
             mkdir -p assets/css
-            cp ../assets/css/custom.css assets/css/just-the-docs.css || echo "No custom.css to copy"
-            echo '@import url("https://cdn.jsdelivr.net/npm/just-the-docs@0.4.0/assets/css/just-the-docs.min.css");' >> assets/css/just-the-docs.css
-          fi
-          
-          # Ensure 404.html exists and has proper JS for CSS fixing
-          if [ -f "404.html" ]; then
-            echo "404.html exists - checking for asset references"
-            # Add a script to fix asset paths on 404 page
-            if ! grep -q "document.addEventListener('DOMContentLoaded'" 404.html; then
-              sed -i 's/<\/head>/<script>document.addEventListener("DOMContentLoaded",function(){const e="'"${{ steps.pages.outputs.base_path }}"'",t=document.querySelectorAll("link[rel=stylesheet]");t.forEach(t=>{t.href.startsWith("/")&&!t.href.startsWith(e)&&(t.href=e+t.href)});const r=document.querySelectorAll("script[src]");r.forEach(t=>{t.src.startsWith("/")&&!t.src.startsWith(e)&&(t.src=e+t.src)});const s=document.querySelectorAll("img");s.forEach(t=>{t.src.startsWith("/")&&!t.src.startsWith(e)&&(t.src=e+t.src)})});<\/script><\/head>/' 404.html
+            if [ -f "../assets/css/custom.css" ]; then
+              cp ../assets/css/custom.css assets/css/just-the-docs.css
+            else
+              echo '@import url("https://cdn.jsdelivr.net/npm/just-the-docs@0.4.0/assets/css/just-the-docs.min.css");' > assets/css/just-the-docs.css
             fi
-          else
-            echo "Warning: 404.html not found in build output"
           fi
           
-          # Add direct CDN links to HTML files as fallback
-          find . -name "*.html" -type f -exec sed -i 's/<\/head>/<link rel="stylesheet" href="https:\/\/cdn.jsdelivr.net\/npm\/just-the-docs@0.4.0\/assets\/css\/just-the-docs.min.css">\n<\/head>/' {} \;
+          # Fix any unprocessed template variables
+          echo "Fixing template variables in HTML files..."
+          find . -name "*.html" -type f -exec sed -i 's/{{ site.baseurl }}/'"${{ steps.pages.outputs.base_path }}"'/g' {} \;
+          find . -name "*.html" -type f -exec sed -i 's/{{ site.theme }}/just-the-docs/g' {} \;
+          find . -name "*.html" -type f -exec sed -i 's/{{site.baseurl}}/'"${{ steps.pages.outputs.base_path }}"'/g' {} \;
+          
+          # Fix CSS references
+          echo "Fixing CSS references..."
+          find . -name "*.css" -type f -exec sed -i 's/{{ site.theme }}/just-the-docs/g' {} \;
+          find . -name "*.css" -type f -exec sed -i 's/{{.*}}/just-the-docs/g' {} \;
+          
+          # Fix JavaScript references
+          echo "Fixing JavaScript references..."
+          find . -name "*.js" -type f -exec sed -i 's/{{ site.theme }}/just-the-docs/g' {} \; 2>/dev/null || echo "No JS files found with template vars"
+          
+          # Add CDN fallback to HTML files
+          echo "Adding CDN fallback to HTML files..."
+          find . -name "*.html" -type f -exec sed -i '/<\/head>/i <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/just-the-docs@0.4.0/assets/css/just-the-docs.min.css">' {} \;
+          
+          echo "Path fixing complete."
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
